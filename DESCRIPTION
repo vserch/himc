@@ -5,4 +5,4 @@ Authors@R: person("Eric", "Farber-Eger", email = "eric.h.farber-eger@vanderbilt.
 Description: This package takes standard plink output files and provides big-picture Haplogroup Classification
 Depends: R (>= 3.1.2)
 License: GPL-3
-LazyData: true
+LazyData: false
