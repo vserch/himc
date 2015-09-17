@@ -1,2 +1,2 @@
-export(generate_snp_data,getAllPaths,getClassifications,getFinalPathList,getGroupFromPath,getPathList,missingSnps,numChildren,numReqs,numSnps,validData,validPath)
+export(generate_snp_data,getAllPaths,getClassifications,getFinalPathList,getGroupFromPath,getPathList,missingSnps,numChildren,numReqs,numSnps,validData,validPath,nodes)
 import(stringr)
