@@ -6,7 +6,7 @@
 #' @export
 
 getClassifications <- function(source_df) {
-  full_paths <- by(source_df,1:nrow(source_df),getPathList)
+  full_paths <- by(source_df,1:nrow(source_df),getPathList,simplify=FALSE)
   source_df$full_path <- full_paths
   source_df$haplogroup <- lapply(source_df$full_path,getGroupFromPath)
   final_frame <- source_df[,names(source_df) %in% c("Individual","haplogroup","full_path")]
