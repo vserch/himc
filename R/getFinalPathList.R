@@ -14,5 +14,5 @@ getFinalPathList <- function(plist) {
 	} else {
 		correct <- correct
 	}
-	unlist(correct)
+	unlist(correct)[1]
 }
