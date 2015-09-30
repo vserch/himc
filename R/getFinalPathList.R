@@ -5,8 +5,14 @@
 #' @keywords path list
 #' @export
 
-getFinalPathList <- function(list) {
-  to_counts <- sapply(list,function(x){str_count(x," -> ")})
+getFinalPathList <- function(plist) {
+  to_counts <- sapply(plist,function(x){str_count(x," -> ")})
   biggest <- max(to_counts)
-  correct <- list[str_count(list," -> ") >= biggest]
+  correct <- plist[str_count(plist," -> ") >= biggest]
+	if(length(correct) > 1) {
+		correct <- correct[correct != "unclassified"]
+	} else {
+		correct <- correct
+	}
+	correct
 }
