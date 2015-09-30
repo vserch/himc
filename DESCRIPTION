@@ -1,5 +1,5 @@
 Package: HiMC
-Title: High-throughput Mitochondrial Classification
+Title: High-throughput Mitochondrial haplogroup Classification
 Version: 0.1.0.0
 Authors@R: person("Eric", "Farber-Eger", email = "eric.h.farber-eger@vanderbilt.edu", role = c("aut", "cre"))
 Description: This package takes standard plink output files and provides big-picture Haplogroup Classification
