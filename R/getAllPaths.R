@@ -25,7 +25,7 @@ getAllPaths <- function(df,node,path) {
     child_paths
   }
   else if (missingSnps(df,node)) {
-    missing_note <- paste(paste("missing(",node@name),")")
+    missing_note <- paste(paste("missing(",node@name,sep=""),")",sep="")
     missing_path <- paste(path,missing_note)
     child_paths <- lapply(node@children,function(child) {
       getAllPaths(df,child,missing_path)

@@ -16,7 +16,7 @@ missingSnps <- function(df,node) {
   else {
     any(sapply(node@snps,function(snp) {
       pos <- gsub("[^0-9]","",snp)[1]
-      if (snp %in% names(df)) {
+      if (pos %in% names(df)) {
         substr(df[,pos],1,1) == "0"
       }
       else {
