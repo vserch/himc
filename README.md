@@ -1,4 +1,4 @@
-# Hi-MC: High-throughput Mitochondrial Classification
+# Hi-MC: High-throughput Mitochondrial haplogroup Classification
 ### Purpose
 The Hi-MC package provides high-level mitochondrial haplogroups given standard PLINK *.map* and *.ped* files.
 ### Installation
