@@ -20,7 +20,7 @@ missingSnps <- function(df,node) {
         substr(df[,pos],1,1) == "0"
       }
       else {
-        FALSE
+        TRUE
       }
     })) 
   }
