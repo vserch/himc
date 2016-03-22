@@ -11,7 +11,7 @@
 generate_snp_data <- function(map_file,ped_file) {
 	map <- read.csv(map_file,sep="\t",header=FALSE,stringsAsFactors=FALSE)
 	header_row <- c("Family","Individual","Father","Mother","Sex","Phenotype")
-	snps = map[,2]
+	snps = map[,4]
 	new_header = c(header_row,snps)
 	ped <- read.csv(ped_file,sep=" ",header=FALSE,stringsAsFactors=FALSE)
 	range1 = seq(1,6,by=1)
