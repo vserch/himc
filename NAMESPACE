@@ -1,2 +1,0 @@
-export(generate_snp_data,getAllPaths,getClassifications,getFinalPathList,getGroupFromPath,getPathList,missingSnps,numChildren,numReqs,numSnps,validData,validPath)
-import(stringr)

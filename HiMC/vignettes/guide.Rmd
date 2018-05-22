@@ -1,0 +1,124 @@
+---
+title: "Hi-MC: Overview Guide"
+author: "Eric Farber-Eger, Nicholas R. Wheeler, Sandra Smieszek, Dana Crawford"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{1 - Overview Guide}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\usepackage[utf8]{inputenc}
+---
+# Hi-MC: High-throughput Mitochondrial haplogroup Classification
+
+### Description
+
+The **Hi-MC** package provides high-level mitochondrial haplogroups given standard PLINK *.map* and *.ped* files.
+
+The R code in this package was graciously written and provided by Eric Farber-Eger, although all package correspondence should be directed to Dana Crawford (<dana.crawford@case.edu>).
+
+### Installation
+
+```{r, message=FALSE, warning=FALSE, eval=FALSE}
+# Install latest package version from CRAN
+install.packages("HiMC")
+```
+**Hi-MC** also relies on the **stringr** and **methods** packages.
+
+### Usage
+
+The **Hi-MC** package takes in standard PLINK *.map* and *.ped* files as arguments.
+The *.map* file should have **4** columns and the *.ped* file should have 2**V**+6 columns, where **V** is the number of variants.
+
+Classifying your subjects is a 2-step process.  First, input your *.map* and *.ped* files into **Hi-MC**:
+```{r, message=FALSE, warning=FALSE}
+# Call library() to load the package
+library("HiMC")
+
+# Define file paths to the .map and .ped files
+map_file_path <- system.file("extdata", "HapMap_Mito_Seq_QC_2.map", package="HiMC")
+ped_file_path <- system.file("extdata", "HapMap_Mito_Seq_QC_2.ped", package="HiMC")
+
+# Use file paths to input the .map and .ped files
+snp_data_frame <- HiMC::generate_snp_data(map_file_path,ped_file_path)
+```
+
+Then, run the classifier:
+
+```{r, message=FALSE, warning=FALSE}
+# Get the HiMC mitochondrial haplogroup classifications
+classifications <- HiMC::getClassifications(snp_data_frame)
+```
+
+From there, explore the data frame in R, or export it to CSV:
+
+```{r, message=FALSE, warning=FALSE}
+# Show the first few rows of selected columns
+head(classifications[,c("Individual","haplogroup")])
+```
+```{r, message=FALSE, warning=FALSE, eval=FALSE}
+# Write the dataframe to a .csv file
+write.csv(classifications,"classifications.csv",row.names=FALSE)
+```
+
+## Caution
+
+The classification tree was built using 54 specifically curated SNPs.
+
+If your dataset is missing more than a few of them, your results will **not** be accurate.
+
+These SNPs referenced are:
+
++ 825T
++ 1018G
++ 1438A
++ 1719A
++ 1736G
++ 2092T
++ 3505G
++ 3552A
++ 3594C
++ 4580A
++ 4769A
++ 4917G
++ 4977C
++ 5178A
++ 5442C
++ 6371T
++ 7028C
++ 8251A
++ 8414T
++ 8468C
++ 8703T
++ 9042T
++ 9055A
++ 9347G
++ 9950C
++ 10115C
++ 10398G
++ 10398A
++ 10400T
++ 10550G
++ 11177T
++ 11251G
++ 11947G
++ 12007A
++ 12308G
++ 12705C
++ 13263G
++ 13368A
++ 13506C
++ 13708A
++ 13789C
++ 14178C
++ 14318C
++ 14470C
++ 14560A
++ 14668T
++ 14766C
++ 15043A
++ 15326A
++ 15452A
++ 15535T
++ 16111T
++ 16189C
++ 16391A

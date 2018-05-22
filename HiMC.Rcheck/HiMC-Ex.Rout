@@ -1,0 +1,2239 @@
+
+R version 3.4.2 (2017-09-28) -- "Short Summer"
+Copyright (C) 2017 The R Foundation for Statistical Computing
+Platform: x86_64-conda_cos6-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> pkgname <- "HiMC"
+> source(file.path(R.home("share"), "R", "examples-header.R"))
+> options(warn = 1)
+> base::assign(".ExTimings", "HiMC-Ex.timings", pos = 'CheckExEnv')
+> base::cat("name\tuser\tsystem\telapsed\n", file=base::get(".ExTimings", pos = 'CheckExEnv'))
+> base::assign(".format_ptime",
++ function(x) {
++   if(!is.na(x[4L])) x[1L] <- x[1L] + x[4L]
++   if(!is.na(x[5L])) x[2L] <- x[2L] + x[5L]
++   options(OutDec = '.')
++   format(x[1L:3L], digits = 7L)
++ },
++ pos = 'CheckExEnv')
+> 
+> ### * </HEADER>
+> library('HiMC')
+> 
+> base::assign(".oldSearch", base::search(), pos = 'CheckExEnv')
+> cleanEx()
+> nameEx("generate_snp_data")
+> ### * generate_snp_data
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: generate_snp_data
+> ### Title: SNP Data Generator
+> ### Aliases: generate_snp_data
+> ### Keywords: map ped snp
+> 
+> ### ** Examples
+> 
+> mapfile <- system.file("extdata","HapMap_Mito_Seq_QC_2.map",package="HiMC")
+> pedfile <- system.file("extdata","HapMap_Mito_Seq_QC_2.ped",package="HiMC")
+> generate_snp_data(mapfile,pedfile)
+     Family Individual  Father  Mother Sex Phenotype 825 1018 1438 1719 1736
+1      1341    NA06985       0       0   2         1 T T  G G  G G  G G  A A
+2      1341    NA06991 NA06993 NA06985   2         1 T T  G G  G G  G G  A A
+3      1341    NA06993       0       0   1         1 T T  G G  G G  A A  A A
+4      1340    NA06994       0       0   1         1 T T  G G  G G  G G  A A
+5      1340    NA07000       0       0   2         1 T T  G G  G G  G G  A A
+6      1340    NA07019       0       0   2         1 T T  G G  G G  G G  A A
+7      1340    NA07022       0       0   1         1 T T  G G  G G  G G  A A
+8      1340    NA07029 NA06994 NA07000   1         1 T T  G G  G G  G G  A A
+9      1341    NA07034       0       0   1         1 T T  G G  G G  G G  A A
+10     1341    NA07048 NA07034 NA07055   1         1 T T  G G  A A  G G  A A
+11     1341    NA07055       0       0   2         1 T T  G G  A A  G G  A A
+12     1340    NA07056       0       0   2         1 T T  G G  G G  G G  A A
+13     1345    NA07345       0       0   2         1 T T  G G  G G  G G  A A
+14     1345    NA07348 NA07357 NA07345   2         1 T T  G G  G G  G G  A A
+15     1345    NA07357       0       0   1         1 T T  G G  G G  G G  A A
+16     1408    NA10830 NA12154 NA12236   1         1 T T  G G  G G  G G  A A
+17     1408    NA10831 NA12155 NA12156   2         1 T T  G G  G G  G G  A A
+18     1416    NA10835 NA12248 NA12249   1         1 T T  G G  G G  G G  A A
+19     1420    NA10838 NA12003 NA12004   1         1 T T  G G  G G  G G  A A
+20     1420    NA10839 NA12005 NA12006   2         1 T T  G G  G G  G G  A A
+21     1334    NA10846 NA12144 NA12145   1         1 T T  G G  G G  G G  A A
+22     1334    NA10847 NA12146 NA12239   2         1 T T  G G  G G  G G  A A
+23     1344    NA10851 NA12057 NA10851   1         1 T T  G G  G G  G G  A A
+24     1349    NA10854 NA18605 NA18608   2         1 T T  G G  G G  G G  A A
+25     1350    NA10855 NA11831 NA11832   2         1 T T  G G  A A  G G  A A
+26     1350    NA10856 NA11829 NA11830   1         1 T T  G G  G G  G G  A A
+27     1346    NA10857 NA12043 NA12044   1         1 T T  G G  G G  G G  A A
+28     1347    NA10859 NA11881 NA11882   2         1 T T  G G  G G  G G  A A
+29     1362    NA10860 NA11992 NA11993   1         1 T T  G G  G G  G G  A A
+30     1362    NA10861 NA11994 NA11995   2         1 T T  G G  G G  G G  A A
+31     1375    NA10863 NA12264 NA12234   2         1 T T  G G  G G  G G  A A
+32     1350    NA11829       0       0   1         1 T T  G G  G G  G G  A A
+33     1350    NA11830       0       0   2         1 T T  G G  G G  G G  A A
+34     1350    NA11831       0       0   1         1 T T  G G  G G  G G  A A
+35     1350    NA11832       0       0   2         1 T T  G G  A A  G G  A A
+36     1349    NA11839       0       0   1         1 T T  G G  G G  G G  A A
+37     1349    NA11840       0       0   2         1 T T  G G  G G  G G  A A
+38     1347    NA11881       0       0   1         1 T T  G G  G G  G G  A A
+39     1347    NA11882       0       0   2         1 T T  G G  G G  G G  A A
+40     1362    NA11992       0       0   1         1 T T  G G  G G  G G  A A
+41     1362    NA11993       0       0   2         1 T T  G G  G G  G G  A A
+42     1362    NA11994       0       0   1         1 T T  G G  G G  G G  A A
+43     1362    NA11995       0       0   2         1 T T  G G  G G  G G  A A
+44     1420    NA12003       0       0   1         1 T T  G G  G G  G G  A A
+45     1420    NA12004       0       0   2         1 T T  G G  G G  G G  A A
+46     1420    NA12005       0       0   1         1 T T  G G  G G  G G  A A
+47     1420    NA12006       0       0   2         1 T T  G G  G G  G G  A A
+48     1346    NA12043       0       0   1         1 T T  G G  G G  G G  A A
+49     1346    NA12044       0       0   2         1 T T  G G  G G  G G  A A
+50     1344    NA12056       0       0   1         1 T T  G G  G G  G G  A A
+51     1344    NA12057       0       0   2         1 T T  G G  G G  G G  A A
+52     1344    NA12144       0       0   1         1 T T  G G  G G  0 0  A A
+53     1334    NA12145       0       0   2         1 T T  G G  G G  G G  A A
+54     1334    NA12146       0       0   1         1 T T  G G  G G  G G  A A
+55     1408    NA12154       0       0   1         1 T T  G G  G G  G G  A A
+56     1408    NA12155       0       0   1         1 T T  G G  G G  G G  A A
+57     1408    NA12156       0       0   2         1 T T  G G  G G  G G  A A
+58     1375    NA12234       0       0   2         1 T T  G G  G G  G G  A A
+59     1408    NA12236       0       0   2         1 T T  G G  G G  G G  A A
+60     1334    NA12239       0       0   2         1 T T  G G  G G  G G  A A
+61     1416    NA12248       0       0   1         1 T T  G G  G G  G G  A A
+62     1416    NA12249       0       0   2         1 T T  G G  G G  G G  A A
+63     1375    NA12264       0       0   1         1 T T  G G  G G  G G  A A
+64     1358    NA12707 NA12716 NA12717   1         1 T T  G G  G G  G G  A A
+65     1358    NA12716       0       0   1         1 T T  G G  G G  G G  A A
+66     1358    NA12717       0       0   2         1 T T  G G  G G  G G  A A
+67     1444    NA12740 NA12750 NA12751   2         1 T T  G G  G G  G G  A A
+68     1444    NA12750       0       0   1         1 T T  G G  G G  G G  A A
+69     1444    NA12751       0       0   2         1 T T  G G  G G  G G  A A
+70     1447    NA12752 NA12760 NA12761   1         1 T T  G G  G G  G G  A A
+71     1447    NA12753 NA12762 NA12763   2         1 T T  G G  G G  G G  A A
+72     1447    NA12760       0       0   1         1 T T  G G  G G  G G  A A
+73     1447    NA12761       0       0   2         1 T T  G G  G G  G G  A A
+74     1447    NA12762       0       0   1         1 T T  G G  G G  G G  A A
+75     1447    NA12763       0       0   2         1 T T  G G  G G  G G  A A
+76     1454    NA12801 NA12812 NA12813   1         1 T T  G G  G G  G G  A A
+77     1454    NA12802 NA12814 NA12815   2         1 T T  G G  G G  G G  A A
+78     1454    NA12812       0       0   1         1 T T  G G  G G  G G  A A
+79     1454    NA12813       0       0   2         1 T T  G G  G G  G G  A A
+80     1454    NA12814       0       0   1         1 T T  G G  G G  G G  A A
+81     1454    NA12815       0       0   2         1 T T  G G  G G  G G  A A
+82     1459    NA12864 NA12872 NA12873   1         1 T T  G G  G G  A A  A A
+83     1459    NA12865 NA12874 NA12875   2         1 T T  G G  G G  G G  A A
+84     1459    NA12872       0       0   1         1 T T  G G  G G  G G  A A
+85     1459    NA12873       0       0   2         1 T T  G G  G G  A A  A A
+86     1459    NA12874       0       0   1         1 T T  G G  G G  G G  A A
+87     1459    NA12875       0       0   2         1 T T  G G  G G  G G  A A
+88     1463    NA12878 NA12891 NA12892   2         1 T T  G G  G G  G G  A A
+89     1463    NA12891       0       0   1         1 T T  G G  G G  G G  A A
+90     1463    NA12892       0       0   2         1 T T  G G  G G  0 0  A A
+91     Y004    NA18500 NA18501 NA18502   1         1 T T  G G  G G  G G  A A
+92     Y004    NA18501       0       0   1         1 A A  A A  A A  G G  A A
+93     Y004    NA18502       0       0   2         1 T T  G G  G G  G G  A A
+94     Y005    NA18503 NA18504 NA18505   1         1 T T  A A  G G  G G  A A
+95     Y005    NA18504       0       0   1         1 T T  G G  G G  G G  A A
+96     Y005    NA18505       0       0   2         1 T T  A A  G G  G G  A A
+97     Y009    NA18506 NA18507 NA18508   1         1 T T  G G  G G  G G  A A
+98     Y009    NA18507       0       0   1         1 A A  A A  A A  G G  A A
+99     Y009    NA18508       0       0   2         1 T T  G G  G G  G G  A A
+100    Y013    NA18515 NA18516 NA18517   1         1 T T  A A  G G  G G  A A
+101    Y013    NA18516       0       0   1         1 T T  A A  G G  G G  A A
+102    Y013    NA18517       0       0   2         1 T T  A A  G G  G G  A A
+103    Y016    NA18521 NA18522 NA18523   1         1 T T  A A  G G  G G  A A
+104    Y016    NA18522       0       0   1         1 T T  A A  G G  G G  A A
+105    Y016    NA18523       0       0   2         1 T T  A A  G G  G G  A A
+106 NA18524    NA18524       0       0   1         1 T T  G G  G G  G G  A A
+107 NA18526    NA18526       0       0   2         1 T T  G G  G G  G G  A A
+108 NA18529    NA18529       0       0   2         1 T T  G G  G G  G G  A A
+109 NA18532    NA18532       0       0   2         1 T T  G G  G G  A A  A A
+110 NA18537    NA18537       0       0   2         1 T T  G G  G G  G G  A A
+111 NA18540    NA18540       0       0   2         1 T T  G G  G G  G G  G G
+112 NA18542    NA18542       0       0   2         1 T T  G G  G G  G G  A A
+113 NA18545    NA18545       0       0   2         1 T T  G G  G G  G G  A A
+114 NA18547    NA18547       0       0   2         1 T T  G G  G G  G G  A A
+115 NA18550    NA18550       0       0   2         1 T T  G G  G G  G G  A A
+116 NA18552    NA18552       0       0   2         1 T T  G G  G G  G G  A A
+117 NA18555    NA18555       0       0   2         1 T T  G G  G G  G G  A A
+118 NA18558    NA18558       0       0   1         1 T T  G G  A A  G G  A A
+119 NA18561    NA18561       0       0   1         1 T T  G G  G G  G G  A A
+120 NA18562    NA18562       0       0   1         1 T T  G G  G G  G G  A A
+121 NA18563    NA18563       0       0   1         1 T T  G G  G G  G G  A A
+122 NA18564    NA18564       0       0   2         1 T T  G G  G G  G G  A A
+123 NA18566    NA18566       0       0   2         1 T T  G G  G G  G G  A A
+124 NA18570    NA18570       0       0   2         1 T T  G G  G G  G G  A A
+125 NA18571    NA18571       0       0   2         1 T T  G G  G G  G G  A A
+126 NA18572    NA18572       0       0   1         1 T T  G G  G G  G G  G G
+127 NA18573    NA18573       0       0   2         1 T T  G G  G G  G G  A A
+128 NA18576    NA18576       0       0   2         1 T T  G G  G G  G G  A A
+129 NA18577    NA18577       0       0   2         1 T T  G G  G G  G G  A A
+130 NA18579    NA18579       0       0   2         1 T T  G G  G G  G G  G G
+131 NA18582    NA18582       0       0   2         1 T T  G G  G G  G G  A A
+132 NA18592    NA18592       0       0   2         1 T T  G G  G G  G G  A A
+133 NA18593    NA18593       0       0   2         1 T T  G G  G G  G G  A A
+134 NA18594    NA18594       0       0   2         1 T T  G G  G G  G G  A A
+135 NA18603    NA18603       0       0   1         1 T T  G G  G G  G G  A A
+136 NA18605    NA18605       0       0   1         1 T T  G G  G G  G G  A A
+137 NA18608    NA18608       0       0   1         1 T T  G G  G G  G G  A A
+138 NA18609    NA18609       0       0   1         1 T T  G G  G G  G G  A A
+139 NA18611    NA18611       0       0   1         1 T T  G G  G G  G G  G G
+140 NA18612    NA18612       0       0   1         1 T T  G G  G G  G G  A A
+141 NA18620    NA18620       0       0   1         1 T T  G G  G G  G G  A A
+142 NA18621    NA18621       0       0   1         1 T T  G G  G G  G G  G G
+143 NA18622    NA18622       0       0   1         1 T T  G G  G G  G G  A A
+144 NA18623    NA18623       0       0   1         1 T T  G G  A A  G G  A A
+145 NA18624    NA18624       0       0   1         1 T T  G G  G G  G G  A A
+146 NA18632    NA18632       0       0   1         1 T T  G G  G G  G G  G G
+147 NA18633    NA18633       0       0   1         1 T T  G G  G G  G G  A A
+148 NA18635    NA18635       0       0   1         1 T T  G G  G G  G G  A A
+149 NA18636    NA18636       0       0   1         1 T T  G G  G G  G G  A A
+150 NA18637    NA18637       0       0   1         1 T T  G G  G G  G G  A A
+151    Y018    NA18852       0       0   2         1 T T  G G  G G  A A  A A
+152    Y018    NA18853       0       0   1         1 T T  G G  G G  G G  A A
+153    Y018    NA18854 NA18853 NA18852   1         1 T T  G G  G G  A A  A A
+154    Y023    NA18855       0       0   2         1 A A  A A  A A  G G  A A
+155    Y023    NA18856       0       0   1         1 T T  A A  G G  G G  A A
+156    Y023    NA18857 NA18856 NA18855   1         1 0 0  A A  A A  G G  A A
+157    Y012    NA18858       0       0   2         1 T T  G G  G G  G G  A A
+158    Y012    NA18859       0       0   1         1 T T  A A  G G  G G  A A
+159    Y012    NA18860 NA18859 NA18858   1         1 T T  G G  G G  G G  A A
+160    Y024    NA18861       0       0   2         1 A A  A A  G G  G G  A A
+161    Y024    NA18862       0       0   1         1 T T  G G  G G  G G  A A
+162    Y024    NA18863 NA18862 NA18861   1         1 A A  A A  G G  0 0  A A
+163    Y017    NA18870       0       0   2         1 T T  A A  G G  G G  A A
+164    Y017    NA18871       0       0   1         1 T T  0 0  0 0  0 0  0 0
+165    Y017    NA18872 NA18871 NA18870   1         1 T T  A A  G G  G G  A A
+166    Y028    NA18912       0       0   2         1 T T  A A  G G  G G  A A
+167    Y028    NA18913       0       0   1         1 T T  G G  G G  G G  A A
+168    Y028    NA18914 NA18913 NA18912   1         1 0 0  0 0  0 0  G G  0 0
+169 NA18940    NA18940       0       0   1         1 T T  G G  G G  G G  A A
+170 NA18942    NA18942       0       0   2         1 T T  G G  G G  G G  A A
+171 NA18943    NA18943       0       0   1         1 T T  G G  G G  G G  A A
+172 NA18944    NA18944       0       0   1         1 T T  G G  G G  G G  A A
+173 NA18945    NA18945       0       0   1         1 T T  G G  G G  G G  A A
+174 NA18947    NA18947       0       0   2         1 T T  G G  G G  G G  A A
+175 NA18948    NA18948       0       0   1         1 T T  G G  G G  G G  A A
+176 NA18949    NA18949       0       0   2         1 T T  G G  G G  G G  A A
+177 NA18951    NA18951       0       0   2         1 T T  G G  G G  G G  A A
+178 NA18952    NA18952       0       0   1         1 T T  G G  G G  G G  A A
+179 NA18953    NA18953       0       0   1         1 T T  G G  G G  G G  A A
+180 NA18956    NA18956       0       0   2         1 0 0  0 0  0 0  G G  0 0
+181 NA18959    NA18959       0       0   1         1 T T  G G  G G  G G  A A
+182 NA18960    NA18960       0       0   1         1 T T  G G  G G  G G  A A
+183 NA18961    NA18961       0       0   1         1 T T  G G  G G  G G  A A
+184 NA18964    NA18964       0       0   2         1 T T  G G  G G  G G  G G
+185 NA18965    NA18965       0       0   1         1 T T  G G  G G  A A  A A
+186 NA18966    NA18966       0       0   1         1 T T  G G  G G  G G  A A
+187 NA18967    NA18967       0       0   1         1 T T  G G  G G  G G  A A
+188 NA18968    NA18968       0       0   2         1 T T  G G  G G  G G  A A
+189 NA18969    NA18969       0       0   2         1 T T  G G  G G  G G  A A
+190 NA18970    NA18970       0       0   1         1 T T  G G  G G  G G  A A
+191 NA18971    NA18971       0       0   1         1 T T  G G  G G  G G  A A
+192 NA18972    NA18972       0       0   2         1 T T  G G  G G  G G  A A
+193 NA18973    NA18973       0       0   2         1 T T  G G  G G  G G  A A
+194 NA18974    NA18974       0       0   1         1 T T  G G  G G  G G  A A
+195 NA18975    NA18975       0       0   2         1 T T  G G  G G  G G  A A
+196 NA18976    NA18976       0       0   2         1 T T  G G  G G  G G  A A
+197 NA18978    NA18978       0       0   2         1 T T  G G  G G  G G  A A
+198 NA18980    NA18980       0       0   2         1 T T  G G  G G  G G  A A
+199 NA18981    NA18981       0       0   2         1 T T  G G  G G  G G  A A
+200 NA18987    NA18987       0       0   2         1 T T  G G  G G  G G  A A
+201 NA18990    NA18990       0       0   1         1 T T  G G  G G  G G  A A
+202 NA18991    NA18991       0       0   2         1 T T  G G  G G  G G  A A
+203 NA18992    NA18992       0       0   2         1 T T  G G  G G  G G  A A
+204 NA18994    NA18994       0       0   1         1 T T  G G  G G  G G  A A
+205 NA18995    NA18995       0       0   1         1 T T  G G  G G  G G  A A
+206 NA18997    NA18997       0       0   2         1 0 0  0 0  0 0  G G  0 0
+207 NA18998    NA18998       0       0   2         1 T T  G G  G G  G G  A A
+208 NA18999    NA18999       0       0   2         1 T T  G G  G G  G G  A A
+209 NA19000    NA19000       0       0   1         1 T T  G G  G G  G G  A A
+210 NA19003    NA19003       0       0   2         1 T T  G G  G G  G G  A A
+211 NA19005    NA19005       0       0   1         1 T T  G G  G G  G G  A A
+212 NA19007    NA19007       0       0   1         1 T T  G G  G G  G G  A A
+213 NA19012    NA19012       0       0   1         1 T T  G G  G G  G G  A A
+214    Y040    NA19092       0       0   1         1 T T  G G  G G  G G  A A
+215    Y040    NA19093       0       0   2         1 T T  A A  G G  A A  A A
+216    Y040    NA19094 NA19092 NA19093   2         1 T T  A A  G G  A A  A A
+217    Y105    NA19098       0       0   1         1 T T  G G  G G  G G  A A
+218    Y105    NA19099       0       0   2         1 T T  A A  G G  G G  A A
+219    Y105    NA19100 NA19098 NA19099   2         1 T T  A A  G G  G G  A A
+220    Y042    NA19101       0       0   1         1 T T  A A  G G  G G  A A
+221    Y042    NA19102       0       0   2         1 T T  A A  G G  G G  A A
+222    Y042    NA19103 NA19101 NA19102   1         1 T T  A A  G G  G G  A A
+223    Y060    NA19116       0       0   2         1 T T  A A  G G  G G  A A
+224    Y060    NA19119       0       0   1         1 T T  G G  G G  G G  A A
+225    Y060    NA19120 NA19119 NA19116   1         1 T T  A A  G G  G G  A A
+226    Y077    NA19127       0       0   2         1 T T  A A  G G  G G  A A
+227    Y077    NA19128       0       0   1         1 A A  A A  A A  G G  A A
+228    Y077    NA19129 NA19128 NA19127   2         1 T T  A A  G G  G G  A A
+229    Y101    NA19130       0       0   1         1 T T  A A  G G  G G  A A
+230    Y101    NA19131       0       0   2         1 A A  A A  A A  G G  A A
+231    Y101    NA19132 NA19130 NA19131   2         1 A A  A A  A A  G G  A A
+232    Y043    NA19137       0       0   2         1 A A  A A  A A  G G  A A
+233    Y043    NA19138       0       0   1         1 T T  G G  G G  G G  A A
+234    Y043    NA19139 NA19138 NA19137   1         1 A A  A A  A A  G G  A A
+235    Y071    NA19140       0       0   2         1 T T  0 0  G G  G G  A A
+236    Y071    NA19141       0       0   1         1 T T  G G  0 0  G G  A A
+237    Y071    NA19142 NA19141 NA19140   1         1 T T  G G  G G  G G  A A
+238    Y074    NA19143       0       0   2         1 T T  G G  G G  G G  A A
+239    Y074    NA19144       0       0   1         1 T T  G G  G G  G G  A A
+240    Y074    NA19145 NA19144 NA19143   1         1 T T  G G  G G  G G  A A
+241    Y072    NA19152       0       0   2         1 T T  A A  G G  G G  A A
+242    Y072    NA19153       0       0   1         1 T T  G G  G G  G G  A A
+243    Y072    NA19154 NA19153 NA19152   1         1 T T  A A  G G  G G  A A
+244    Y056    NA19159       0       0   2         1 T T  G G  G G  G G  A A
+245    Y056    NA19160       0       0   1         1 T T  G G  G G  G G  A A
+246    Y056    NA19161 NA19160 NA19159   1         1 T T  G G  G G  G G  A A
+247    Y047    NA19171       0       0   1         1 T T  G G  G G  G G  A A
+248    Y047    NA19172       0       0   2         1 T T  G G  G G  G G  A A
+249    Y047    NA19173 NA19171 NA19172   1         1 T T  G G  G G  G G  A A
+250    Y112    NA19192       0       0   1         1 T T  A A  G G  G G  A A
+251    Y112    NA19193       0       0   2         1 A A  A A  A A  G G  A A
+252    Y112    NA19194 NA19192 NA19193   1         1 A A  A A  A A  G G  A A
+253    Y045    NA19200       0       0   1         1 T T  G G  G G  0 0  A A
+254    Y045    NA19201       0       0   2         1 T T  A A  G G  0 0  A A
+255    Y045    NA19202 NA19200 NA19201   2         1 T T  A A  G G  G G  A A
+256    Y048    NA19203       0       0   1         1 A A  A A  A A  G G  A A
+257    Y048    NA19204       0       0   2         1 T T  G G  G G  0 0  A A
+258    Y048    NA19205 NA19203 NA19204   1         1 T T  G G  G G  G G  A A
+259    Y051    NA19206       0       0   2         1 A A  A A  A A  A A  A A
+260    Y051    NA19207       0       0   1         1 A A  A A  A A  G G  A A
+261    Y051    NA19208 NA19207 NA19206   1         1 T T  A A  0 0  A A  A A
+262    Y050    NA19209       0       0   2         1 T T  A A  G G  G G  A A
+263    Y050    NA19210       0       0   1         1 A A  A A  A A  G G  A A
+264    Y050    NA19211 NA19210 NA19209   1         1 T T  A A  G G  G G  A A
+265    Y058    NA19221 NA19223 NA19222   2         1 T T  G G  G G  G G  A A
+266    Y058    NA19222       0       0   2         1 T T  G G  G G  G G  A A
+267    Y058    NA19223       0       0   1         1 A A  A A  A A  G G  A A
+268    Y117    NA19238       0       0   2         1 T T  G G  G G  G G  A A
+269    Y117    NA19239       0       0   1         1 T T  A A  G G  G G  A A
+270    Y117    NA19240 NA19239 NA19238   2         1 T T  G G  G G  G G  A A
+271    M001    NA19648       0       0   2         1 T T  G G  G G  0 0  A A
+272    M001    NA19649       0       0   1         1 T T  G G  G G  G G  A A
+273    M001    NA19650 NA19649 NA19648   1         1 T T  G G  G G  G G  A A
+274    M005    NA19651       0       0   2         1 T T  G G  G G  G G  G G
+275    M005    NA19652       0       0   1         1 T T  G G  G G  G G  A A
+276    M005    NA19653 NA19652 NA19651   2         1 T T  G G  G G  G G  G G
+277    M006    NA19654       0       0   2         1 T T  G G  G G  A A  A A
+278    M006    NA19655       0       0   1         1 T T  G G  G G  G G  A A
+279    M006    NA19656 NA19655 NA19654   2         1 T T  G G  G G  A A  A A
+280    M007    NA19657       0       0   2         1 T T  G G  G G  G G  A A
+281    M007    NA19658       0       0   1         1 T T  G G  G G  G G  A A
+282    M007    NA19659 NA19658 NA19657   2         1 T T  G G  G G  G G  A A
+283    M008    NA19660       0       0   2         1 T T  G G  G G  G G  G G
+284    M008    NA19661       0       0   1         1 T T  G G  G G  G G  A A
+285    M008    NA19662 NA19661 NA19660   2         1 T T  G G  G G  G G  G G
+286    M012    NA19663       0       0   2         1 T T  G G  G G  G G  G G
+287    M012    NA19664       0       0   1         1 T T  G G  G G  G G  G G
+288    M012    NA19665 NA19664 NA19663   2         1 T T  G G  G G  G G  G G
+289    M002    NA19669       0       0   2         1 T T  G G  G G  G G  A A
+290    M002    NA19670       0       0   1         1 T T  G G  0 0  G G  G G
+291    M002    NA19671 NA19670 NA19669   2         1 T T  G G  G G  G G  A A
+292    M004    NA19675       0       0   2         1 T T  G G  G G  G G  G G
+293    M004    NA19676       0       0   1         1 T T  G G  G G  A A  G G
+294    M004    NA19677 NA19676 NA19675   2         1 T T  G G  G G  G G  G G
+295    M009    NA19678       0       0   2         1 T T  G G  G G  G G  G G
+296    M009    NA19679       0       0   1         1 T T  G G  G G  G G  A A
+297    M009    NA19680 NA19679 NA19678   2         1 T T  G G  G G  G G  G G
+298    M010    NA19681       0       0   2         1 T T  G G  G G  G G  A A
+299    M010    NA19682       0       0   1         1 T T  G G  A A  0 0  A A
+300    M010    NA19683 NA19682 NA19681   2         1 T T  G G  G G  G G  A A
+301    M011    NA19684       0       0   2         1 T T  G G  G G  G G  A A
+302    M011    NA19685       0       0   1         1 T T  G G  G G  G G  G G
+303    M011    NA19686 NA19685 NA19684   2         1 T T  G G  G G  G G  A A
+304    M014    NA19716       0       0   2         1 T T  G G  G G  G G  A A
+305    M014    NA19717       0       0   1         1 T T  G G  G G  G G  A A
+306    M014    NA19718 NA19717 NA19716   2         1 T T  G G  G G  G G  A A
+307    M015    NA19719       0       0   2         1 T T  G G  G G  G G  A A
+308    M015    NA19720       0       0   1         1 T T  G G  G G  G G  G G
+309    M015    NA19721 NA19720 NA19719   2         1 T T  G G  G G  G G  A A
+310    M016    NA19722       0       0   2         1 T T  G G  G G  G G  G G
+311    M016    NA19723       0       0   1         1 T T  G G  G G  G G  G G
+312    M016    NA19724 NA19723 NA19722   1         1 T T  G G  G G  G G  G G
+313    M017    NA19725       0       0   2         1 T T  G G  G G  G G  A A
+314    M017    NA19726       0       0   1         1 T T  G G  G G  G G  A A
+315    M017    NA19727 NA19726 NA19725   1         1 T T  G G  G G  G G  A A
+316    M018    NA19728       0       0   2         1 T T  G G  G G  G G  A A
+317    M018    NA19729       0       0   1         1 T T  G G  G G  G G  G G
+318    M018    NA19730 NA19729 NA19728   2         1 T T  G G  G G  0 0  A A
+319    M019    NA19731       0       0   2         1 T T  G G  G G  G G  A A
+320    M019    NA19732       0       0   1         1 T T  G G  G G  G G  A A
+321    M019    NA19733 NA19732 NA19731   2         1 T T  G G  G G  G G  A A
+322    M023    NA19746       0       0   2         1 T T  G G  G G  G G  G G
+323    M023    NA19747       0       0   1         1 T T  G G  G G  G G  A A
+324    M023    NA19748 NA19747 NA19746   2         1 T T  G G  G G  G G  G G
+325    M024    NA19749       0       0   2         1 T T  G G  G G  G G  A A
+326    M024    NA19750       0       0   1         1 T T  G G  G G  0 0  A A
+327    M024    NA19751 NA19750 NA19749   1         1 T T  G G  G G  G G  A A
+328    M026    NA19755       0       0   2         1 T T  G G  G G  G G  A A
+329    M026    NA19756       0       0   1         1 T T  G G  G G  G G  G G
+330    M026    NA19757 NA19756 NA19755   1         1 T T  G G  G G  G G  A A
+331    M027    NA19758       0       0   2         1 T T  G G  G G  G G  G G
+332    M027    NA19759       0       0   1         1 T T  G G  G G  G G  A A
+333    M027    NA19760 NA19759 NA19758   2         1 T T  G G  G G  G G  G G
+334    M028    NA19761       0       0   2         1 T T  G G  G G  G G  A A
+335    M028    NA19762       0       0   1         1 T T  G G  G G  G G  A A
+336    M028    NA19763 NA19762 NA19761   2         1 T T  G G  G G  G G  A A
+337    M031    NA19770       0       0   2         1 T T  G G  G G  G G  G G
+338    M031    NA19771       0       0   1         1 T T  G G  G G  G G  A A
+339    M031    NA19772 NA19771 NA19770   1         1 T T  G G  G G  G G  G G
+340    M033    NA19773       0       0   2         1 T T  G G  G G  G G  A A
+341    M033    NA19774       0       0   1         1 T T  G G  G G  G G  G G
+342    M033    NA19775 NA19774 NA19773   2         1 T T  G G  G G  G G  A A
+343    M034    NA19776       0       0   2         1 T T  G G  G G  G G  A A
+344    M034    NA19777       0       0   1         1 T T  G G  G G  G G  G G
+345    M034    NA19778 NA19777 NA19776   1         1 T T  G G  G G  G G  A A
+346    M035    NA19779       0       0   2         1 T T  G G  G G  G G  A A
+347    M035    NA19780       0       0   1         1 T T  G G  G G  G G  A A
+348    M035    NA19781 NA19780 NA19779   2         1 T T  G G  G G  G G  A A
+349    M036    NA19782       0       0   2         1 T T  G G  G G  G G  G G
+350    M036    NA19783       0       0   1         1 T T  G G  G G  G G  G G
+351    M036    NA19784 NA19783 NA19782   1         1 T T  G G  G G  G G  G G
+352    M032    NA19785       0       0   2         1 0 0  0 0  0 0  G G  0 0
+353    M032    NA19786       0       0   1         1 T T  G G  G G  G G  A A
+354    M032    NA19787 NA19786 NA19785   1         1 T T  G G  G G  G G  A A
+355    M037    NA19788       0       0   2         1 T T  G G  G G  G G  A A
+356    M037    NA19789       0       0   1         1 T T  G G  G G  G G  G G
+357    M037    NA19790 NA19789 NA19788   2         1 T T  G G  G G  G G  A A
+358    M039    NA19794       0       0   2         1 T T  G G  G G  G G  G G
+359    M039    NA19795       0       0   1         1 T T  G G  G G  G G  A A
+360    M039    NA19796 NA19794 NA19795   1         1 T T  G G  G G  G G  G G
+    2092 3505 3552 3594 3666 4580 4769 4883 4917 4977 5178 5442 6371 7028 8251
+1    C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+2    C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+3    C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  C C  G G
+4    C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+5    C C  A A  T T  C C  G G  G G  G G  C C  G G  T T  C C  T T  C C  T T  G G
+6    C C  G G  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  A A
+7    C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+8    C C  A A  T T  C C  G G  G G  G G  C C  G G  T T  C C  T T  C C  T T  G G
+9    C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  C C  G G
+10   C C  A A  T T  C C  G G  G G  A A  C C  A A  T T  C C  T T  C C  C C  G G
+11   C C  A A  T T  C C  G G  G G  A A  C C  A A  T T  C C  T T  C C  C C  G G
+12   C C  G G  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  A A
+13   C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  C C  G G
+14   C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  C C  G G
+15   C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+16   C C  A A  T T  C C  G G  A A  G G  C C  A A  T T  C C  T T  C C  T T  G G
+17   C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+18   C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  C C  G G
+19   C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  C C  G G
+20   C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  C C  G G
+21   C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+22   C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  C C  G G
+23   C C  A A  T T  C C  G G  A A  G G  C C  A A  T T  C C  T T  C C  T T  G G
+24   C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  C C  G G
+25   C C  A A  T T  C C  G G  G G  A A  C C  A A  T T  C C  T T  C C  C C  G G
+26   C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+27   C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+28   C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+29   C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  C C  G G
+30   C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  C C  G G
+31   C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+32   C C  A A  T T  C C  G G  G G  G G  C C  G G  T T  C C  T T  C C  T T  G G
+33   C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+34   C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  C C  G G
+35   C C  A A  T T  C C  G G  G G  A A  C C  A A  T T  C C  T T  C C  C C  G G
+36   C C  A A  T T  C C  G G  A A  G G  C C  A A  T T  C C  T T  C C  T T  A A
+37   C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  C C  G G
+38   C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  C C  G G
+39   C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+40   C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+41   C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  C C  G G
+42   C C  A A  T T  C C  G G  G G  G G  C C  G G  T T  C C  T T  C C  T T  G G
+43   C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  C C  G G
+44   C C  A A  T T  C C  G G  G G  G G  C C  G G  T T  C C  T T  C C  T T  G G
+45   C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  C C  G G
+46   C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+47   C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  C C  G G
+48   C C  A A  T T  C C  G G  G G  G G  C C  G G  T T  C C  T T  C C  T T  G G
+49   C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+50   C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+51   C C  A A  T T  C C  G G  A A  G G  C C  A A  T T  C C  T T  C C  T T  G G
+52   C C  A A  T T  C C  G G  0 0  G G  C C  0 0  T T  C C  T T  C C  0 0  0 0
+53   C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+54   C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+55   C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+56   C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  C C  G G
+57   C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+58   C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+59   C C  A A  T T  C C  G G  A A  G G  C C  A A  T T  C C  T T  C C  T T  G G
+60   C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  C C  G G
+61   C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+62   C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  C C  G G
+63   C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  C C  G G
+64   C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  C C  G G
+65   C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  C C  G G
+66   C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  C C  G G
+67   C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+68   C C  A A  T T  C C  G G  G G  G G  C C  G G  T T  C C  T T  C C  T T  G G
+69   C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+70   C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+71   C C  A A  T T  C C  G G  G G  G G  C C  G G  T T  C C  T T  C C  T T  G G
+72   C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  C C  G G
+73   C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+74   C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  C C  G G
+75   C C  A A  T T  C C  G G  G G  G G  C C  G G  T T  C C  T T  C C  T T  G G
+76   C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+77   C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  C C  G G
+78   C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  C C  G G
+79   C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+80   C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+81   C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  C C  G G
+82   C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  C C  G G
+83   C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  C C  G G
+84   C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+85   C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  C C  G G
+86   C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+87   C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  C C  G G
+88   C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  C C  G G
+89   C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  C C  G G
+90   C C  A A  T T  C C  G G  0 0  G G  C C  0 0  T T  C C  T T  C C  0 0  0 0
+91   C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+92   C C  A A  T T  T T  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+93   C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+94   C C  A A  T T  T T  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+95   C C  A A  T T  0 0  0 0  G G  G G  C C  A A  0 0  C C  T T  0 0  T T  G G
+96   C C  A A  T T  T T  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+97   C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+98   C C  A A  T T  T T  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+99   C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+100  C C  A A  T T  T T  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+101  C C  A A  T T  T T  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+102  C C  A A  T T  T T  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+103  C C  A A  T T  T T  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+104  C C  A A  T T  T T  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+105  C C  A A  T T  T T  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+106  C C  A A  T T  C C  G G  G G  G G  T T  A A  T T  A A  T T  C C  T T  G G
+107  C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+108  C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+109  C C  A A  T T  C C  G G  G G  G G  T T  A A  T T  A A  T T  C C  T T  G G
+110  C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+111  C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+112  C C  A A  A A  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+113  C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+114  C C  A A  A A  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+115  C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+116  C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+117  C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+118  C C  A A  T T  C C  G G  G G  G G  T T  A A  T T  A A  T T  C C  T T  G G
+119  C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+120  C C  A A  T T  C C  G G  G G  G G  T T  A A  T T  A A  T T  C C  T T  G G
+121  C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+122  C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+123  C C  A A  A A  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+124  C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+125  C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+126  C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+127  C C  A A  T T  C C  G G  G G  G G  T T  A A  T T  A A  T T  C C  T T  G G
+128  C C  A A  T T  C C  G G  G G  G G  T T  A A  T T  A A  T T  C C  T T  G G
+129  C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+130  C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+131  C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+132  C C  A A  T T  0 0  0 0  G G  G G  C C  A A  0 0  C C  T T  0 0  T T  G G
+133  C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+134  C C  A A  T T  C C  G G  G G  G G  T T  A A  T T  A A  T T  C C  T T  G G
+135  C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+136  C C  A A  T T  C C  G G  G G  G G  T T  A A  T T  A A  T T  C C  T T  G G
+137  C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+138  C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+139  C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+140  C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+141  C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+142  C C  A A  T T  C C  G G  G G  G G  C C  A A  C C  C C  T T  C C  T T  G G
+143  C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+144  C C  A A  T T  C C  G G  G G  G G  T T  A A  T T  A A  T T  C C  T T  G G
+145  C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+146  C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+147  C C  A A  T T  C C  G G  G G  G G  T T  A A  T T  A A  T T  C C  T T  G G
+148  C C  A A  T T  0 0  0 0  G G  G G  C C  A A  0 0  C C  T T  0 0  T T  G G
+149  C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+150  C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+151  C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+152  C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+153  C C  A A  T T  0 0  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+154  C C  A A  T T  0 0  0 0  G G  G G  C C  A A  0 0  C C  T T  0 0  T T  G G
+155  C C  A A  T T  T T  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+156  C C  A A  T T  T T  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+157  C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+158  C C  A A  T T  T T  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+159  C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+160  C C  A A  T T  T T  G G  G G  G G  C C  A A  T T  C C  C C  C C  T T  G G
+161  C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+162  C C  A A  T T  0 0  0 0  G G  G G  C C  A A  0 0  C C  0 0  0 0  T T  G G
+163  C C  A A  T T  T T  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+164  0 0  A A  T T  0 0  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+165  C C  A A  T T  T T  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+166  C C  A A  T T  T T  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+167  C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+168  0 0  0 0  0 0  0 0  G G  G G  0 0  0 0  A A  0 0  0 0  T T  C C  T T  G G
+169  C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+170  C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+171  C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+172  C C  A A  0 0  C C  G G  G G  G G  0 0  A A  T T  0 0  T T  C C  T T  G G
+173  C C  A A  T T  C C  G G  G G  G G  T T  A A  T T  A A  T T  C C  T T  G G
+174  C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+175  C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+176  C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+177  C C  A A  T T  C C  G G  G G  G G  T T  A A  T T  A A  T T  C C  T T  A A
+178  C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+179  C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+180  0 0  A A  T T  0 0  G G  G G  0 0  0 0  A A  T T  C C  T T  0 0  T T  G G
+181  C C  A A  T T  C C  G G  G G  G G  T T  A A  T T  A A  T T  C C  T T  G G
+182  0 0  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+183  C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+184  C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+185  C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+186  C C  A A  T T  C C  G G  G G  G G  T T  A A  T T  A A  T T  C C  T T  G G
+187  C C  A A  T T  C C  G G  G G  G G  T T  A A  T T  A A  T T  C C  T T  G G
+188  C C  A A  T T  C C  G G  G G  G G  T T  A A  T T  A A  T T  C C  T T  A A
+189  C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+190  C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+191  C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+192  C C  A A  T T  C C  G G  G G  G G  T T  A A  T T  A A  T T  C C  T T  G G
+193  C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+194  C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+195  0 0  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+196  C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+197  C C  A A  T T  C C  G G  G G  G G  T T  A A  T T  A A  T T  C C  T T  G G
+198  C C  A A  T T  C C  G G  G G  G G  T T  A A  T T  A A  T T  C C  T T  G G
+199  C C  A A  T T  C C  G G  G G  G G  T T  A A  T T  A A  T T  C C  T T  G G
+200  C C  A A  T T  C C  G G  G G  G G  T T  A A  T T  A A  T T  C C  T T  G G
+201  C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+202  C C  A A  T T  0 0  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+203  C C  A A  T T  C C  G G  G G  G G  T T  A A  T T  A A  T T  C C  T T  G G
+204  C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+205  C C  A A  T T  C C  G G  G G  G G  T T  A A  T T  A A  T T  C C  T T  G G
+206  0 0  0 0  0 0  0 0  G G  G G  0 0  C C  A A  0 0  C C  T T  0 0  T T  G G
+207  C C  A A  T T  C C  G G  G G  G G  T T  A A  T T  A A  T T  C C  T T  A A
+208  C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+209  C C  A A  T T  C C  G G  G G  G G  T T  A A  T T  A A  T T  C C  T T  G G
+210  C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+211  C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+212  0 0  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+213  0 0  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+214  C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+215  C C  A A  T T  T T  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+216  C C  A A  T T  T T  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+217  C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+218  C C  A A  T T  T T  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+219  C C  A A  T T  T T  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+220  C C  A A  T T  T T  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+221  C C  A A  T T  T T  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+222  C C  A A  T T  T T  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+223  C C  A A  T T  T T  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+224  C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+225  C C  A A  T T  T T  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+226  C C  A A  T T  T T  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+227  C C  A A  T T  T T  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+228  C C  A A  T T  T T  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+229  C C  A A  T T  T T  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+230  C C  A A  T T  T T  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+231  C C  A A  T T  T T  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+232  C C  A A  T T  T T  G G  G G  G G  C C  A A  T T  C C  C C  C C  T T  G G
+233  C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+234  C C  A A  T T  T T  G G  G G  G G  C C  A A  T T  C C  0 0  C C  T T  G G
+235  0 0  A A  T T  C C  G G  G G  G G  C C  A A  0 0  C C  T T  0 0  T T  G G
+236  C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+237  C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+238  C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+239  C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+240  C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+241  C C  A A  T T  T T  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+242  C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+243  C C  A A  T T  T T  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+244  C C  G G  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+245  C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+246  C C  0 0  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+247  C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+248  C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+249  C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+250  C C  A A  T T  T T  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+251  C C  A A  T T  T T  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+252  C C  A A  T T  T T  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+253  C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+254  C C  A A  T T  T T  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+255  C C  A A  T T  T T  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+256  C C  A A  T T  T T  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+257  C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+258  C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+259  C C  A A  T T  T T  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+260  C C  A A  T T  0 0  0 0  G G  G G  C C  A A  0 0  C C  T T  0 0  T T  G G
+261  0 0  A A  T T  T T  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+262  C C  A A  T T  0 0  0 0  G G  G G  C C  A A  0 0  C C  T T  0 0  T T  G G
+263  C C  A A  T T  T T  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+264  C C  A A  T T  T T  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+265  C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+266  C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+267  C C  A A  T T  T T  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+268  C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+269  C C  A A  T T  T T  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+270  C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+271  C C  A A  T T  C C  G G  0 0  G G  C C  0 0  T T  C C  T T  C C  0 0  0 0
+272  C C  A A  T T  C C  G G  G G  G G  C C  A A  C C  C C  T T  C C  T T  G G
+273  C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  C C  G G
+274  C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+275  C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+276  C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+277  C C  A A  T T  C C  G G  G G  G G  C C  A A  C C  C C  T T  C C  T T  G G
+278  C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  C C  G G
+279  C C  A A  T T  C C  G G  G G  G G  C C  A A  C C  C C  T T  C C  T T  G G
+280  C C  A A  A A  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+281  C C  A A  A A  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+282  C C  A A  A A  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+283  C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+284  T T  A A  T T  C C  G G  G G  G G  T T  A A  T T  A A  T T  C C  T T  G G
+285  C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+286  C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+287  C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+288  C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+289  C C  A A  T T  C C  G G  G G  G G  C C  A A  C C  C C  T T  C C  T T  G G
+290  C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+291  C C  A A  T T  C C  G G  G G  G G  C C  A A  C C  C C  T T  C C  T T  G G
+292  C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+293  C C  A A  T T  C C  G G  G G  G G  C C  G G  T T  C C  T T  C C  0 0  0 0
+294  C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+295  C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+296  C C  A A  T T  0 0  0 0  G G  G G  C C  A A  0 0  C C  T T  0 0  T T  G G
+297  C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+298  C C  A A  T T  C C  G G  G G  G G  C C  A A  C C  C C  T T  C C  T T  G G
+299  C C  A A  T T  C C  G G  0 0  A A  C C  0 0  T T  C C  T T  C C  0 0  0 0
+300  C C  A A  T T  0 0  0 0  G G  G G  C C  A A  0 0  C C  T T  0 0  T T  G G
+301  C C  A A  T T  C C  G G  G G  G G  C C  A A  C C  C C  T T  C C  T T  G G
+302  C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+303  C C  A A  T T  C C  G G  G G  G G  C C  A A  C C  C C  T T  C C  T T  G G
+304  T T  A A  T T  C C  G G  G G  G G  T T  A A  T T  A A  T T  C C  T T  G G
+305  C C  A A  A A  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+306  T T  A A  T T  C C  G G  G G  G G  T T  A A  T T  A A  T T  C C  T T  G G
+307  T T  A A  T T  C C  G G  G G  G G  T T  A A  T T  A A  T T  C C  T T  G G
+308  C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+309  T T  A A  T T  C C  G G  G G  G G  T T  A A  T T  A A  T T  C C  T T  G G
+310  C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+311  C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+312  C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+313  C C  A A  T T  C C  G G  A A  G G  C C  A A  T T  C C  T T  C C  T T  G G
+314  C C  A A  A A  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+315  C C  A A  T T  C C  G G  A A  G G  C C  A A  T T  C C  T T  C C  T T  G G
+316  T T  A A  T T  C C  G G  G G  G G  T T  A A  T T  A A  T T  C C  T T  G G
+317  C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+318  T T  A A  T T  C C  G G  0 0  G G  T T  0 0  T T  A A  T T  C C  0 0  0 0
+319  C C  A A  T T  C C  G G  G G  G G  C C  A A  C C  C C  T T  C C  T T  G G
+320  C C  A A  A A  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+321  C C  A A  T T  C C  G G  G G  G G  C C  A A  C C  C C  T T  C C  T T  G G
+322  C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+323  T T  A A  T T  C C  G G  G G  G G  T T  A A  T T  A A  T T  C C  T T  G G
+324  C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+325  C C  A A  T T  C C  G G  G G  G G  C C  A A  C C  C C  T T  C C  T T  G G
+326  C C  A A  T T  C C  G G  G G  G G  C C  G G  T T  C C  T T  C C  T T  0 0
+327  C C  A A  T T  C C  G G  G G  G G  C C  A A  C C  C C  T T  C C  T T  G G
+328  T T  A A  T T  C C  G G  G G  G G  T T  A A  T T  A A  T T  C C  T T  G G
+329  C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+330  T T  A A  T T  C C  G G  G G  G G  T T  A A  T T  A A  T T  C C  T T  G G
+331  C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+332  T T  A A  T T  C C  G G  G G  G G  T T  A A  T T  A A  T T  C C  T T  G G
+333  C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+334  C C  A A  T T  C C  G G  G G  G G  C C  A A  C C  C C  T T  C C  T T  G G
+335  C C  A A  A A  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+336  C C  A A  T T  C C  G G  G G  G G  C C  A A  C C  C C  T T  C C  T T  G G
+337  C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+338  C C  A A  T T  C C  G G  G G  G G  C C  A A  C C  C C  T T  C C  T T  G G
+339  C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+340  C C  A A  A A  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+341  C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+342  C C  A A  A A  0 0  0 0  G G  G G  C C  A A  0 0  C C  T T  0 0  T T  G G
+343  C C  G G  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  A A
+344  C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+345  C C  G G  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  A A
+346  C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  C C  G G
+347  C C  A A  T T  C C  G G  G G  G G  C C  A A  C C  C C  T T  C C  T T  G G
+348  C C  A A  T T  0 0  0 0  G G  G G  C C  A A  0 0  C C  T T  0 0  C C  G G
+349  C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+350  C C  A A  T T  0 0  0 0  G G  G G  C C  A A  0 0  C C  T T  0 0  T T  G G
+351  C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+352  0 0  0 0  0 0  0 0  0 0  G G  0 0  0 0  A A  0 0  0 0  0 0  0 0  T T  G G
+353  C C  A A  A A  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+354  C C  A A  T T  C C  G G  G G  G G  C C  A A  C C  C C  T T  C C  T T  G G
+355  C C  A A  A A  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+356  C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+357  C C  A A  A A  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+358  C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+359  C C  A A  T T  C C  G G  G G  G G  C C  A A  C C  C C  T T  C C  T T  G G
+360  C C  A A  T T  C C  G G  G G  G G  C C  A A  T T  C C  T T  C C  T T  G G
+    8414 8468 8703 9042 9055 9347 9950 10115 10398 10400 10550 11177 11251
+1    C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+2    C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+3    C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+4    C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+5    C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   G G
+6    C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+7    C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+8    C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   G G
+9    C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+10   C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+11   C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+12   C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+13   C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+14   C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+15   C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+16   C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+17   C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+18   C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+19   C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+20   C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+21   C C  C C  C C  C C  A A  A A  T T   T T   G G   C C   G G   C C   A A
+22   C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+23   C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+24   C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+25   C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+26   C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+27   C C  C C  C C  C C  G G  A A  T T   T T   G G   C C   A A   C C   G G
+28   C C  C C  C C  C C  G G  A A  T T   T T   G G   C C   A A   C C   G G
+29   C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+30   C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+31   C C  C C  C C  C C  G G  A A  T T   T T   G G   C C   A A   C C   G G
+32   C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   G G
+33   C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+34   C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+35   C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+36   C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+37   C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+38   C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+39   C C  C C  C C  C C  G G  A A  T T   T T   G G   C C   A A   C C   G G
+40   C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+41   C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+42   C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   G G
+43   C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+44   C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   G G
+45   C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+46   C C  C C  C C  C C  0 0  A A  T T   T T   A A   C C   G G   C C   A A
+47   C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+48   C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   G G
+49   C C  C C  C C  C C  G G  A A  T T   T T   G G   C C   A A   C C   G G
+50   C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+51   C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+52   C C  C C  C C  C C  0 0  A A  T T   T T   0 0   C C   A A   C C   A A
+53   C C  C C  C C  C C  A A  A A  T T   T T   G G   C C   G G   C C   A A
+54   C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   0 0
+55   C C  C C  C C  C C  G G  A A  T T   T T   G G   C C   A A   C C   G G
+56   C C  C C  C C  C C  G G  A A  T T   T T   0 0   C C   A A   C C   A A
+57   C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+58   C C  C C  C C  C C  G G  A A  T T   T T   G G   C C   A A   C C   G G
+59   C C  C C  C C  C C  G G  A A  0 0   T T   A A   C C   A A   C C   0 0
+60   C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+61   C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+62   C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+63   C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+64   C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+65   C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+66   C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+67   C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+68   C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   G G
+69   C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+70   C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+71   C C  C C  C C  C C  0 0  A A  T T   T T   A A   C C   A A   C C   G G
+72   C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+73   C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+74   C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+75   C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   G G
+76   C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+77   C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+78   C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+79   C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+80   C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+81   C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+82   C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+83   C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+84   C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+85   C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+86   C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   G G
+87   C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   0 0
+88   C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+89   C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+90   C C  C C  C C  C C  0 0  A A  T T   T T   0 0   C C   A A   C C   A A
+91   C C  C C  C C  C C  G G  A A  T T   T T   G G   C C   A A   C C   A A
+92   C C  T T  C C  C C  G G  A A  T T   T T   G G   C C   A A   C C   A A
+93   C C  C C  C C  C C  G G  A A  T T   T T   G G   C C   A A   C C   A A
+94   C C  C C  C C  C C  G G  A A  T T   C C   G G   C C   A A   C C   A A
+95   C C  0 0  0 0  0 0  G G  0 0  0 0   T T   G G   C C   0 0   C C   0 0
+96   C C  C C  C C  C C  G G  A A  T T   C C   G G   C C   A A   C C   A A
+97   C C  C C  C C  C C  G G  A A  T T   T T   G G   C C   A A   C C   A A
+98   C C  0 0  C C  C C  G G  A A  T T   T T   G G   C C   A A   C C   A A
+99   C C  C C  C C  C C  G G  A A  T T   T T   G G   C C   A A   C C   A A
+100  C C  C C  C C  C C  G G  A A  T T   C C   G G   C C   A A   C C   A A
+101  C C  C C  C C  C C  G G  A A  T T   C C   G G   C C   A A   C C   A A
+102  C C  C C  C C  C C  G G  A A  T T   C C   G G   C C   A A   C C   A A
+103  C C  C C  C C  C C  G G  A A  T T   C C   G G   C C   A A   C C   A A
+104  C C  C C  C C  C C  G G  A A  T T   C C   G G   C C   A A   C C   A A
+105  C C  C C  C C  C C  G G  A A  T T   C C   G G   C C   A A   C C   A A
+106  T T  C C  C C  C C  G G  A A  T T   T T   G G   T T   A A   C C   A A
+107  C C  C C  C C  C C  G G  A A  T T   T T   G G   T T   A A   C C   A A
+108  C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+109  T T  C C  C C  C C  G G  A A  T T   T T   G G   T T   A A   C C   A A
+110  C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+111  C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+112  C C  C C  C C  C C  G G  A A  T T   T T   G G   T T   A A   C C   A A
+113  C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+114  C C  C C  C C  C C  G G  A A  T T   T T   G G   T T   A A   C C   A A
+115  C C  C C  C C  C C  G G  A A  T T   T T   G G   T T   A A   C C   A A
+116  C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+117  C C  C C  C C  C C  G G  A A  T T   T T   G G   C C   A A   C C   A A
+118  C C  C C  C C  C C  G G  A A  T T   T T   G G   T T   A A   C C   A A
+119  C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+120  T T  C C  C C  C C  G G  A A  T T   T T   G G   T T   A A   C C   A A
+121  C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+122  C C  C C  C C  C C  G G  A A  T T   T T   G G   C C   A A   C C   A A
+123  C C  C C  C C  C C  G G  A A  T T   T T   G G   T T   A A   C C   A A
+124  C C  C C  C C  C C  G G  A A  T T   T T   G G   T T   A A   C C   A A
+125  C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+126  C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+127  C C  C C  C C  C C  G G  A A  T T   T T   G G   T T   A A   C C   A A
+128  C C  C C  C C  C C  G G  A A  T T   T T   G G   T T   A A   C C   A A
+129  C C  C C  C C  C C  G G  A A  T T   T T   G G   T T   A A   C C   A A
+130  C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+131  C C  C C  C C  C C  G G  A A  T T   T T   G G   T T   A A   C C   A A
+132  C C  0 0  0 0  0 0  G G  0 0  0 0   T T   A A   C C   0 0   C C   0 0
+133  C C  C C  C C  C C  G G  A A  T T   T T   G G   T T   A A   C C   A A
+134  T T  C C  C C  C C  G G  A A  T T   T T   G G   T T   A A   C C   A A
+135  C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+136  C C  C C  C C  C C  G G  A A  T T   T T   G G   T T   A A   C C   A A
+137  C C  C C  C C  C C  G G  A A  C C   T T   G G   T T   A A   C C   A A
+138  C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+139  C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+140  C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+141  C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+142  C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+143  C C  C C  C C  C C  G G  A A  T T   T T   G G   T T   A A   C C   A A
+144  C C  C C  C C  C C  G G  A A  T T   T T   G G   T T   A A   C C   A A
+145  C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+146  C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+147  T T  C C  C C  C C  G G  A A  T T   T T   G G   T T   A A   C C   A A
+148  C C  0 0  0 0  0 0  G G  0 0  0 0   T T   G G   T T   0 0   C C   0 0
+149  C C  C C  C C  C C  G G  A A  T T   T T   G G   T T   A A   C C   A A
+150  C C  C C  C C  C C  G G  A A  T T   T T   G G   T T   A A   C C   A A
+151  C C  C C  C C  C C  G G  A A  T T   T T   G G   C C   A A   C C   A A
+152  C C  C C  C C  C C  G G  A A  T T   T T   G G   C C   A A   C C   A A
+153  C C  0 0  0 0  0 0  G G  A A  0 0   T T   G G   C C   0 0   C C   0 0
+154  C C  0 0  0 0  0 0  G G  0 0  0 0   T T   G G   C C   0 0   C C   0 0
+155  C C  C C  C C  C C  G G  A A  T T   C C   G G   C C   A A   C C   A A
+156  C C  0 0  C C  C C  G G  A A  0 0   T T   G G   C C   A A   C C   0 0
+157  C C  C C  C C  C C  G G  A A  T T   T T   G G   C C   A A   C C   A A
+158  C C  C C  C C  C C  G G  A A  T T   C C   G G   C C   A A   C C   A A
+159  C C  C C  C C  C C  G G  A A  T T   T T   G G   C C   A A   C C   A A
+160  C C  T T  C C  T T  G G  G G  T T   T T   G G   C C   A A   C C   A A
+161  C C  C C  C C  C C  G G  A A  T T   T T   G G   C C   A A   C C   A A
+162  C C  0 0  0 0  0 0  G G  0 0  0 0   T T   G G   C C   0 0   C C   0 0
+163  C C  C C  C C  C C  G G  A A  T T   C C   G G   C C   A A   C C   A A
+164  C C  0 0  0 0  0 0  G G  A A  0 0   T T   G G   0 0   0 0   C C   0 0
+165  C C  C C  C C  C C  G G  A A  T T   C C   G G   C C   A A   C C   A A
+166  C C  C C  C C  C C  G G  A A  T T   C C   G G   C C   A A   C C   A A
+167  C C  C C  C C  C C  G G  A A  T T   T T   G G   C C   A A   C C   A A
+168  0 0  T T  C C  0 0  G G  0 0  0 0   T T   G G   C C   0 0   C C   0 0
+169  C C  C C  C C  C C  G G  A A  T T   T T   G G   T T   A A   C C   A A
+170  C C  C C  C C  C C  G G  A A  T T   T T   G G   T T   A A   C C   A A
+171  C C  C C  C C  C C  G G  A A  T T   T T   G G   T T   A A   C C   A A
+172  0 0  C C  C C  0 0  G G  A A  0 0   T T   G G   T T   A A   C C   0 0
+173  T T  C C  C C  C C  G G  A A  T T   T T   G G   T T   A A   C C   A A
+174  C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+175  C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+176  C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+177  T T  C C  C C  C C  G G  A A  T T   T T   G G   T T   A A   C C   A A
+178  C C  C C  C C  C C  G G  A A  T T   T T   G G   T T   A A   C C   A A
+179  C C  C C  C C  C C  G G  A A  T T   T T   G G   T T   A A   C C   A A
+180  0 0  T T  0 0  0 0  G G  A A  0 0   T T   G G   0 0   A A   0 0   0 0
+181  T T  C C  C C  C C  G G  A A  T T   T T   G G   T T   A A   C C   A A
+182  C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   0 0
+183  C C  C C  C C  C C  G G  A A  C C   T T   G G   C C   A A   C C   A A
+184  C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+185  C C  C C  C C  C C  G G  A A  T T   T T   G G   T T   A A   C C   A A
+186  T T  C C  C C  C C  G G  A A  T T   T T   G G   T T   A A   C C   A A
+187  T T  C C  C C  C C  G G  A A  T T   T T   G G   T T   A A   C C   A A
+188  T T  C C  C C  C C  G G  A A  T T   T T   G G   T T   A A   C C   A A
+189  C C  C C  C C  C C  G G  A A  T T   T T   G G   T T   A A   C C   A A
+190  C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+191  C C  C C  C C  C C  G G  A A  C C   T T   G G   C C   A A   C C   A A
+192  T T  C C  C C  C C  G G  A A  T T   T T   G G   T T   A A   C C   A A
+193  C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+194  C C  C C  C C  C C  G G  A A  T T   T T   G G   C C   A A   C C   A A
+195  C C  C C  C C  C C  G G  A A  0 0   T T   A A   C C   A A   C C   0 0
+196  C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+197  T T  C C  C C  C C  G G  A A  T T   T T   G G   T T   A A   C C   A A
+198  T T  C C  C C  C C  G G  A A  T T   T T   G G   T T   A A   C C   A A
+199  T T  C C  C C  C C  G G  A A  T T   T T   G G   T T   A A   C C   A A
+200  T T  C C  C C  C C  G G  A A  T T   T T   G G   T T   A A   C C   A A
+201  C C  C C  C C  C C  G G  A A  T T   T T   G G   T T   A A   C C   A A
+202  C C  C C  C C  C C  G G  A A  0 0   T T   A A   C C   A A   C C   0 0
+203  T T  C C  C C  C C  G G  A A  T T   T T   G G   T T   A A   C C   A A
+204  C C  C C  C C  C C  G G  A A  T T   T T   G G   T T   A A   C C   A A
+205  T T  C C  C C  C C  G G  A A  T T   T T   G G   T T   A A   C C   A A
+206  0 0  0 0  0 0  0 0  G G  A A  0 0   0 0   A A   0 0   A A   0 0   0 0
+207  T T  C C  C C  C C  G G  A A  T T   T T   G G   T T   A A   C C   A A
+208  C C  C C  C C  C C  G G  A A  T T   T T   G G   T T   A A   C C   A A
+209  T T  C C  C C  C C  G G  A A  T T   T T   G G   T T   A A   C C   A A
+210  C C  C C  C C  C C  G G  A A  T T   T T   G G   T T   A A   C C   A A
+211  C C  C C  C C  C C  G G  A A  T T   T T   G G   T T   A A   C C   A A
+212  C C  C C  C C  C C  G G  A A  T T   T T   G G   T T   A A   C C   A A
+213  C C  C C  C C  C C  G G  A A  0 0   T T   A A   C C   A A   C C   0 0
+214  C C  C C  C C  C C  G G  A A  T T   T T   G G   C C   A A   C C   A A
+215  C C  C C  C C  C C  G G  A A  T T   C C   G G   C C   A A   C C   A A
+216  C C  C C  C C  C C  G G  A A  T T   C C   G G   C C   A A   C C   A A
+217  C C  C C  C C  C C  G G  A A  T T   T T   G G   C C   A A   C C   A A
+218  C C  C C  C C  C C  G G  A A  T T   C C   G G   C C   A A   C C   A A
+219  C C  C C  C C  C C  G G  A A  T T   C C   G G   C C   A A   C C   A A
+220  C C  C C  C C  C C  G G  A A  T T   C C   G G   C C   A A   C C   A A
+221  C C  C C  C C  C C  G G  A A  T T   C C   G G   C C   A A   C C   A A
+222  C C  C C  C C  C C  G G  A A  T T   C C   G G   C C   A A   C C   A A
+223  C C  C C  C C  C C  G G  A A  T T   C C   G G   C C   A A   C C   A A
+224  C C  C C  C C  C C  G G  A A  T T   T T   G G   C C   A A   C C   A A
+225  C C  C C  C C  C C  G G  A A  T T   C C   G G   C C   A A   C C   A A
+226  C C  C C  C C  C C  G G  A A  T T   0 0   G G   C C   A A   C C   A A
+227  C C  T T  C C  C C  G G  A A  T T   T T   G G   C C   A A   C C   A A
+228  C C  C C  C C  C C  G G  A A  T T   0 0   G G   C C   A A   C C   A A
+229  C C  C C  C C  C C  G G  A A  T T   C C   G G   C C   A A   C C   A A
+230  C C  T T  C C  C C  G G  A A  T T   T T   G G   C C   A A   C C   A A
+231  C C  T T  C C  C C  G G  A A  T T   T T   G G   C C   A A   C C   A A
+232  C C  0 0  C C  0 0  G G  G G  T T   T T   G G   C C   A A   C C   A A
+233  C C  C C  C C  C C  G G  A A  T T   T T   G G   C C   A A   C C   A A
+234  C C  T T  C C  T T  G G  G G  T T   T T   G G   C C   A A   C C   A A
+235  C C  0 0  0 0  C C  G G  A A  0 0   T T   G G   0 0   0 0   C C   0 0
+236  C C  C C  C C  C C  G G  A A  T T   T T   G G   C C   A A   C C   A A
+237  C C  C C  C C  C C  G G  A A  C C   T T   G G   C C   A A   C C   A A
+238  C C  C C  C C  C C  G G  A A  T T   T T   G G   C C   A A   C C   A A
+239  C C  C C  C C  C C  G G  A A  T T   T T   G G   C C   A A   C C   A A
+240  C C  C C  C C  C C  G G  A A  T T   T T   G G   C C   A A   C C   A A
+241  C C  C C  C C  C C  G G  A A  T T   0 0   G G   C C   A A   C C   A A
+242  C C  C C  C C  C C  G G  A A  T T   T T   G G   C C   A A   C C   A A
+243  C C  C C  C C  C C  G G  A A  T T   0 0   G G   C C   A A   C C   A A
+244  C C  C C  C C  C C  G G  A A  C C   T T   G G   C C   A A   C C   A A
+245  C C  C C  C C  C C  G G  A A  T T   T T   G G   C C   A A   C C   A A
+246  C C  C C  C C  C C  G G  A A  C C   T T   G G   C C   A A   C C   A A
+247  C C  C C  C C  C C  G G  A A  T T   T T   G G   C C   A A   C C   A A
+248  C C  C C  C C  C C  G G  A A  C C   T T   G G   C C   A A   C C   A A
+249  C C  C C  C C  C C  G G  A A  C C   T T   G G   C C   A A   C C   A A
+250  C C  C C  C C  C C  G G  A A  T T   C C   G G   C C   A A   C C   A A
+251  C C  T T  C C  C C  G G  A A  T T   T T   G G   C C   A A   C C   A A
+252  C C  T T  C C  C C  G G  A A  T T   T T   G G   C C   A A   C C   A A
+253  C C  C C  C C  C C  G G  A A  T T   T T   G G   C C   A A   C C   A A
+254  C C  C C  C C  C C  G G  A A  T T   C C   G G   C C   A A   C C   A A
+255  C C  C C  C C  C C  G G  A A  C C   C C   G G   C C   A A   C C   A A
+256  C C  T T  C C  C C  G G  A A  T T   T T   G G   C C   A A   C C   A A
+257  C C  C C  C C  C C  G G  A A  T T   T T   G G   C C   A A   C C   A A
+258  C C  C C  C C  C C  G G  A A  T T   T T   G G   C C   A A   C C   A A
+259  C C  T T  C C  C C  G G  A A  T T   T T   G G   C C   A A   C C   A A
+260  C C  0 0  0 0  0 0  G G  0 0  0 0   T T   G G   C C   0 0   C C   0 0
+261  C C  T T  C C  C C  G G  A A  T T   C C   G G   C C   A A   C C   A A
+262  C C  0 0  0 0  0 0  G G  0 0  0 0   C C   G G   C C   0 0   C C   0 0
+263  C C  T T  C C  C C  G G  A A  T T   T T   G G   C C   A A   C C   A A
+264  C C  C C  C C  C C  G G  A A  T T   C C   G G   C C   A A   C C   A A
+265  C C  C C  C C  C C  G G  A A  T T   0 0   G G   C C   A A   C C   A A
+266  C C  C C  C C  C C  G G  A A  T T   T T   G G   C C   A A   C C   A A
+267  C C  T T  C C  C C  G G  A A  T T   T T   G G   C C   A A   C C   A A
+268  C C  C C  C C  C C  G G  A A  T T   T T   G G   C C   A A   C C   A A
+269  C C  C C  C C  C C  G G  A A  T T   C C   G G   C C   A A   C C   A A
+270  C C  C C  C C  C C  G G  A A  T T   T T   G G   C C   A A   C C   A A
+271  C C  C C  C C  C C  0 0  A A  T T   T T   0 0   C C   A A   C C   A A
+272  C C  C C  C C  C C  G G  A A  C C   T T   A A   C C   A A   T T   A A
+273  C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+274  C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+275  C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+276  C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+277  C C  C C  C C  C C  G G  A A  C C   T T   A A   C C   A A   T T   A A
+278  C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+279  C C  C C  C C  C C  G G  A A  C C   T T   A A   C C   A A   T T   A A
+280  C C  C C  C C  C C  G G  A A  T T   T T   G G   T T   A A   C C   A A
+281  C C  C C  C C  C C  G G  A A  T T   T T   G G   T T   A A   C C   A A
+282  C C  C C  C C  C C  G G  A A  T T   T T   G G   T T   A A   C C   A A
+283  C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+284  T T  C C  C C  C C  G G  A A  T T   T T   G G   T T   A A   C C   A A
+285  C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+286  C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+287  C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+288  C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+289  C C  C C  C C  C C  G G  A A  C C   T T   A A   C C   A A   T T   A A
+290  C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+291  C C  C C  C C  C C  G G  A A  C C   T T   A A   C C   A A   T T   A A
+292  C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+293  C C  C C  C C  C C  A A  A A  T T   T T   A A   C C   A A   C C   A A
+294  C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+295  C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+296  C C  0 0  0 0  0 0  G G  0 0  0 0   T T   A A   C C   0 0   C C   0 0
+297  C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+298  C C  C C  C C  C C  G G  A A  C C   T T   A A   C C   A A   T T   A A
+299  C C  C C  C C  C C  0 0  A A  T T   T T   0 0   C C   A A   C C   A A
+300  C C  0 0  0 0  0 0  G G  0 0  0 0   T T   A A   C C   0 0   T T   0 0
+301  C C  C C  C C  C C  G G  A A  C C   T T   A A   C C   A A   T T   A A
+302  C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+303  C C  C C  C C  C C  G G  A A  C C   T T   A A   C C   A A   T T   A A
+304  T T  C C  C C  C C  G G  A A  T T   T T   G G   T T   A A   C C   A A
+305  C C  C C  C C  C C  G G  A A  T T   T T   G G   T T   A A   C C   A A
+306  T T  C C  C C  C C  G G  A A  T T   T T   G G   T T   A A   C C   A A
+307  T T  C C  C C  C C  G G  A A  T T   T T   G G   T T   A A   C C   A A
+308  C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+309  T T  C C  C C  C C  G G  A A  T T   T T   G G   T T   A A   C C   A A
+310  C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+311  C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+312  C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+313  C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+314  C C  C C  C C  C C  G G  A A  T T   T T   G G   T T   A A   C C   A A
+315  C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+316  T T  C C  C C  C C  G G  A A  T T   T T   G G   T T   A A   C C   A A
+317  C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+318  T T  C C  C C  C C  0 0  A A  T T   T T   0 0   T T   A A   C C   A A
+319  C C  C C  C C  C C  G G  A A  C C   T T   A A   C C   A A   T T   A A
+320  C C  C C  C C  C C  G G  A A  T T   T T   G G   T T   A A   C C   A A
+321  C C  C C  C C  C C  G G  A A  C C   T T   A A   C C   A A   T T   A A
+322  C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+323  T T  C C  C C  C C  G G  A A  T T   T T   G G   T T   A A   C C   A A
+324  C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+325  C C  C C  C C  C C  G G  A A  C C   T T   A A   C C   A A   T T   A A
+326  C C  C C  C C  C C  0 0  A A  T T   T T   A A   C C   A A   C C   A A
+327  C C  C C  C C  C C  G G  A A  C C   T T   A A   C C   A A   T T   A A
+328  T T  C C  C C  C C  G G  A A  T T   T T   G G   T T   A A   C C   A A
+329  C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+330  T T  C C  C C  C C  G G  A A  T T   T T   G G   T T   A A   C C   A A
+331  C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+332  T T  C C  C C  C C  G G  A A  T T   T T   G G   T T   A A   C C   A A
+333  C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+334  C C  C C  C C  C C  G G  A A  C C   T T   A A   C C   A A   T T   A A
+335  C C  C C  C C  C C  G G  A A  T T   T T   G G   T T   A A   C C   A A
+336  C C  C C  C C  C C  G G  A A  C C   T T   A A   C C   A A   T T   A A
+337  C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+338  C C  C C  C C  C C  G G  A A  C C   T T   A A   C C   A A   T T   A A
+339  C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+340  C C  C C  C C  C C  G G  A A  T T   T T   G G   T T   A A   C C   A A
+341  C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+342  C C  0 0  0 0  0 0  G G  0 0  0 0   T T   G G   T T   0 0   C C   0 0
+343  C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+344  C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+345  C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+346  C C  C C  C C  C C  G G  A A  0 0   T T   A A   C C   A A   C C   0 0
+347  C C  C C  C C  C C  G G  A A  C C   T T   A A   C C   A A   T T   A A
+348  C C  0 0  0 0  0 0  G G  0 0  0 0   T T   A A   C C   0 0   C C   0 0
+349  C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+350  C C  0 0  0 0  0 0  G G  0 0  0 0   T T   A A   C C   0 0   C C   0 0
+351  C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+352  0 0  0 0  0 0  0 0  G G  0 0  0 0   0 0   A A   0 0   0 0   0 0   0 0
+353  C C  C C  C C  C C  G G  A A  T T   T T   G G   T T   A A   C C   A A
+354  C C  C C  C C  C C  G G  A A  C C   T T   A A   C C   A A   T T   A A
+355  C C  C C  C C  C C  G G  A A  T T   T T   G G   T T   A A   C C   A A
+356  C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+357  C C  C C  C C  C C  G G  A A  T T   T T   G G   T T   A A   C C   A A
+358  C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+359  C C  C C  C C  C C  G G  A A  C C   T T   A A   C C   A A   T T   A A
+360  C C  C C  C C  C C  G G  A A  T T   T T   A A   C C   A A   C C   A A
+    11719 11947 12007 12308 12414 12705 13263 13368 13506 13708 13789 14178
+1     A A   A A   G G   G G   T T   C C   A A   G G   C C   G G   T T   T T
+2     A A   A A   G G   G G   T T   C C   A A   G G   C C   G G   T T   T T
+3     G G   A A   G G   A A   T T   C C   A A   G G   C C   G G   T T   T T
+4     A A   A A   G G   G G   T T   C C   A A   G G   C C   G G   T T   T T
+5     A A   A A   G G   A A   T T   C C   A A   A A   C C   G G   T T   T T
+6     A A   G G   G G   A A   C C   T T   A A   G G   C C   G G   T T   T T
+7     A A   A A   G G   G G   T T   C C   A A   G G   C C   G G   T T   T T
+8     A A   A A   G G   A A   T T   C C   A A   A A   C C   G G   T T   T T
+9     G G   A A   G G   A A   T T   C C   A A   G G   C C   G G   T T   T T
+10    G G   A A   G G   A A   T T   C C   A A   G G   C C   G G   T T   T T
+11    G G   A A   G G   A A   T T   C C   A A   G G   C C   G G   T T   T T
+12    A A   G G   G G   A A   C C   T T   A A   G G   C C   G G   T T   T T
+13    G G   A A   G G   A A   T T   C C   A A   G G   C C   G G   T T   T T
+14    G G   A A   G G   A A   T T   C C   A A   G G   C C   G G   T T   T T
+15    A A   A A   G G   G G   T T   C C   A A   G G   C C   A A   T T   T T
+16    G G   A A   G G   A A   T T   C C   A A   G G   C C   G G   T T   T T
+17    A A   A A   G G   G G   T T   C C   A A   G G   C C   G G   T T   T T
+18    G G   A A   G G   A A   T T   C C   A A   G G   C C   G G   T T   T T
+19    G G   A A   G G   A A   T T   C C   A A   G G   C C   G G   T T   T T
+20    G G   A A   G G   A A   T T   C C   A A   G G   C C   G G   T T   T T
+21    A A   A A   G G   G G   T T   C C   A A   G G   C C   A A   T T   T T
+22    G G   A A   G G   A A   T T   C C   A A   G G   C C   G G   T T   T T
+23    G G   A A   G G   A A   T T   C C   A A   G G   C C   G G   T T   T T
+24    G G   A A   G G   A A   T T   C C   A A   G G   C C   G G   T T   T T
+25    G G   A A   G G   A A   T T   C C   A A   G G   C C   A A   T T   T T
+26    A A   A A   G G   G G   T T   C C   A A   G G   C C   G G   T T   T T
+27    A A   A A   G G   A A   T T   C C   A A   G G   C C   A A   T T   T T
+28    A A   A A   G G   A A   T T   C C   A A   G G   C C   A A   T T   T T
+29    A A   A A   G G   A A   T T   C C   A A   G G   C C   G G   T T   T T
+30    G G   A A   G G   A A   T T   C C   A A   G G   C C   G G   T T   T T
+31    A A   A A   G G   A A   T T   C C   A A   G G   C C   A A   T T   T T
+32    A A   A A   G G   A A   T T   C C   A A   A A   C C   G G   T T   T T
+33    A A   A A   G G   G G   T T   C C   A A   G G   C C   G G   T T   T T
+34    G G   A A   G G   A A   T T   C C   A A   G G   C C   G G   T T   T T
+35    G G   A A   G G   A A   T T   C C   A A   G G   C C   A A   T T   T T
+36    A A   A A   G G   G G   T T   C C   A A   G G   C C   G G   T T   T T
+37    G G   A A   G G   A A   T T   C C   A A   G G   C C   G G   T T   T T
+38    G G   A A   G G   A A   T T   C C   A A   G G   C C   G G   T T   T T
+39    A A   A A   G G   A A   T T   C C   A A   G G   C C   A A   T T   T T
+40    A A   A A   G G   G G   T T   C C   A A   G G   C C   G G   T T   T T
+41    A A   A A   G G   A A   T T   C C   A A   G G   C C   G G   T T   T T
+42    A A   A A   G G   A A   T T   C C   A A   A A   C C   G G   T T   T T
+43    G G   A A   G G   A A   T T   C C   A A   G G   C C   G G   T T   T T
+44    A A   A A   G G   A A   T T   C C   A A   A A   C C   G G   T T   T T
+45    G G   A A   G G   A A   T T   C C   A A   G G   C C   G G   T T   T T
+46    A A   A A   G G   G G   T T   C C   A A   G G   C C   G G   T T   T T
+47    G G   A A   G G   A A   T T   C C   A A   G G   C C   G G   T T   T T
+48    A A   A A   G G   A A   T T   C C   A A   A A   C C   G G   T T   T T
+49    A A   A A   G G   A A   T T   C C   A A   G G   C C   A A   T T   T T
+50    A A   A A   G G   G G   T T   C C   A A   G G   C C   G G   T T   T T
+51    G G   A A   G G   A A   T T   C C   A A   G G   C C   G G   T T   T T
+52    G G   A A   G G   0 0   T T   C C   A A   0 0   C C   0 0   T T   T T
+53    A A   A A   G G   G G   T T   C C   A A   G G   C C   A A   T T   T T
+54    0 0   A A   G G   A A   T T   C C   A A   G G   C C   G G   T T   T T
+55    A A   A A   G G   A A   T T   C C   A A   G G   C C   A A   T T   T T
+56    G G   A A   G G   A A   T T   C C   A A   G G   C C   G G   T T   T T
+57    A A   A A   G G   G G   T T   C C   A A   G G   C C   G G   T T   T T
+58    A A   A A   G G   A A   T T   C C   A A   G G   C C   A A   T T   T T
+59    G G   A A   G G   A A   T T   C C   A A   G G   C C   G G   T T   T T
+60    G G   A A   G G   A A   T T   C C   A A   G G   C C   G G   T T   T T
+61    A A   A A   G G   G G   T T   C C   A A   G G   C C   G G   T T   T T
+62    G G   A A   G G   A A   T T   C C   A A   G G   C C   G G   T T   T T
+63    G G   A A   G G   A A   T T   C C   A A   G G   C C   G G   T T   T T
+64    G G   A A   G G   A A   T T   C C   A A   G G   C C   G G   T T   T T
+65    G G   A A   G G   A A   T T   C C   A A   G G   C C   G G   T T   T T
+66    G G   A A   G G   A A   T T   C C   A A   G G   C C   G G   T T   T T
+67    A A   A A   G G   G G   T T   C C   A A   G G   C C   G G   T T   T T
+68    A A   A A   G G   A A   T T   C C   A A   A A   C C   G G   T T   T T
+69    A A   A A   G G   G G   T T   C C   A A   G G   C C   G G   T T   T T
+70    A A   A A   G G   G G   T T   C C   A A   G G   C C   G G   T T   T T
+71    A A   A A   G G   A A   T T   C C   A A   A A   C C   G G   T T   T T
+72    G G   A A   G G   A A   T T   C C   A A   G G   C C   G G   T T   T T
+73    A A   A A   G G   G G   T T   C C   A A   G G   C C   G G   T T   T T
+74    G G   A A   G G   A A   T T   C C   A A   G G   C C   G G   T T   T T
+75    A A   A A   G G   A A   T T   C C   A A   A A   C C   G G   T T   T T
+76    A A   A A   G G   G G   T T   C C   A A   G G   C C   G G   T T   T T
+77    A A   A A   G G   A A   T T   C C   A A   G G   C C   G G   T T   T T
+78    G G   A A   G G   A A   T T   C C   A A   G G   C C   G G   T T   T T
+79    A A   A A   G G   G G   T T   C C   A A   G G   C C   G G   T T   T T
+80    A A   A A   G G   G G   T T   C C   A A   G G   C C   G G   T T   T T
+81    A A   A A   G G   A A   T T   C C   A A   G G   C C   G G   T T   T T
+82    G G   A A   G G   A A   T T   C C   A A   G G   C C   G G   T T   T T
+83    G G   A A   G G   A A   T T   C C   A A   G G   C C   G G   T T   T T
+84    G G   A A   G G   A A   T T   C C   A A   G G   C C   G G   T T   T T
+85    G G   A A   G G   A A   T T   C C   A A   G G   C C   G G   T T   T T
+86    A A   A A   G G   A A   T T   C C   A A   G G   C C   A A   T T   T T
+87    G G   A A   G G   A A   T T   C C   A A   G G   C C   G G   T T   T T
+88    G G   A A   G G   A A   T T   C C   A A   G G   C C   G G   T T   T T
+89    G G   A A   G G   A A   T T   C C   A A   G G   C C   G G   T T   T T
+90    G G   A A   G G   0 0   T T   C C   A A   0 0   C C   0 0   T T   T T
+91    A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   T T
+92    A A   A A   G G   A A   T T   T T   A A   G G   T T   G G   C C   C C
+93    A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   T T
+94    A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   0 0
+95    A A   0 0   G G   A A   T T   T T   A A   G G   0 0   G G   T T   0 0
+96    A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   T T
+97    A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   T T
+98    A A   A A   G G   A A   T T   T T   A A   G G   T T   G G   0 0   0 0
+99    A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   T T
+100   A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   T T
+101   A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   T T
+102   A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   T T
+103   A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   T T
+104   A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   T T
+105   A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   T T
+106   A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   T T
+107   A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   T T
+108   A A   A A   G G   A A   T T   C C   A A   G G   C C   A A   T T   T T
+109   A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   T T
+110   A A   A A   G G   A A   T T   C C   A A   G G   C C   G G   T T   T T
+111   A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   T T
+112   A A   A A   G G   A A   T T   T T   G G   G G   C C   G G   T T   T T
+113   A A   A A   G G   A A   T T   C C   A A   G G   C C   G G   T T   T T
+114   A A   A A   G G   A A   T T   T T   G G   G G   C C   G G   T T   T T
+115   A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   T T
+116   A A   A A   G G   A A   T T   C C   A A   G G   C C   G G   T T   T T
+117   A A   A A   G G   A A   T T   C C   A A   G G   C C   G G   T T   T T
+118   A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   T T
+119   A A   A A   G G   A A   T T   C C   A A   G G   C C   G G   T T   T T
+120   A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   T T
+121   A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   T T
+122   A A   A A   G G   A A   T T   C C   A A   G G   C C   G G   T T   T T
+123   A A   A A   G G   A A   T T   T T   G G   G G   C C   A A   T T   T T
+124   A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   T T
+125   A A   A A   G G   A A   T T   C C   A A   G G   C C   A A   T T   T T
+126   A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   T T
+127   A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   T T
+128   A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   T T
+129   A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   T T
+130   A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   T T
+131   A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   T T
+132   A A   0 0   G G   A A   T T   C C   A A   G G   0 0   G G   T T   0 0
+133   A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   T T
+134   A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   T T
+135   A A   A A   G G   A A   T T   C C   A A   G G   C C   G G   T T   T T
+136   A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   T T
+137   A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   T T
+138   A A   A A   G G   A A   T T   C C   A A   G G   C C   A A   T T   T T
+139   A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   T T
+140   A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   T T
+141   A A   A A   G G   A A   T T   C C   A A   G G   C C   G G   T T   T T
+142   A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   T T
+143   A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   T T
+144   A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   T T
+145   A A   A A   G G   A A   T T   C C   A A   G G   C C   A A   T T   T T
+146   A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   T T
+147   A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   T T
+148   A A   0 0   G G   A A   T T   T T   A A   G G   0 0   G G   T T   0 0
+149   A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   T T
+150   A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   T T
+151   A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   T T
+152   A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   T T
+153   A A   0 0   G G   A A   T T   T T   A A   G G   0 0   G G   T T   0 0
+154   A A   0 0   G G   A A   T T   T T   A A   G G   0 0   G G   C C   0 0
+155   A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   T T
+156   A A   A A   G G   A A   T T   T T   A A   G G   0 0   G G   0 0   0 0
+157   A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   T T
+158   A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   T T
+159   A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   T T
+160   A A   A A   A A   A A   T T   T T   A A   G G   T T   G G   T T   T T
+161   A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   T T
+162   A A   0 0   A A   A A   T T   T T   A A   G G   0 0   G G   T T   0 0
+163   A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   0 0
+164   A A   A A   G G   A A   T T   0 0   0 0   G G   0 0   G G   0 0   0 0
+165   A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   T T
+166   A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   T T
+167   A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   T T
+168   0 0   0 0   G G   A A   0 0   0 0   0 0   G G   0 0   G G   0 0   0 0
+169   A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   T T
+170   G G   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   T T
+171   A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   T T
+172   A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   0 0   T T
+173   A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   T T
+174   A A   A A   G G   A A   T T   C C   A A   G G   C C   G G   T T   T T
+175   A A   A A   G G   A A   T T   C C   A A   G G   C C   G G   T T   T T
+176   A A   A A   G G   A A   T T   C C   A A   G G   C C   G G   T T   T T
+177   A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   T T
+178   A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   T T
+179   A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   T T
+180   0 0   0 0   G G   A A   T T   0 0   0 0   G G   0 0   G G   0 0   0 0
+181   A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   T T
+182   A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   0 0   T T
+183   A A   A A   G G   A A   T T   C C   A A   G G   C C   G G   T T   T T
+184   A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   T T
+185   A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   T T
+186   A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   T T
+187   A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   T T
+188   A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   T T
+189   A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   T T
+190   A A   A A   G G   A A   T T   C C   A A   G G   C C   G G   T T   T T
+191   A A   A A   G G   A A   T T   C C   A A   G G   C C   G G   T T   T T
+192   A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   T T
+193   A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   T T
+194   A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   C C
+195   A A   A A   G G   A A   T T   C C   A A   G G   C C   G G   0 0   T T
+196   A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   T T
+197   A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   T T
+198   A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   T T
+199   A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   T T
+200   A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   T T
+201   A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   T T
+202   A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   0 0   T T
+203   A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   T T
+204   A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   T T
+205   A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   T T
+206   A A   0 0   G G   A A   0 0   0 0   0 0   G G   0 0   G G   0 0   T T
+207   A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   T T
+208   A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   T T
+209   A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   T T
+210   A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   T T
+211   A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   T T
+212   A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   T T
+213   A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   T T
+214   A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   T T
+215   A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   T T
+216   A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   T T
+217   A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   0 0   0 0
+218   A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   T T
+219   A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   T T
+220   A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   T T
+221   A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   T T
+222   A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   T T
+223   A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   T T
+224   A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   T T
+225   A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   0 0   0 0
+226   A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   T T
+227   A A   A A   G G   A A   T T   T T   A A   G G   T T   G G   0 0   C C
+228   A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   T T
+229   A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   T T
+230   A A   A A   G G   A A   T T   T T   A A   G G   T T   G G   C C   C C
+231   A A   A A   G G   A A   T T   T T   A A   G G   T T   G G   C C   C C
+232   A A   A A   A A   A A   T T   T T   A A   G G   T T   G G   T T   T T
+233   A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   T T
+234   A A   A A   0 0   A A   T T   T T   A A   G G   T T   G G   T T   T T
+235   G G   0 0   G G   A A   0 0   T T   A A   G G   0 0   0 0   0 0   0 0
+236   A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   0 0
+237   A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   T T
+238   A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   T T
+239   A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   T T
+240   A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   T T
+241   A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   T T
+242   A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   T T
+243   A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   T T
+244   A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   T T
+245   A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   T T
+246   A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   0 0
+247   A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   T T
+248   A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   T T
+249   A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   T T
+250   A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   T T
+251   A A   A A   G G   A A   T T   T T   A A   G G   T T   G G   C C   C C
+252   A A   A A   G G   A A   T T   T T   A A   G G   T T   G G   C C   C C
+253   A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   T T
+254   A A   A A   G G   A A   T T   T T   A A   G G   C C   0 0   T T   T T
+255   A A   A A   G G   A A   T T   T T   A A   G G   C C   A A   T T   T T
+256   A A   A A   G G   A A   T T   T T   A A   G G   T T   G G   C C   C C
+257   A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   T T
+258   A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   T T
+259   A A   A A   G G   A A   T T   T T   A A   G G   T T   G G   0 0   C C
+260   A A   0 0   G G   A A   T T   T T   A A   G G   0 0   G G   0 0   0 0
+261   0 0   A A   G G   A A   T T   T T   A A   G G   T T   G G   0 0   C C
+262   A A   0 0   G G   A A   T T   T T   A A   G G   0 0   G G   T T   0 0
+263   A A   A A   G G   A A   T T   T T   A A   G G   T T   G G   0 0   C C
+264   A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   T T
+265   A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   T T
+266   A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   T T
+267   A A   A A   G G   A A   T T   T T   A A   G G   T T   G G   C C   C C
+268   A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   T T
+269   A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   T T
+270   A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   T T
+271   G G   A A   G G   0 0   T T   C C   A A   0 0   C C   0 0   T T   T T
+272   A A   A A   G G   A A   T T   C C   A A   G G   C C   G G   T T   T T
+273   G G   A A   G G   A A   T T   C C   A A   G G   C C   G G   T T   T T
+274   A A   A A   A A   A A   T T   T T   A A   G G   C C   G G   T T   T T
+275   A A   G G   G G   G G   T T   C C   A A   G G   C C   G G   T T   T T
+276   A A   A A   A A   A A   T T   T T   A A   G G   C C   G G   T T   T T
+277   A A   A A   G G   A A   T T   C C   A A   G G   C C   G G   T T   T T
+278   G G   A A   G G   A A   T T   C C   A A   G G   C C   G G   T T   T T
+279   A A   A A   G G   A A   T T   C C   A A   G G   C C   G G   T T   T T
+280   A A   A A   G G   A A   T T   T T   G G   G G   C C   G G   T T   T T
+281   A A   A A   G G   A A   T T   T T   G G   G G   C C   G G   T T   T T
+282   A A   A A   G G   A A   T T   T T   G G   G G   C C   G G   T T   T T
+283   A A   A A   A A   A A   T T   T T   A A   G G   C C   G G   T T   T T
+284   A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   T T
+285   A A   A A   A A   A A   T T   T T   A A   G G   C C   G G   T T   T T
+286   A A   A A   A A   A A   T T   T T   A A   G G   C C   G G   T T   T T
+287   A A   A A   A A   A A   T T   T T   A A   G G   C C   G G   T T   T T
+288   A A   A A   A A   A A   T T   T T   A A   G G   C C   G G   T T   T T
+289   A A   A A   G G   A A   T T   C C   A A   G G   C C   G G   T T   T T
+290   A A   A A   A A   A A   T T   T T   A A   G G   C C   G G   T T   T T
+291   A A   A A   G G   A A   T T   C C   A A   G G   C C   G G   T T   T T
+292   A A   A A   A A   A A   T T   T T   A A   G G   C C   G G   T T   T T
+293   A A   A A   A A   A A   T T   T T   A A   G G   C C   G G   T T   T T
+294   A A   A A   A A   A A   T T   T T   A A   G G   C C   G G   T T   T T
+295   A A   A A   A A   A A   T T   T T   A A   G G   C C   G G   T T   T T
+296   A A   0 0   G G   G G   T T   C C   A A   G G   0 0   G G   T T   0 0
+297   A A   A A   A A   A A   T T   T T   A A   G G   C C   G G   T T   T T
+298   A A   A A   G G   A A   T T   C C   A A   G G   C C   G G   T T   T T
+299   G G   A A   G G   0 0   T T   C C   A A   0 0   C C   0 0   T T   T T
+300   A A   0 0   G G   A A   T T   C C   A A   G G   0 0   G G   T T   0 0
+301   A A   A A   G G   A A   T T   C C   A A   G G   C C   G G   T T   T T
+302   A A   A A   A A   A A   T T   T T   A A   G G   C C   G G   T T   T T
+303   A A   A A   G G   A A   T T   C C   A A   G G   C C   G G   T T   T T
+304   A A   A A   G G   A A   C C   T T   A A   G G   C C   G G   T T   T T
+305   A A   A A   G G   A A   T T   T T   G G   G G   C C   G G   T T   C C
+306   A A   A A   G G   A A   C C   T T   A A   G G   C C   G G   T T   T T
+307   A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   T T
+308   A A   A A   A A   A A   T T   T T   A A   G G   C C   G G   T T   T T
+309   A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   T T
+310   A A   A A   A A   A A   T T   T T   A A   G G   C C   G G   T T   T T
+311   A A   A A   A A   A A   T T   T T   A A   G G   C C   G G   T T   T T
+312   A A   A A   A A   A A   T T   T T   A A   G G   C C   G G   T T   T T
+313   G G   A A   G G   A A   T T   C C   A A   G G   C C   G G   T T   T T
+314   A A   A A   G G   A A   T T   T T   G G   G G   C C   G G   T T   T T
+315   G G   A A   G G   A A   T T   C C   A A   G G   C C   G G   T T   T T
+316   A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   T T
+317   A A   A A   A A   A A   T T   T T   A A   G G   C C   G G   T T   T T
+318   A A   A A   G G   0 0   T T   T T   A A   0 0   C C   0 0   T T   T T
+319   A A   A A   G G   A A   T T   C C   A A   G G   C C   G G   T T   T T
+320   A A   A A   G G   A A   T T   T T   G G   G G   C C   G G   T T   T T
+321   A A   A A   G G   A A   T T   C C   A A   G G   C C   G G   T T   T T
+322   A A   A A   A A   A A   T T   T T   A A   G G   C C   G G   T T   T T
+323   A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   T T
+324   A A   A A   A A   A A   T T   T T   A A   G G   C C   G G   T T   T T
+325   A A   A A   G G   A A   T T   C C   A A   G G   C C   G G   T T   T T
+326   G G   A A   G G   0 0   T T   C C   A A   0 0   C C   0 0   T T   T T
+327   A A   A A   G G   A A   T T   C C   A A   G G   C C   G G   T T   T T
+328   A A   A A   G G   A A   T T   T T   A A   A A   C C   G G   T T   T T
+329   A A   A A   A A   A A   T T   T T   A A   G G   C C   G G   T T   T T
+330   A A   A A   G G   A A   T T   T T   A A   A A   C C   G G   T T   T T
+331   A A   A A   A A   A A   T T   T T   A A   G G   C C   G G   T T   T T
+332   A A   A A   G G   A A   T T   T T   A A   G G   C C   G G   T T   T T
+333   A A   A A   A A   A A   T T   T T   A A   G G   C C   G G   T T   T T
+334   A A   A A   G G   A A   T T   C C   A A   G G   C C   G G   T T   T T
+335   A A   A A   G G   A A   T T   T T   G G   G G   C C   G G   T T   T T
+336   A A   A A   G G   A A   T T   C C   A A   G G   C C   G G   T T   T T
+337   A A   A A   A A   A A   T T   T T   A A   G G   C C   G G   T T   T T
+338   A A   A A   G G   A A   T T   C C   A A   G G   C C   G G   T T   T T
+339   A A   A A   A A   A A   T T   T T   A A   G G   C C   G G   T T   T T
+340   A A   A A   G G   A A   T T   T T   G G   G G   C C   G G   T T   T T
+341   A A   A A   A A   A A   T T   T T   A A   G G   C C   G G   T T   T T
+342   A A   0 0   G G   A A   T T   T T   G G   G G   0 0   G G   T T   0 0
+343   A A   G G   G G   A A   C C   T T   A A   G G   C C   0 0   T T   T T
+344   A A   A A   A A   A A   T T   T T   A A   G G   C C   G G   T T   T T
+345   A A   G G   G G   A A   C C   T T   A A   G G   C C   0 0   T T   T T
+346   G G   A A   G G   A A   T T   C C   A A   G G   C C   G G   T T   T T
+347   A A   A A   G G   A A   T T   C C   A A   G G   C C   G G   T T   T T
+348   G G   0 0   G G   A A   T T   C C   A A   G G   0 0   G G   T T   0 0
+349   A A   A A   A A   A A   T T   T T   A A   G G   C C   G G   T T   T T
+350   A A   0 0   A A   A A   T T   T T   A A   G G   0 0   G G   T T   0 0
+351   A A   A A   A A   A A   T T   T T   A A   G G   C C   G G   T T   T T
+352   0 0   0 0   0 0   A A   0 0   0 0   0 0   G G   0 0   G G   0 0   0 0
+353   A A   A A   G G   A A   T T   T T   G G   G G   C C   G G   T T   T T
+354   A A   A A   G G   A A   T T   C C   A A   G G   C C   G G   T T   T T
+355   A A   A A   G G   A A   T T   T T   G G   G G   C C   G G   T T   T T
+356   A A   A A   A A   A A   T T   T T   A A   G G   C C   G G   T T   T T
+357   A A   A A   G G   A A   T T   T T   G G   G G   C C   G G   T T   T T
+358   A A   A A   A A   A A   T T   T T   A A   G G   C C   G G   T T   T T
+359   A A   A A   G G   A A   T T   C C   A A   G G   C C   G G   T T   T T
+360   A A   A A   A A   A A   T T   T T   A A   G G   C C   G G   T T   T T
+    14318 14470 14560 14668 14766 14905 15043 15326 15452 15535 16111 16271
+1     T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   C C   T T
+2     T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   C C   T T
+3     T T   T T   G G   C C   C C   G G   G G   G G   C C   C C   C C   T T
+4     T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   C C   T T
+5     T T   T T   G G   C C   T T   A A   G G   G G   A A   C C   C C   T T
+6     T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   C C   T T
+7     T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   C C   T T
+8     T T   T T   G G   C C   T T   A A   G G   G G   A A   C C   C C   T T
+9     T T   T T   G G   C C   C C   G G   G G   G G   C C   C C   C C   T T
+10    T T   T T   G G   C C   C C   G G   G G   G G   C C   C C   C C   T T
+11    T T   T T   G G   C C   C C   G G   G G   G G   C C   C C   C C   T T
+12    T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   C C   T T
+13    T T   T T   G G   C C   C C   G G   G G   G G   C C   C C   C C   T T
+14    T T   T T   G G   C C   C C   G G   G G   G G   C C   C C   C C   T T
+15    T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   C C   T T
+16    T T   T T   G G   C C   C C   G G   G G   G G   C C   C C   C C   T T
+17    T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   C C   T T
+18    T T   T T   G G   C C   C C   G G   G G   G G   C C   C C   C C   T T
+19    T T   T T   G G   C C   C C   G G   G G   G G   C C   C C   C C   T T
+20    T T   T T   G G   C C   C C   G G   G G   G G   C C   C C   C C   T T
+21    T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   C C   T T
+22    T T   T T   G G   C C   C C   G G   G G   G G   C C   C C   C C   T T
+23    T T   T T   G G   C C   C C   G G   G G   G G   C C   C C   C C   T T
+24    T T   T T   G G   C C   C C   G G   G G   G G   C C   C C   C C   T T
+25    T T   T T   G G   C C   C C   G G   G G   G G   C C   C C   C C   T T
+26    T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   C C   T T
+27    T T   T T   G G   C C   T T   G G   G G   G G   A A   C C   C C   T T
+28    T T   T T   G G   C C   T T   G G   G G   G G   A A   C C   C C   T T
+29    T T   T T   G G   C C   C C   G G   G G   G G   C C   C C   C C   T T
+30    T T   T T   G G   C C   C C   G G   G G   G G   C C   C C   C C   T T
+31    T T   T T   G G   C C   T T   G G   G G   G G   A A   C C   C C   T T
+32    T T   T T   G G   C C   T T   A A   G G   G G   A A   C C   C C   T T
+33    T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   C C   T T
+34    T T   T T   G G   C C   C C   G G   G G   G G   C C   C C   C C   T T
+35    T T   T T   G G   C C   C C   G G   G G   G G   C C   C C   C C   T T
+36    T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   C C   T T
+37    T T   T T   G G   C C   C C   G G   G G   G G   C C   C C   C C   T T
+38    T T   T T   G G   C C   C C   G G   G G   G G   C C   C C   C C   T T
+39    T T   T T   G G   C C   T T   G G   G G   G G   A A   C C   C C   T T
+40    T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   C C   T T
+41    T T   T T   G G   C C   C C   G G   G G   G G   C C   C C   C C   T T
+42    T T   T T   G G   C C   T T   A A   G G   G G   A A   C C   C C   T T
+43    T T   T T   G G   C C   C C   G G   G G   G G   C C   C C   C C   T T
+44    T T   T T   G G   C C   T T   A A   G G   G G   A A   C C   C C   T T
+45    T T   T T   G G   C C   C C   G G   G G   G G   C C   C C   C C   T T
+46    T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   C C   T T
+47    T T   T T   G G   C C   C C   G G   G G   G G   C C   C C   C C   T T
+48    T T   T T   G G   C C   T T   A A   G G   G G   A A   C C   C C   T T
+49    T T   T T   G G   C C   T T   G G   G G   G G   A A   C C   C C   T T
+50    T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   C C   T T
+51    T T   T T   G G   C C   C C   G G   G G   G G   C C   C C   C C   T T
+52    T T   T T   G G   C C   C C   G G   G G   G G   C C   C C   C C   T T
+53    T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   C C   T T
+54    T T   T T   G G   C C   0 0   G G   G G   G G   0 0   C C   C C   T T
+55    T T   T T   G G   C C   T T   G G   G G   G G   A A   C C   C C   T T
+56    T T   T T   G G   C C   C C   G G   G G   G G   C C   C C   C C   T T
+57    T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   C C   T T
+58    T T   T T   G G   C C   T T   G G   G G   G G   A A   C C   C C   T T
+59    T T   T T   G G   C C   C C   0 0   G G   G G   C C   C C   C C   T T
+60    T T   T T   G G   C C   C C   G G   G G   G G   C C   C C   C C   T T
+61    T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   C C   T T
+62    T T   T T   G G   C C   C C   G G   G G   G G   C C   C C   C C   T T
+63    T T   T T   G G   C C   C C   G G   G G   G G   C C   C C   C C   T T
+64    T T   T T   G G   C C   C C   G G   G G   G G   C C   C C   C C   T T
+65    T T   T T   G G   C C   C C   G G   G G   G G   C C   C C   C C   T T
+66    T T   T T   G G   C C   C C   G G   G G   G G   C C   C C   C C   T T
+67    T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   C C   T T
+68    T T   T T   G G   C C   T T   A A   A A   G G   A A   C C   C C   T T
+69    T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   C C   T T
+70    T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   C C   T T
+71    T T   T T   G G   C C   T T   A A   G G   G G   A A   C C   C C   T T
+72    T T   T T   G G   C C   C C   G G   G G   G G   C C   C C   C C   T T
+73    T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   C C   T T
+74    T T   T T   G G   C C   C C   G G   G G   G G   C C   C C   C C   T T
+75    T T   T T   G G   C C   T T   A A   G G   G G   A A   C C   C C   T T
+76    T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   C C   T T
+77    T T   T T   G G   C C   C C   G G   G G   G G   C C   C C   C C   T T
+78    T T   T T   G G   C C   C C   G G   G G   G G   C C   C C   C C   T T
+79    T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   C C   T T
+80    T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   C C   T T
+81    T T   T T   G G   C C   C C   G G   G G   G G   C C   C C   C C   T T
+82    T T   T T   G G   C C   C C   G G   G G   G G   C C   C C   C C   T T
+83    T T   T T   G G   C C   C C   G G   G G   G G   C C   C C   C C   T T
+84    T T   T T   G G   C C   C C   G G   G G   G G   C C   C C   C C   T T
+85    T T   T T   G G   C C   C C   G G   G G   G G   C C   C C   C C   T T
+86    T T   T T   G G   C C   T T   G G   G G   G G   A A   C C   C C   T T
+87    T T   T T   G G   C C   C C   G G   G G   G G   C C   C C   C C   T T
+88    T T   T T   G G   C C   C C   G G   G G   G G   C C   C C   C C   T T
+89    T T   T T   G G   C C   C C   G G   G G   G G   C C   C C   C C   T T
+90    T T   T T   G G   C C   C C   G G   G G   G G   C C   C C   C C   T T
+91    T T   T T   G G   C C   T T   A A   G G   G G   C C   C C   C C   T T
+92    T T   T T   A A   C C   T T   G G   G G   G G   C C   C C   C C   T T
+93    T T   T T   G G   C C   T T   0 0   G G   G G   C C   C C   C C   T T
+94    T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   C C   T T
+95    0 0   T T   0 0   0 0   T T   0 0   0 0   G G   0 0   C C   C C   0 0
+96    T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   C C   T T
+97    T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   C C   T T
+98    T T   T T   0 0   C C   T T   G G   G G   G G   C C   C C   C C   T T
+99    T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   C C   T T
+100   T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   C C   T T
+101   T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   C C   T T
+102   T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   C C   T T
+103   T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   C C   T T
+104   T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   C C   T T
+105   T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   C C   T T
+106   T T   T T   G G   T T   T T   G G   A A   G G   C C   C C   C C   T T
+107   T T   T T   G G   C C   T T   G G   A A   G G   C C   C C   C C   T T
+108   T T   T T   A A   C C   T T   G G   G G   G G   C C   C C   C C   T T
+109   T T   T T   G G   T T   T T   G G   A A   G G   C C   C C   C C   T T
+110   T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   C C   T T
+111   T T   T T   G G   C C   T T   G G   A A   G G   C C   C C   C C   T T
+112   C C   T T   G G   C C   T T   G G   A A   G G   C C   C C   C C   T T
+113   T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   C C   T T
+114   C C   T T   G G   C C   T T   G G   A A   G G   C C   C C   C C   T T
+115   T T   T T   G G   C C   T T   G G   A A   G G   C C   C C   C C   T T
+116   T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   C C   T T
+117   T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   C C   T T
+118   T T   T T   G G   C C   C C   G G   A A   G G   C C   C C   C C   T T
+119   T T   T T   G G   C C   C C   G G   G G   G G   C C   C C   C C   T T
+120   T T   T T   G G   T T   T T   G G   A A   G G   C C   C C   C C   T T
+121   T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   C C   T T
+122   T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   C C   T T
+123   C C   T T   G G   C C   T T   G G   A A   G G   C C   C C   C C   T T
+124   T T   T T   G G   C C   T T   G G   A A   G G   C C   C C   C C   T T
+125   T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   C C   T T
+126   T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   C C   T T
+127   T T   T T   G G   C C   T T   G G   A A   G G   C C   C C   C C   T T
+128   T T   T T   G G   C C   T T   G G   A A   G G   0 0   C C   C C   T T
+129   T T   T T   G G   C C   T T   G G   A A   G G   C C   C C   C C   T T
+130   T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   C C   T T
+131   T T   T T   G G   C C   T T   G G   A A   G G   C C   C C   C C   T T
+132   0 0   T T   0 0   0 0   T T   0 0   0 0   G G   0 0   C C   C C   0 0
+133   T T   T T   G G   C C   T T   G G   A A   G G   C C   C C   C C   T T
+134   T T   T T   G G   T T   T T   G G   A A   G G   C C   C C   C C   T T
+135   T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   C C   T T
+136   T T   T T   G G   C C   T T   G G   A A   G G   C C   C C   C C   T T
+137   T T   T T   G G   C C   T T   G G   A A   G G   C C   C C   C C   T T
+138   T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   C C   C C
+139   T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   C C   T T
+140   T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   C C   T T
+141   T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   C C   T T
+142   T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   C C   T T
+143   T T   T T   G G   C C   T T   G G   A A   G G   C C   C C   C C   T T
+144   T T   T T   G G   C C   T T   G G   A A   G G   C C   C C   C C   T T
+145   T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   C C   T T
+146   T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   C C   T T
+147   T T   T T   G G   T T   T T   G G   A A   G G   C C   C C   C C   T T
+148   0 0   T T   0 0   0 0   T T   0 0   0 0   G G   0 0   C C   C C   0 0
+149   T T   T T   G G   C C   T T   G G   A A   G G   C C   C C   C C   T T
+150   T T   T T   G G   C C   T T   G G   A A   G G   C C   C C   C C   T T
+151   T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   C C   T T
+152   T T   T T   G G   C C   T T   A A   G G   G G   C C   C C   C C   T T
+153   0 0   T T   0 0   0 0   T T   G G   0 0   G G   0 0   C C   C C   T T
+154   0 0   T T   0 0   0 0   T T   0 0   0 0   G G   0 0   C C   C C   0 0
+155   T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   C C   T T
+156   T T   T T   0 0   C C   T T   G G   G G   G G   C C   C C   C C   T T
+157   T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   C C   T T
+158   T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   C C   T T
+159   T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   C C   T T
+160   T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   C C   T T
+161   T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   C C   T T
+162   0 0   T T   0 0   0 0   T T   0 0   0 0   G G   0 0   C C   C C   0 0
+163   T T   T T   G G   C C   T T   G G   G G   0 0   C C   C C   C C   T T
+164   0 0   T T   0 0   0 0   T T   A A   A A   0 0   0 0   C C   0 0   0 0
+165   T T   T T   G G   C C   T T   G G   G G   A A   C C   C C   C C   T T
+166   T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   C C   T T
+167   T T   T T   G G   C C   T T   A A   G G   G G   C C   C C   C C   T T
+168   0 0   0 0   0 0   C C   0 0   A A   A A   0 0   C C   C C   0 0   0 0
+169   T T   T T   G G   C C   T T   G G   A A   G G   C C   C C   C C   T T
+170   T T   T T   G G   C C   T T   G G   A A   G G   C C   C C   C C   T T
+171   T T   T T   G G   C C   T T   G G   A A   G G   C C   C C   C C   T T
+172   0 0   T T   G G   0 0   T T   0 0   A A   G G   C C   C C   C C   T T
+173   T T   T T   G G   T T   T T   G G   A A   G G   C C   C C   C C   T T
+174   T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   C C   T T
+175   T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   C C   T T
+176   T T   T T   G G   C C   T T   G G   G G   G G   C C   T T   C C   T T
+177   T T   T T   G G   T T   T T   G G   A A   G G   C C   C C   C C   T T
+178   T T   T T   G G   C C   T T   G G   A A   G G   C C   C C   C C   T T
+179   T T   T T   G G   C C   T T   G G   A A   G G   C C   C C   C C   T T
+180   T T   0 0   G G   C C   0 0   0 0   A A   0 0   0 0   0 0   C C   0 0
+181   T T   T T   G G   T T   T T   G G   A A   G G   C C   C C   C C   T T
+182   T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   C C   T T
+183   T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   C C   T T
+184   T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   C C   T T
+185   T T   T T   G G   C C   T T   G G   A A   G G   C C   C C   C C   T T
+186   T T   T T   G G   T T   T T   G G   A A   G G   C C   C C   C C   T T
+187   T T   T T   G G   T T   T T   G G   A A   G G   C C   C C   C C   T T
+188   T T   T T   G G   T T   T T   G G   A A   G G   C C   C C   C C   T T
+189   T T   T T   G G   C C   T T   G G   A A   G G   C C   C C   C C   T T
+190   T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   C C   T T
+191   T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   C C   T T
+192   T T   T T   G G   T T   T T   G G   A A   G G   C C   C C   C C   T T
+193   T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   C C   T T
+194   T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   C C   T T
+195   T T   T T   G G   C C   T T   G G   G G   0 0   C C   C C   C C   T T
+196   T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   C C   T T
+197   T T   T T   G G   T T   T T   G G   A A   G G   C C   C C   C C   T T
+198   T T   T T   G G   T T   T T   G G   A A   G G   C C   C C   C C   T T
+199   T T   T T   G G   T T   T T   G G   A A   G G   C C   C C   C C   T T
+200   T T   T T   G G   T T   T T   G G   A A   G G   C C   C C   C C   T T
+201   T T   T T   G G   C C   T T   G G   A A   G G   C C   C C   C C   T T
+202   T T   T T   G G   C C   T T   0 0   G G   G G   C C   C C   C C   T T
+203   T T   T T   G G   T T   T T   G G   A A   G G   C C   C C   C C   T T
+204   T T   C C   G G   C C   T T   G G   A A   G G   C C   C C   C C   T T
+205   T T   T T   G G   T T   T T   G G   A A   G G   C C   C C   C C   T T
+206   T T   0 0   G G   C C   0 0   0 0   G G   0 0   C C   0 0   0 0   T T
+207   T T   T T   G G   T T   T T   G G   A A   G G   C C   C C   C C   T T
+208   T T   T T   G G   C C   T T   G G   A A   G G   C C   C C   C C   T T
+209   T T   T T   G G   T T   T T   G G   A A   G G   C C   C C   C C   T T
+210   T T   T T   G G   C C   T T   G G   A A   G G   C C   C C   C C   T T
+211   T T   T T   G G   C C   T T   G G   A A   G G   C C   C C   C C   T T
+212   T T   C C   G G   C C   T T   G G   A A   G G   C C   C C   C C   T T
+213   T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   C C   T T
+214   T T   T T   G G   C C   T T   A A   G G   G G   C C   C C   C C   T T
+215   T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   C C   T T
+216   T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   C C   T T
+217   T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   C C   T T
+218   T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   C C   T T
+219   T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   C C   T T
+220   T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   C C   T T
+221   T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   C C   T T
+222   T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   C C   T T
+223   T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   C C   T T
+224   T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   C C   T T
+225   T T   T T   0 0   C C   T T   G G   G G   G G   C C   C C   C C   T T
+226   T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   C C   T T
+227   T T   T T   A A   C C   T T   G G   G G   G G   C C   C C   C C   T T
+228   T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   C C   T T
+229   T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   C C   T T
+230   T T   T T   A A   C C   T T   G G   G G   G G   C C   C C   C C   T T
+231   T T   T T   A A   C C   T T   G G   G G   G G   C C   C C   C C   T T
+232   T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   C C   T T
+233   T T   T T   G G   C C   T T   A A   G G   G G   C C   C C   C C   T T
+234   T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   C C   T T
+235   0 0   T T   0 0   0 0   T T   A A   0 0   0 0   0 0   C C   0 0   0 0
+236   T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   C C   T T
+237   T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   C C   T T
+238   T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   C C   T T
+239   T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   C C   T T
+240   T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   C C   T T
+241   T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   C C   T T
+242   T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   T T   T T
+243   T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   C C   T T
+244   T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   C C   T T
+245   T T   T T   G G   C C   T T   A A   G G   G G   C C   C C   C C   T T
+246   T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   C C   T T
+247   T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   C C   T T
+248   T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   C C   T T
+249   T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   C C   T T
+250   T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   C C   T T
+251   T T   T T   A A   C C   T T   G G   G G   G G   C C   C C   C C   T T
+252   T T   T T   A A   C C   T T   G G   G G   G G   C C   C C   C C   T T
+253   T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   C C   T T
+254   T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   0 0   T T
+255   T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   0 0   T T
+256   T T   T T   A A   C C   T T   G G   G G   G G   C C   C C   C C   T T
+257   T T   T T   G G   C C   T T   A A   G G   G G   C C   C C   C C   T T
+258   T T   T T   G G   C C   T T   A A   G G   G G   C C   C C   C C   T T
+259   T T   T T   0 0   C C   T T   G G   G G   G G   C C   C C   C C   T T
+260   0 0   T T   0 0   0 0   T T   0 0   0 0   G G   0 0   C C   C C   0 0
+261   T T   T T   0 0   C C   T T   G G   G G   G G   C C   C C   0 0   T T
+262   0 0   T T   0 0   0 0   T T   0 0   0 0   G G   0 0   C C   C C   0 0
+263   T T   T T   A A   C C   T T   G G   G G   G G   C C   C C   C C   T T
+264   T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   C C   T T
+265   T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   C C   T T
+266   T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   C C   T T
+267   T T   T T   A A   C C   T T   G G   G G   G G   C C   C C   C C   T T
+268   T T   T T   G G   C C   T T   A A   G G   G G   C C   C C   C C   T T
+269   T T   T T   A A   C C   T T   G G   G G   G G   C C   C C   C C   T T
+270   T T   T T   G G   C C   T T   A A   G G   G G   C C   C C   C C   T T
+271   T T   T T   G G   C C   C C   G G   G G   G G   C C   C C   C C   T T
+272   T T   T T   G G   C C   T T   G G   G G   G G   C C   T T   T T   T T
+273   T T   T T   G G   C C   C C   G G   G G   G G   C C   C C   C C   T T
+274   T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   T T   T T
+275   T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   C C   T T
+276   T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   T T   T T
+277   T T   T T   G G   C C   T T   G G   G G   G G   C C   T T   C C   T T
+278   T T   T T   G G   C C   C C   G G   G G   G G   C C   C C   C C   T T
+279   T T   T T   G G   C C   T T   G G   G G   G G   C C   T T   C C   T T
+280   C C   T T   G G   C C   T T   G G   A A   G G   C C   C C   C C   T T
+281   C C   T T   G G   C C   T T   G G   A A   G G   C C   C C   C C   T T
+282   C C   T T   G G   C C   T T   G G   A A   G G   C C   C C   C C   T T
+283   T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   C C   T T
+284   T T   T T   G G   T T   T T   G G   A A   G G   C C   C C   C C   T T
+285   T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   C C   T T
+286   T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   T T   T T
+287   T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   C C   T T
+288   T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   T T   T T
+289   T T   T T   G G   C C   T T   G G   G G   G G   C C   T T   T T   T T
+290   T T   T T   G G   C C   0 0   G G   G G   G G   C C   C C   T T   T T
+291   T T   T T   G G   C C   T T   G G   G G   G G   C C   T T   T T   T T
+292   T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   T T   T T
+293   T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   T T   T T
+294   T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   T T   T T
+295   T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   T T   T T
+296   0 0   T T   0 0   0 0   T T   0 0   0 0   G G   0 0   C C   C C   0 0
+297   T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   T T   T T
+298   T T   T T   G G   C C   T T   G G   G G   G G   C C   T T   C C   T T
+299   T T   T T   G G   C C   C C   G G   G G   G G   C C   C C   C C   T T
+300   0 0   T T   0 0   0 0   T T   0 0   0 0   G G   0 0   T T   C C   0 0
+301   T T   T T   G G   C C   T T   0 0   G G   G G   C C   T T   C C   T T
+302   T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   C C   T T
+303   T T   T T   G G   C C   T T   G G   G G   G G   C C   T T   C C   T T
+304   T T   T T   G G   T T   T T   G G   A A   G G   C C   C C   C C   T T
+305   C C   T T   G G   C C   T T   G G   A A   G G   C C   C C   C C   T T
+306   T T   T T   G G   T T   T T   G G   A A   G G   C C   C C   C C   T T
+307   T T   T T   G G   T T   T T   G G   A A   G G   C C   C C   C C   T T
+308   T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   T T   T T
+309   T T   T T   G G   T T   T T   G G   A A   G G   C C   C C   C C   T T
+310   T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   T T   T T
+311   T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   C C   T T
+312   T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   T T   T T
+313   T T   T T   G G   C C   C C   G G   G G   G G   C C   C C   C C   T T
+314   C C   T T   G G   C C   T T   G G   A A   G G   C C   C C   C C   T T
+315   T T   T T   G G   C C   C C   G G   G G   G G   C C   C C   C C   T T
+316   T T   T T   G G   T T   T T   G G   A A   G G   C C   C C   C C   T T
+317   T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   T T   T T
+318   T T   T T   G G   T T   T T   G G   A A   G G   C C   C C   C C   T T
+319   T T   T T   G G   C C   T T   G G   G G   G G   C C   T T   C C   T T
+320   C C   T T   G G   C C   T T   G G   A A   G G   C C   C C   C C   T T
+321   T T   T T   G G   C C   T T   G G   G G   G G   C C   T T   C C   T T
+322   T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   C C   T T
+323   T T   T T   G G   T T   T T   G G   A A   G G   C C   C C   C C   T T
+324   T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   C C   T T
+325   T T   T T   G G   C C   T T   G G   G G   G G   C C   T T   T T   T T
+326   T T   T T   G G   C C   C C   G G   G G   G G   C C   C C   C C   T T
+327   T T   T T   G G   C C   T T   G G   G G   G G   C C   T T   T T   T T
+328   T T   T T   G G   T T   T T   G G   A A   G G   C C   C C   C C   T T
+329   T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   T T   T T
+330   T T   T T   G G   T T   T T   G G   A A   G G   C C   C C   C C   T T
+331   T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   T T   T T
+332   T T   C C   G G   T T   T T   G G   A A   G G   C C   C C   C C   T T
+333   T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   T T   T T
+334   T T   T T   G G   C C   T T   G G   G G   G G   C C   T T   C C   T T
+335   C C   T T   G G   C C   T T   G G   A A   G G   C C   C C   C C   T T
+336   T T   T T   G G   C C   T T   G G   G G   G G   C C   T T   C C   T T
+337   T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   C C   T T
+338   T T   T T   G G   C C   T T   G G   G G   G G   C C   T T   C C   T T
+339   T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   C C   T T
+340   C C   T T   G G   C C   T T   G G   A A   G G   C C   C C   C C   T T
+341   T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   T T   T T
+342   0 0   T T   0 0   0 0   T T   0 0   0 0   G G   0 0   C C   C C   0 0
+343   T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   C C   T T
+344   T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   C C   T T
+345   T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   C C   T T
+346   T T   0 0   G G   C C   C C   G G   G G   G G   C C   C C   C C   T T
+347   T T   T T   G G   C C   T T   G G   G G   G G   C C   T T   T T   T T
+348   0 0   0 0   0 0   0 0   C C   0 0   0 0   G G   0 0   C C   C C   0 0
+349   T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   T T   T T
+350   0 0   T T   0 0   0 0   T T   0 0   0 0   G G   0 0   C C   T T   0 0
+351   T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   T T   T T
+352   0 0   0 0   0 0   0 0   0 0   0 0   0 0   0 0   0 0   0 0   0 0   0 0
+353   C C   T T   G G   C C   T T   G G   A A   G G   C C   C C   C C   T T
+354   T T   T T   G G   C C   T T   G G   G G   G G   C C   T T   C C   T T
+355   C C   T T   G G   C C   T T   G G   A A   G G   C C   C C   C C   T T
+356   T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   T T   T T
+357   C C   T T   G G   C C   T T   G G   A A   G G   C C   C C   C C   T T
+358   T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   C C   T T
+359   T T   T T   G G   C C   T T   G G   G G   G G   C C   T T   C C   T T
+360   T T   T T   G G   C C   T T   G G   G G   G G   C C   C C   C C   T T
+    16316 16362 16390 16391
+1     G G   C C   G G   G G
+2     G G   C C   G G   G G
+3     G G   T T   G G   G G
+4     G G   T T   G G   G G
+5     G G   T T   G G   G G
+6     G G   T T   G G   G G
+7     G G   C C   G G   G G
+8     G G   T T   G G   G G
+9     G G   T T   G G   G G
+10    G G   T T   G G   G G
+11    G G   T T   G G   G G
+12    G G   T T   G G   G G
+13    G G   T T   G G   G G
+14    G G   T T   G G   G G
+15    G G   T T   G G   G G
+16    G G   T T   G G   G G
+17    G G   T T   G G   G G
+18    G G   T T   G G   G G
+19    G G   T T   G G   G G
+20    G G   T T   G G   G G
+21    G G   T T   G G   G G
+22    G G   T T   G G   G G
+23    G G   T T   G G   G G
+24    G G   T T   G G   G G
+25    G G   T T   G G   G G
+26    G G   T T   G G   G G
+27    G G   T T   G G   G G
+28    G G   T T   G G   G G
+29    G G   T T   G G   G G
+30    G G   T T   G G   G G
+31    G G   T T   G G   G G
+32    G G   T T   G G   G G
+33    G G   T T   G G   G G
+34    G G   T T   G G   G G
+35    G G   T T   G G   G G
+36    G G   T T   G G   G G
+37    G G   T T   G G   G G
+38    G G   C C   G G   G G
+39    G G   T T   G G   G G
+40    G G   T T   G G   G G
+41    G G   T T   G G   G G
+42    G G   T T   G G   G G
+43    G G   T T   G G   G G
+44    G G   T T   G G   G G
+45    G G   T T   G G   G G
+46    G G   T T   G G   G G
+47    G G   T T   G G   G G
+48    G G   T T   G G   G G
+49    G G   T T   G G   G G
+50    G G   C C   G G   G G
+51    G G   T T   G G   G G
+52    G G   T T   G G   0 0
+53    G G   T T   G G   G G
+54    G G   T T   G G   G G
+55    G G   T T   G G   G G
+56    G G   C C   G G   G G
+57    G G   T T   G G   G G
+58    G G   T T   G G   G G
+59    G G   T T   G G   G G
+60    G G   T T   G G   G G
+61    G G   T T   G G   G G
+62    G G   T T   G G   G G
+63    G G   T T   G G   G G
+64    G G   T T   G G   G G
+65    G G   T T   G G   G G
+66    G G   T T   G G   G G
+67    G G   T T   G G   G G
+68    G G   T T   G G   G G
+69    G G   T T   G G   G G
+70    G G   T T   G G   G G
+71    G G   T T   G G   G G
+72    G G   T T   G G   G G
+73    G G   T T   G G   G G
+74    G G   C C   G G   G G
+75    G G   T T   G G   G G
+76    G G   T T   G G   G G
+77    G G   T T   G G   G G
+78    G G   T T   G G   G G
+79    G G   T T   G G   G G
+80    G G   T T   G G   G G
+81    G G   T T   G G   G G
+82    G G   T T   G G   G G
+83    G G   C C   G G   G G
+84    G G   T T   G G   G G
+85    G G   T T   G G   G G
+86    A A   T T   G G   G G
+87    G G   C C   G G   G G
+88    G G   T T   G G   G G
+89    G G   T T   G G   G G
+90    G G   T T   G G   0 0
+91    G G   T T   G G   G G
+92    G G   T T   G G   G G
+93    G G   T T   G G   G G
+94    G G   T T   0 0   G G
+95    G G   0 0   G G   G G
+96    G G   T T   0 0   G G
+97    G G   C C   G G   G G
+98    G G   T T   G G   G G
+99    G G   0 0   G G   G G
+100   G G   T T   A A   G G
+101   G G   T T   A A   G G
+102   G G   T T   A A   G G
+103   G G   T T   A A   G G
+104   G G   C C   0 0   G G
+105   G G   T T   0 0   G G
+106   G G   C C   G G   G G
+107   G G   C C   G G   G G
+108   G G   T T   G G   G G
+109   G G   C C   G G   G G
+110   G G   T T   G G   G G
+111   A A   C C   G G   G G
+112   G G   T T   G G   G G
+113   G G   T T   G G   G G
+114   G G   T T   G G   G G
+115   G G   T T   G G   G G
+116   G G   T T   G G   G G
+117   G G   T T   A A   G G
+118   G G   C C   G G   G G
+119   G G   T T   G G   G G
+120   G G   C C   G G   G G
+121   G G   T T   G G   G G
+122   G G   T T   A A   G G
+123   G G   T T   G G   G G
+124   G G   C C   G G   G G
+125   G G   C C   G G   G G
+126   A A   C C   A A   G G
+127   G G   C C   G G   G G
+128   G G   C C   G G   G G
+129   G G   T T   G G   G G
+130   A A   C C   G G   G G
+131   G G   T T   G G   G G
+132   G G   0 0   G G   G G
+133   G G   C C   G G   G G
+134   G G   C C   G G   G G
+135   G G   T T   G G   G G
+136   G G   C C   A A   G G
+137   G G   T T   G G   G G
+138   G G   T T   G G   G G
+139   A A   T T   G G   G G
+140   G G   T T   G G   G G
+141   G G   T T   G G   G G
+142   0 0   C C   G G   G G
+143   G G   T T   G G   G G
+144   G G   C C   G G   G G
+145   G G   T T   G G   G G
+146   A A   C C   G G   G G
+147   G G   T T   G G   G G
+148   G G   0 0   G G   G G
+149   G G   T T   G G   G G
+150   G G   C C   G G   G G
+151   G G   C C   G G   G G
+152   G G   T T   G G   G G
+153   G G   C C   G G   G G
+154   G G   0 0   G G   G G
+155   G G   T T   A A   G G
+156   G G   T T   G G   G G
+157   G G   C C   G G   G G
+158   G G   T T   A A   G G
+159   G G   0 0   G G   G G
+160   G G   0 0   G G   G G
+161   G G   T T   G G   G G
+162   G G   0 0   G G   G G
+163   G G   T T   0 0   G G
+164   G G   0 0   G G   G G
+165   G G   T T   0 0   G G
+166   G G   T T   A A   G G
+167   G G   0 0   0 0   G G
+168   0 0   0 0   0 0   G G
+169   G G   T T   G G   G G
+170   G G   T T   G G   G G
+171   G G   T T   G G   G G
+172   G G   0 0   G G   G G
+173   G G   C C   G G   G G
+174   G G   T T   G G   G G
+175   G G   T T   G G   G G
+176   G G   T T   G G   G G
+177   G G   C C   G G   G G
+178   G G   T T   G G   G G
+179   G G   T T   G G   G G
+180   0 0   0 0   0 0   G G
+181   G G   C C   G G   G G
+182   G G   T T   G G   G G
+183   G G   T T   G G   G G
+184   A A   T T   G G   G G
+185   G G   T T   G G   G G
+186   G G   C C   G G   G G
+187   G G   C C   G G   G G
+188   G G   C C   G G   G G
+189   G G   C C   G G   G G
+190   G G   T T   G G   G G
+191   G G   T T   G G   G G
+192   G G   C C   G G   G G
+193   G G   T T   G G   G G
+194   G G   T T   G G   G G
+195   G G   T T   G G   G G
+196   G G   T T   G G   G G
+197   G G   C C   G G   G G
+198   G G   C C   G G   G G
+199   G G   C C   G G   G G
+200   G G   C C   G G   G G
+201   G G   C C   G G   G G
+202   G G   T T   G G   G G
+203   G G   C C   G G   G G
+204   A A   T T   G G   G G
+205   G G   C C   G G   G G
+206   G G   T T   G G   G G
+207   G G   C C   G G   G G
+208   G G   T T   G G   G G
+209   G G   C C   G G   G G
+210   G G   C C   G G   G G
+211   G G   T T   G G   G G
+212   G G   C C   G G   G G
+213   A A   T T   G G   G G
+214   G G   T T   G G   G G
+215   G G   T T   0 0   G G
+216   G G   T T   A A   G G
+217   G G   T T   G G   G G
+218   G G   T T   A A   G G
+219   G G   T T   0 0   G G
+220   G G   0 0   0 0   G G
+221   G G   T T   A A   G G
+222   G G   T T   0 0   G G
+223   G G   T T   0 0   G G
+224   G G   C C   G G   G G
+225   G G   T T   0 0   G G
+226   G G   T T   0 0   G G
+227   G G   T T   G G   G G
+228   G G   T T   0 0   G G
+229   G G   T T   0 0   G G
+230   G G   T T   G G   G G
+231   G G   T T   G G   G G
+232   G G   T T   G G   G G
+233   G G   T T   G G   G G
+234   G G   T T   G G   G G
+235   0 0   C C   G G   G G
+236   G G   T T   G G   G G
+237   G G   T T   0 0   G G
+238   G G   C C   G G   G G
+239   G G   C C   0 0   G G
+240   G G   0 0   G G   G G
+241   G G   T T   0 0   G G
+242   G G   T T   G G   G G
+243   G G   T T   0 0   G G
+244   G G   T T   G G   G G
+245   G G   T T   G G   G G
+246   G G   T T   G G   G G
+247   G G   T T   G G   G G
+248   G G   T T   G G   G G
+249   G G   T T   G G   G G
+250   G G   T T   A A   G G
+251   G G   T T   G G   G G
+252   G G   T T   G G   G G
+253   G G   T T   G G   G G
+254   G G   T T   0 0   G G
+255   G G   T T   0 0   G G
+256   G G   T T   G G   G G
+257   G G   T T   G G   G G
+258   G G   T T   G G   G G
+259   G G   T T   G G   G G
+260   G G   0 0   G G   G G
+261   G G   T T   0 0   G G
+262   G G   0 0   A A   G G
+263   G G   T T   G G   G G
+264   G G   C C   0 0   G G
+265   G G   0 0   G G   G G
+266   G G   C C   G G   G G
+267   G G   T T   G G   G G
+268   G G   T T   G G   G G
+269   G G   T T   0 0   G G
+270   G G   T T   G G   G G
+271   G G   T T   G G   0 0
+272   G G   T T   G G   G G
+273   G G   T T   G G   G G
+274   A A   C C   G G   G G
+275   G G   T T   G G   G G
+276   A A   C C   G G   G G
+277   G G   T T   G G   G G
+278   G G   T T   G G   G G
+279   G G   T T   G G   G G
+280   G G   T T   G G   G G
+281   G G   T T   G G   G G
+282   G G   T T   G G   G G
+283   A A   C C   G G   G G
+284   G G   C C   G G   G G
+285   A A   C C   G G   G G
+286   A A   C C   G G   G G
+287   A A   C C   G G   G G
+288   A A   C C   G G   G G
+289   G G   T T   G G   G G
+290   0 0   0 0   G G   G G
+291   G G   T T   G G   G G
+292   A A   C C   A A   G G
+293   A A   C C   G G   G G
+294   A A   C C   A A   G G
+295   A A   C C   A A   G G
+296   A A   0 0   G G   G G
+297   A A   C C   A A   G G
+298   G G   T T   G G   G G
+299   G G   T T   G G   0 0
+300   G G   0 0   G G   G G
+301   G G   T T   G G   G G
+302   A A   C C   G G   G G
+303   G G   T T   G G   G G
+304   G G   C C   G G   G G
+305   G G   C C   G G   G G
+306   G G   C C   0 0   G G
+307   G G   C C   G G   G G
+308   G G   C C   G G   G G
+309   G G   C C   G G   G G
+310   A A   C C   G G   G G
+311   A A   C C   G G   G G
+312   A A   C C   G G   G G
+313   G G   T T   G G   G G
+314   G G   T T   G G   G G
+315   G G   T T   G G   G G
+316   G G   C C   G G   G G
+317   A A   C C   G G   G G
+318   G G   C C   G G   0 0
+319   G G   T T   G G   G G
+320   G G   T T   G G   G G
+321   G G   T T   G G   G G
+322   A A   C C   G G   G G
+323   G G   C C   G G   G G
+324   A A   C C   G G   G G
+325   G G   T T   G G   G G
+326   G G   T T   G G   0 0
+327   G G   T T   G G   G G
+328   G G   C C   G G   G G
+329   A A   C C   G G   G G
+330   G G   C C   G G   G G
+331   A A   C C   G G   G G
+332   G G   C C   G G   G G
+333   A A   C C   G G   G G
+334   G G   T T   G G   G G
+335   G G   T T   G G   G G
+336   G G   T T   G G   G G
+337   A A   C C   G G   G G
+338   G G   T T   G G   G G
+339   A A   C C   G G   G G
+340   G G   T T   G G   G G
+341   A A   C C   G G   G G
+342   G G   0 0   G G   G G
+343   G G   T T   G G   G G
+344   A A   C C   G G   G G
+345   G G   T T   G G   G G
+346   G G   T T   G G   G G
+347   G G   T T   G G   G G
+348   G G   0 0   G G   G G
+349   A A   C C   G G   G G
+350   A A   0 0   G G   G G
+351   A A   C C   G G   G G
+352   0 0   0 0   0 0   G G
+353   G G   T T   G G   G G
+354   G G   T T   G G   G G
+355   G G   T T   G G   G G
+356   A A   C C   G G   G G
+357   G G   T T   G G   G G
+358   A A   C C   G G   G G
+359   G G   T T   G G   G G
+360   A A   C C   G G   G G
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("generate_snp_data", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> ### * <FOOTER>
+> ###
+> options(digits = 7L)
+> base::cat("Time elapsed: ", proc.time() - base::get("ptime", pos = 'CheckExEnv'),"\n")
+Time elapsed:  0.373 0.092 0.465 0 0 
+> grDevices::dev.off()
+null device 
+          1 
+> ###
+> ### Local variables: ***
+> ### mode: outline-minor ***
+> ### outline-regexp: "\\(> \\)?### [*]+" ***
+> ### End: ***
+> quit('no')

@@ -1,0 +1,123 @@
+---
+title: "Hi-MC: Example Analysis"
+author: "Nicholas R. Wheeler, Sandra Smieszek, Dana Crawford"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{2 - Example Analysis}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\usepackage[utf8]{inputenc}
+---
+# Example Analysis
+
+### Introduction
+
+This vignette contains an example **HiMC** analysis using demonstration data files.
+
+SNP information is loaded from standard *.map* and *.ped* files, and expected classification outcomes are loaded from an independantly generated *.csv* file.
+The **HiMC** package is used to rapidly classify the samples into mitochondrial haplogroups, and the results are checked against the expected outcomes.
+
+Finally, standard R functions and plotting methods are used to visualize and further explore the results.
+
+### Loading Data
+
+First, we load the SNP data from standard *.map* and *.ped* files.
+
+The paths to these files are declared using the `system.file()` function, which retrieves file paths relative to a package installation location.
+
+Defining known local file paths directly as strings would also work.
+
+```{r, message=FALSE, warning=FALSE}
+# Call library() to load the package
+library("HiMC")
+
+# Get file paths to .map and .ped files
+map_file_path <- system.file("extdata", "1000g_MT_HIMC.map", package="HiMC")
+ped_file_path <- system.file("extdata", "1000g_MT_HIMC.ped", package="HiMC")
+
+# Use file paths to input the .map and .ped files
+snp_data_frame <- HiMC::generate_snp_data(map_file_path,ped_file_path)
+```
+
+The expected classification outcomes are accessed and loaded into the session similarly.
+
+```{r, message=FALSE, warning=FALSE}
+# Get the file path to the .csv file of expected results
+exp_file_path <- system.file("extdata", "1000g_MT_HiMC_classifications.csv", package="HiMC")
+
+# Use the file path to load the expected results as a dataframe
+exp_data_frame <- read.csv(exp_file_path)
+```
+
+The relative sizes of the dataframes give an idea of how things are going so far.
+
+```{r, message=FALSE, warning=FALSE}
+# Retrieve dataframe dimensions
+snp_dims <- dim(snp_data_frame)
+exp_dims <- dim(exp_data_frame)
+
+# Report dataframe dimensions
+cat("Size of SNP dataframe:\n rows:",snp_dims[1],"\n cols:",snp_dims[2],"\n",
+  "Size of EXP dataframe:\n rows:",exp_dims[1],"\n cols:",exp_dims[2],sep="")
+```
+
+The number of rows (samples) in the two dataframes is a match.
+
+So far, so good!
+
+### HiMC Analysis
+
+Next, we use run the classifier on the SNP dataframe:
+
+```{r, message=FALSE, warning=FALSE}
+# Get the HiMC mitochondrial haplogroup classifications
+classifications <- HiMC::getClassifications(snp_data_frame)
+```
+
+This dataframe of classification results should be identical to the expected results dataframe.
+
+```{r, message=FALSE, warning=FALSE}
+# Generate dataframe of comparative bools
+comparison <- exp_data_frame==classifications
+
+# Display some comparative bool information
+print(head(comparison))
+# How many fields are in conflict?
+print(length(which(comparison==FALSE)))
+```
+
+They are a perfect match, excellent!
+
+### Exploring the Results
+
+Now we can use some standard R functions and plotting methods to further explore and visualize the results.
+
+First let's count the number of unique mitochondrial haplogroups.
+
+```{r, message=FALSE, warning=FALSE}
+# Extract haplogroups as a vector
+haplogroups <- classifications[,"haplogroup"]
+
+# Display the number of unique haplogroups
+print(length(unique(haplogroups)))
+```
+
+The samples have been classified into 36 unique mitochondrial haplogroups by **HiMC**!
+
+Next, let's use a barplot to visualize the proportion of samples in each of the 36 haplogroups.
+
+```{r, message=FALSE, warning=FALSE, fig.width=7, fig.height=4}
+# Get the descending order of the proportion groups
+desc_order <- rev(order(prop.table(table(haplogroups))))
+
+# Make a barplot of the sample proportions in descending order
+barplot(prop.table(table(haplogroups))[desc_order],las=2)
+```
+
+The most populated haplogroup is 'M', and very few of the samples are unclassified.
+
+Awesome!
+
+
+
+

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name="author" content="Nicholas R. Wheeler, Sandra Smieszek, Dana Crawford" />
+
+<meta name="date" content="2018-05-22" />
+
+<title>Hi-MC: Example Analysis</title>
+
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+
+
+<link href="data:text/css;charset=utf-8,body%20%7B%0Abackground%2Dcolor%3A%20%23fff%3B%0Amargin%3A%201em%20auto%3B%0Amax%2Dwidth%3A%20700px%3B%0Aoverflow%3A%20visible%3B%0Apadding%2Dleft%3A%202em%3B%0Apadding%2Dright%3A%202em%3B%0Afont%2Dfamily%3A%20%22Open%20Sans%22%2C%20%22Helvetica%20Neue%22%2C%20Helvetica%2C%20Arial%2C%20sans%2Dserif%3B%0Afont%2Dsize%3A%2014px%3B%0Aline%2Dheight%3A%201%2E35%3B%0A%7D%0A%23header%20%7B%0Atext%2Dalign%3A%20center%3B%0A%7D%0A%23TOC%20%7B%0Aclear%3A%20both%3B%0Amargin%3A%200%200%2010px%2010px%3B%0Apadding%3A%204px%3B%0Awidth%3A%20400px%3B%0Aborder%3A%201px%20solid%20%23CCCCCC%3B%0Aborder%2Dradius%3A%205px%3B%0Abackground%2Dcolor%3A%20%23f6f6f6%3B%0Afont%2Dsize%3A%2013px%3B%0Aline%2Dheight%3A%201%2E3%3B%0A%7D%0A%23TOC%20%2Etoctitle%20%7B%0Afont%2Dweight%3A%20bold%3B%0Afont%2Dsize%3A%2015px%3B%0Amargin%2Dleft%3A%205px%3B%0A%7D%0A%23TOC%20ul%20%7B%0Apadding%2Dleft%3A%2040px%3B%0Amargin%2Dleft%3A%20%2D1%2E5em%3B%0Amargin%2Dtop%3A%205px%3B%0Amargin%2Dbottom%3A%205px%3B%0A%7D%0A%23TOC%20ul%20ul%20%7B%0Amargin%2Dleft%3A%20%2D2em%3B%0A%7D%0A%23TOC%20li%20%7B%0Aline%2Dheight%3A%2016px%3B%0A%7D%0Atable%20%7B%0Amargin%3A%201em%20auto%3B%0Aborder%2Dwidth%3A%201px%3B%0Aborder%2Dcolor%3A%20%23DDDDDD%3B%0Aborder%2Dstyle%3A%20outset%3B%0Aborder%2Dcollapse%3A%20collapse%3B%0A%7D%0Atable%20th%20%7B%0Aborder%2Dwidth%3A%202px%3B%0Apadding%3A%205px%3B%0Aborder%2Dstyle%3A%20inset%3B%0A%7D%0Atable%20td%20%7B%0Aborder%2Dwidth%3A%201px%3B%0Aborder%2Dstyle%3A%20inset%3B%0Aline%2Dheight%3A%2018px%3B%0Apadding%3A%205px%205px%3B%0A%7D%0Atable%2C%20table%20th%2C%20table%20td%20%7B%0Aborder%2Dleft%2Dstyle%3A%20none%3B%0Aborder%2Dright%2Dstyle%3A%20none%3B%0A%7D%0Atable%20thead%2C%20table%20tr%2Eeven%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0A%7D%0Ap%20%7B%0Amargin%3A%200%2E5em%200%3B%0A%7D%0Ablockquote%20%7B%0Abackground%2Dcolor%3A%20%23f6f6f6%3B%0Apadding%3A%200%2E25em%200%2E75em%3B%0A%7D%0Ahr%20%7B%0Aborder%2Dstyle%3A%20solid%3B%0Aborder%3A%20none%3B%0Aborder%2Dtop%3A%201px%20solid%20%23777%3B%0Amargin%3A%2028px%200%3B%0A%7D%0Adl%20%7B%0Amargin%2Dleft%3A%200%3B%0A%7D%0Adl%20dd%20%7B%0Amargin%2Dbottom%3A%2013px%3B%0Amargin%2Dleft%3A%2013px%3B%0A%7D%0Adl%20dt%20%7B%0Afont%2Dweight%3A%20bold%3B%0A%7D%0Aul%20%7B%0Amargin%2Dtop%3A%200%3B%0A%7D%0Aul%20li%20%7B%0Alist%2Dstyle%3A%20circle%20outside%3B%0A%7D%0Aul%20ul%20%7B%0Amargin%2Dbottom%3A%200%3B%0A%7D%0Apre%2C%20code%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0Aborder%2Dradius%3A%203px%3B%0Acolor%3A%20%23333%3B%0Awhite%2Dspace%3A%20pre%2Dwrap%3B%20%0A%7D%0Apre%20%7B%0Aborder%2Dradius%3A%203px%3B%0Amargin%3A%205px%200px%2010px%200px%3B%0Apadding%3A%2010px%3B%0A%7D%0Apre%3Anot%28%5Bclass%5D%29%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0A%7D%0Acode%20%7B%0Afont%2Dfamily%3A%20Consolas%2C%20Monaco%2C%20%27Courier%20New%27%2C%20monospace%3B%0Afont%2Dsize%3A%2085%25%3B%0A%7D%0Ap%20%3E%20code%2C%20li%20%3E%20code%20%7B%0Apadding%3A%202px%200px%3B%0A%7D%0Adiv%2Efigure%20%7B%0Atext%2Dalign%3A%20center%3B%0A%7D%0Aimg%20%7B%0Abackground%2Dcolor%3A%20%23FFFFFF%3B%0Apadding%3A%202px%3B%0Aborder%3A%201px%20solid%20%23DDDDDD%3B%0Aborder%2Dradius%3A%203px%3B%0Aborder%3A%201px%20solid%20%23CCCCCC%3B%0Amargin%3A%200%205px%3B%0A%7D%0Ah1%20%7B%0Amargin%2Dtop%3A%200%3B%0Afont%2Dsize%3A%2035px%3B%0Aline%2Dheight%3A%2040px%3B%0A%7D%0Ah2%20%7B%0Aborder%2Dbottom%3A%204px%20solid%20%23f7f7f7%3B%0Apadding%2Dtop%3A%2010px%3B%0Apadding%2Dbottom%3A%202px%3B%0Afont%2Dsize%3A%20145%25%3B%0A%7D%0Ah3%20%7B%0Aborder%2Dbottom%3A%202px%20solid%20%23f7f7f7%3B%0Apadding%2Dtop%3A%2010px%3B%0Afont%2Dsize%3A%20120%25%3B%0A%7D%0Ah4%20%7B%0Aborder%2Dbottom%3A%201px%20solid%20%23f7f7f7%3B%0Amargin%2Dleft%3A%208px%3B%0Afont%2Dsize%3A%20105%25%3B%0A%7D%0Ah5%2C%20h6%20%7B%0Aborder%2Dbottom%3A%201px%20solid%20%23ccc%3B%0Afont%2Dsize%3A%20105%25%3B%0A%7D%0Aa%20%7B%0Acolor%3A%20%230033dd%3B%0Atext%2Ddecoration%3A%20none%3B%0A%7D%0Aa%3Ahover%20%7B%0Acolor%3A%20%236666ff%3B%20%7D%0Aa%3Avisited%20%7B%0Acolor%3A%20%23800080%3B%20%7D%0Aa%3Avisited%3Ahover%20%7B%0Acolor%3A%20%23BB00BB%3B%20%7D%0Aa%5Bhref%5E%3D%22http%3A%22%5D%20%7B%0Atext%2Ddecoration%3A%20underline%3B%20%7D%0Aa%5Bhref%5E%3D%22https%3A%22%5D%20%7B%0Atext%2Ddecoration%3A%20underline%3B%20%7D%0A%0Acode%20%3E%20span%2Ekw%20%7B%20color%3A%20%23555%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Edt%20%7B%20color%3A%20%23902000%3B%20%7D%20%0Acode%20%3E%20span%2Edv%20%7B%20color%3A%20%2340a070%3B%20%7D%20%0Acode%20%3E%20span%2Ebn%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Efl%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Ech%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Est%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Eco%20%7B%20color%3A%20%23888888%3B%20font%2Dstyle%3A%20italic%3B%20%7D%20%0Acode%20%3E%20span%2Eot%20%7B%20color%3A%20%23007020%3B%20%7D%20%0Acode%20%3E%20span%2Eal%20%7B%20color%3A%20%23ff0000%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Efu%20%7B%20color%3A%20%23900%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%20code%20%3E%20span%2Eer%20%7B%20color%3A%20%23a61717%3B%20background%2Dcolor%3A%20%23e3d2d2%3B%20%7D%20%0A" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body>
+
+
+
+
+<h1 class="title toc-ignore">Hi-MC: Example Analysis</h1>
+<h4 class="author"><em>Nicholas R. Wheeler, Sandra Smieszek, Dana Crawford</em></h4>
+<h4 class="date"><em>2018-05-22</em></h4>
+
+
+
+<div id="example-analysis" class="section level1">
+<h1>Example Analysis</h1>
+<div id="introduction" class="section level3">
+<h3>Introduction</h3>
+<p>This vignette contains an example <strong>HiMC</strong> analysis using demonstration data files.</p>
+<p>SNP information is loaded from standard <em>.map</em> and <em>.ped</em> files, and expected classification outcomes are loaded from an independantly generated <em>.csv</em> file. The <strong>HiMC</strong> package is used to rapidly classify the samples into mitochondrial haplogroups, and the results are checked against the expected outcomes.</p>
+<p>Finally, standard R functions and plotting methods are used to visualize and further explore the results.</p>
+</div>
+<div id="loading-data" class="section level3">
+<h3>Loading Data</h3>
+<p>First, we load the SNP data from standard <em>.map</em> and <em>.ped</em> files.</p>
+<p>The paths to these files are declared using the <code>system.file()</code> function, which retrieves file paths relative to a package installation location.</p>
+<p>Defining known local file paths directly as strings would also work.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Call library() to load the package</span>
+<span class="kw">library</span>(<span class="st">&quot;HiMC&quot;</span>)
+
+<span class="co"># Get file paths to .map and .ped files</span>
+map_file_path &lt;-<span class="st"> </span><span class="kw">system.file</span>(<span class="st">&quot;extdata&quot;</span>, <span class="st">&quot;1000g_MT_HIMC.map&quot;</span>, <span class="dt">package=</span><span class="st">&quot;HiMC&quot;</span>)
+ped_file_path &lt;-<span class="st"> </span><span class="kw">system.file</span>(<span class="st">&quot;extdata&quot;</span>, <span class="st">&quot;1000g_MT_HIMC.ped&quot;</span>, <span class="dt">package=</span><span class="st">&quot;HiMC&quot;</span>)
+
+<span class="co"># Use file paths to input the .map and .ped files</span>
+snp_data_frame &lt;-<span class="st"> </span>HiMC<span class="op">::</span><span class="kw">generate_snp_data</span>(map_file_path,ped_file_path)</code></pre></div>
+<p>The expected classification outcomes are accessed and loaded into the session similarly.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Get the file path to the .csv file of expected results</span>
+exp_file_path &lt;-<span class="st"> </span><span class="kw">system.file</span>(<span class="st">&quot;extdata&quot;</span>, <span class="st">&quot;1000g_MT_HiMC_classifications.csv&quot;</span>, <span class="dt">package=</span><span class="st">&quot;HiMC&quot;</span>)
+
+<span class="co"># Use the file path to load the expected results as a dataframe</span>
+exp_data_frame &lt;-<span class="st"> </span><span class="kw">read.csv</span>(exp_file_path)</code></pre></div>
+<p>The relative sizes of the dataframes give an idea of how things are going so far.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Retrieve dataframe dimensions</span>
+snp_dims &lt;-<span class="st"> </span><span class="kw">dim</span>(snp_data_frame)
+exp_dims &lt;-<span class="st"> </span><span class="kw">dim</span>(exp_data_frame)
+
+<span class="co"># Report dataframe dimensions</span>
+<span class="kw">cat</span>(<span class="st">&quot;Size of SNP dataframe:</span><span class="ch">\n</span><span class="st"> rows:&quot;</span>,snp_dims[<span class="dv">1</span>],<span class="st">&quot;</span><span class="ch">\n</span><span class="st"> cols:&quot;</span>,snp_dims[<span class="dv">2</span>],<span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>,
+  <span class="st">&quot;Size of EXP dataframe:</span><span class="ch">\n</span><span class="st"> rows:&quot;</span>,exp_dims[<span class="dv">1</span>],<span class="st">&quot;</span><span class="ch">\n</span><span class="st"> cols:&quot;</span>,exp_dims[<span class="dv">2</span>],<span class="dt">sep=</span><span class="st">&quot;&quot;</span>)</code></pre></div>
+<pre><code>## Size of SNP dataframe:
+##  rows:2534
+##  cols:67
+## Size of EXP dataframe:
+##  rows:2534
+##  cols:3</code></pre>
+<p>The number of rows (samples) in the two dataframes is a match.</p>
+<p>So far, so good!</p>
+</div>
+<div id="himc-analysis" class="section level3">
+<h3>HiMC Analysis</h3>
+<p>Next, we use run the classifier on the SNP dataframe:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Get the HiMC mitochondrial haplogroup classifications</span>
+classifications &lt;-<span class="st"> </span>HiMC<span class="op">::</span><span class="kw">getClassifications</span>(snp_data_frame)</code></pre></div>
+<p>This dataframe of classification results should be identical to the expected results dataframe.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Generate dataframe of comparative bools</span>
+comparison &lt;-<span class="st"> </span>exp_data_frame<span class="op">==</span>classifications
+
+<span class="co"># Display some comparative bool information</span>
+<span class="kw">print</span>(<span class="kw">head</span>(comparison))</code></pre></div>
+<pre><code>##      Individual full_path haplogroup
+## [1,]       TRUE      TRUE       TRUE
+## [2,]       TRUE      TRUE       TRUE
+## [3,]       TRUE      TRUE       TRUE
+## [4,]       TRUE      TRUE       TRUE
+## [5,]       TRUE      TRUE       TRUE
+## [6,]       TRUE      TRUE       TRUE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># How many fields are in conflict?</span>
+<span class="kw">print</span>(<span class="kw">length</span>(<span class="kw">which</span>(comparison<span class="op">==</span><span class="ot">FALSE</span>)))</code></pre></div>
+<pre><code>## [1] 0</code></pre>
+<p>They are a perfect match, excellent!</p>
+</div>
+<div id="exploring-the-results" class="section level3">
+<h3>Exploring the Results</h3>
+<p>Now we can use some standard R functions and plotting methods to further explore and visualize the results.</p>
+<p>First let’s count the number of unique mitochondrial haplogroups.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Extract haplogroups as a vector</span>
+haplogroups &lt;-<span class="st"> </span>classifications[,<span class="st">&quot;haplogroup&quot;</span>]
+
+<span class="co"># Display the number of unique haplogroups</span>
+<span class="kw">print</span>(<span class="kw">length</span>(<span class="kw">unique</span>(haplogroups)))</code></pre></div>
+<pre><code>## [1] 36</code></pre>
+<p>The samples have been classified into 36 unique mitochondrial haplogroups by <strong>HiMC</strong>!</p>
+<p>Next, let’s use a barplot to visualize the proportion of samples in each of the 36 haplogroups.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Get the descending order of the proportion groups</span>
+desc_order &lt;-<span class="st"> </span><span class="kw">rev</span>(<span class="kw">order</span>(<span class="kw">prop.table</span>(<span class="kw">table</span>(haplogroups))))
+
+<span class="co"># Make a barplot of the sample proportions in descending order</span>
+<span class="kw">barplot</span>(<span class="kw">prop.table</span>(<span class="kw">table</span>(haplogroups))[desc_order],<span class="dt">las=</span><span class="dv">2</span>)</code></pre></div>
+<p><img src="data:image/png;base64,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" /><!-- --></p>
+<p>The most populated haplogroup is ‘M’, and very few of the samples are unclassified.</p>
+<p>Awesome!</p>
+</div>
+</div>
+
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

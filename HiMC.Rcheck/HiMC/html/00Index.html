@@ -1,0 +1,153 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>R: High-Throughput Mitochondrial Haplogroup Classification</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+<h1> High-Throughput Mitochondrial Haplogroup Classification
+<img class="toplogo" src="../../../doc/html/Rlogo.svg" alt="[R logo]" />
+</h1>
+<hr/>
+<div style="text-align: center;">
+<a href="../../../doc/html/packages.html"><img class="arrow" src="../../../doc/html/left.jpg" alt="[Up]" /></a>
+<a href="../../../doc/html/index.html"><img class="arrow" src="../../../doc/html/up.jpg" alt="[Top]" /></a>
+</div><h2>Documentation for package &lsquo;HiMC&rsquo; version 0.1.1.4</h2>
+
+<ul><li><a href="../DESCRIPTION">DESCRIPTION file</a>.</li>
+<li><a href="../doc/index.html">User guides, package vignettes and other documentation.</a></li>
+</ul>
+
+<h2>Help Pages</h2>
+
+
+<table width="100%">
+<tr><td style="width: 25%;"><a href="generate_snp_data.html">generate_snp_data</a></td>
+<td>SNP Data Generator</td></tr>
+<tr><td style="width: 25%;"><a href="getAllPaths.html">getAllPaths</a></td>
+<td>Path Generator</td></tr>
+<tr><td style="width: 25%;"><a href="getClassifications.html">getClassifications</a></td>
+<td>getClassifications output generator</td></tr>
+<tr><td style="width: 25%;"><a href="getFinalPathList.html">getFinalPathList</a></td>
+<td>getFinalPathList internal function</td></tr>
+<tr><td style="width: 25%;"><a href="getGroupFromPath.html">getGroupFromPath</a></td>
+<td>getFinalPathList internal function</td></tr>
+<tr><td style="width: 25%;"><a href="getPathList.html">getPathList</a></td>
+<td>getPathList internal function</td></tr>
+<tr><td style="width: 25%;"><a href="maybeNode-class.html">maybeNode</a></td>
+<td>A class to represent a maybe-node.</td></tr>
+<tr><td style="width: 25%;"><a href="maybeNode-class.html">maybeNode-class</a></td>
+<td>A class to represent a maybe-node.</td></tr>
+<tr><td style="width: 25%;"><a href="missingSnps.html">missingSnps</a></td>
+<td>validData boolean check</td></tr>
+<tr><td style="width: 25%;"><a href="node-class.html">node</a></td>
+<td>A class to represent a node.</td></tr>
+<tr><td style="width: 25%;"><a href="node-class.html">node-class</a></td>
+<td>A class to represent a node.</td></tr>
+<tr><td style="width: 25%;"><a href="node_a.html">node_a</a></td>
+<td>A node node_a.</td></tr>
+<tr><td style="width: 25%;"><a href="node_a2.html">node_a2</a></td>
+<td>A node node_a2.</td></tr>
+<tr><td style="width: 25%;"><a href="node_b2.html">node_b2</a></td>
+<td>A node node_b2.</td></tr>
+<tr><td style="width: 25%;"><a href="node_b4bde.html">node_b4bde</a></td>
+<td>A node node_b4bde.</td></tr>
+<tr><td style="width: 25%;"><a href="node_b5.html">node_b5</a></td>
+<td>A node node_b5.</td></tr>
+<tr><td style="width: 25%;"><a href="node_c.html">node_c</a></td>
+<td>A node node_c.</td></tr>
+<tr><td style="width: 25%;"><a href="node_d.html">node_d</a></td>
+<td>A node node_d.</td></tr>
+<tr><td style="width: 25%;"><a href="node_d1.html">node_d1</a></td>
+<td>A node node_d1.</td></tr>
+<tr><td style="width: 25%;"><a href="node_d2.html">node_d2</a></td>
+<td>A node node_d2.</td></tr>
+<tr><td style="width: 25%;"><a href="node_d4.html">node_d4</a></td>
+<td>A node node_d4.</td></tr>
+<tr><td style="width: 25%;"><a href="node_h.html">node_h</a></td>
+<td>A node node_h.</td></tr>
+<tr><td style="width: 25%;"><a href="node_h2.html">node_h2</a></td>
+<td>A node node_h2.</td></tr>
+<tr><td style="width: 25%;"><a href="node_h2a.html">node_h2a</a></td>
+<td>A node node_h2a.</td></tr>
+<tr><td style="width: 25%;"><a href="node_h2a2a.html">node_h2a2a</a></td>
+<td>A node node_h2a2a.</td></tr>
+<tr><td style="width: 25%;"><a href="node_hv.html">node_hv</a></td>
+<td>A node node_hv.</td></tr>
+<tr><td style="width: 25%;"><a href="node_i.html">node_i</a></td>
+<td>A node node_i.</td></tr>
+<tr><td style="width: 25%;"><a href="node_j.html">node_j</a></td>
+<td>A node node_j.</td></tr>
+<tr><td style="width: 25%;"><a href="node_jt.html">node_jt</a></td>
+<td>A node node_jt.</td></tr>
+<tr><td style="width: 25%;"><a href="node_jt_alt.html">node_jt_alt</a></td>
+<td>A node node_jt_alt.</td></tr>
+<tr><td style="width: 25%;"><a href="node_k.html">node_k</a></td>
+<td>A node node_k.</td></tr>
+<tr><td style="width: 25%;"><a href="node_k1.html">node_k1</a></td>
+<td>A node node_k1.</td></tr>
+<tr><td style="width: 25%;"><a href="node_k_alt.html">node_k_alt</a></td>
+<td>A node node_k_alt.</td></tr>
+<tr><td style="width: 25%;"><a href="node_l0.html">node_l0</a></td>
+<td>A node node_l0.</td></tr>
+<tr><td style="width: 25%;"><a href="node_l1.html">node_l1</a></td>
+<td>A node node_l1.</td></tr>
+<tr><td style="width: 25%;"><a href="node_l1b.html">node_l1b</a></td>
+<td>A node node_l1b.</td></tr>
+<tr><td style="width: 25%;"><a href="node_l2.html">node_l2</a></td>
+<td>A node node_l2.</td></tr>
+<tr><td style="width: 25%;"><a href="node_l23456.html">node_l23456</a></td>
+<td>A node node_l23456.</td></tr>
+<tr><td style="width: 25%;"><a href="node_l2346.html">node_l2346</a></td>
+<td>A node node_l2346.</td></tr>
+<tr><td style="width: 25%;"><a href="node_l3.html">node_l3</a></td>
+<td>A node node_l3.</td></tr>
+<tr><td style="width: 25%;"><a href="node_l34.html">node_l34</a></td>
+<td>A node node_l34.</td></tr>
+<tr><td style="width: 25%;"><a href="node_m.html">node_m</a></td>
+<td>A node node_m.</td></tr>
+<tr><td style="width: 25%;"><a href="node_n.html">node_n</a></td>
+<td>A node node_n.</td></tr>
+<tr><td style="width: 25%;"><a href="node_n1a1.html">node_n1a1</a></td>
+<td>A node node_n1a1.</td></tr>
+<tr><td style="width: 25%;"><a href="node_n1a1b.html">node_n1a1b</a></td>
+<td>A node node_n1a1b.</td></tr>
+<tr><td style="width: 25%;"><a href="node_n_alt.html">node_n_alt</a></td>
+<td>A node node_n_alt.</td></tr>
+<tr><td style="width: 25%;"><a href="node_r.html">node_r</a></td>
+<td>A node node_r.</td></tr>
+<tr><td style="width: 25%;"><a href="node_r_alt.html">node_r_alt</a></td>
+<td>A node node_r_alt.</td></tr>
+<tr><td style="width: 25%;"><a href="node_t.html">node_t</a></td>
+<td>A node node_t.</td></tr>
+<tr><td style="width: 25%;"><a href="node_t1.html">node_t1</a></td>
+<td>A node node_t1.</td></tr>
+<tr><td style="width: 25%;"><a href="node_u.html">node_u</a></td>
+<td>A node node_u.</td></tr>
+<tr><td style="width: 25%;"><a href="node_u8b.html">node_u8b</a></td>
+<td>A node node_u8b.</td></tr>
+<tr><td style="width: 25%;"><a href="node_u8b_alt.html">node_u8b_alt</a></td>
+<td>A node node_u8b_alt.</td></tr>
+<tr><td style="width: 25%;"><a href="node_u_alt.html">node_u_alt</a></td>
+<td>A node node_u_alt.</td></tr>
+<tr><td style="width: 25%;"><a href="node_v.html">node_v</a></td>
+<td>A node node_v.</td></tr>
+<tr><td style="width: 25%;"><a href="node_w.html">node_w</a></td>
+<td>A node node_w.</td></tr>
+<tr><td style="width: 25%;"><a href="node_x.html">node_x</a></td>
+<td>A node node_x.</td></tr>
+<tr><td style="width: 25%;"><a href="node_x2.html">node_x2</a></td>
+<td>A node node_x2.</td></tr>
+<tr><td style="width: 25%;"><a href="numChildren.html">numChildren</a></td>
+<td>NumChildren</td></tr>
+<tr><td style="width: 25%;"><a href="numReqs.html">numReqs</a></td>
+<td>NumReqs</td></tr>
+<tr><td style="width: 25%;"><a href="numSnps.html">numSnps</a></td>
+<td>NumSnps</td></tr>
+<tr><td style="width: 25%;"><a href="root.html">root</a></td>
+<td>A node root.</td></tr>
+<tr><td style="width: 25%;"><a href="validData.html">validData</a></td>
+<td>validData boolean check</td></tr>
+<tr><td style="width: 25%;"><a href="validPath.html">validPath</a></td>
+<td>validPath boolean check</td></tr>
+</table>
+</body></html>
