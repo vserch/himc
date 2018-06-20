@@ -31,7 +31,7 @@ From there, explore the data frame in R, or export it to CSV:
 write.csv(classifications,"classifications.csv",row.names=FALSE)
 ```
 
-##Caution
+## Caution
 
 The classification tree was built using 54 specifically curated SNPs. If your dataset is missing more than a few of them, your results will **not** be accurate. These SNPs referenced are:
 
