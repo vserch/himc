@@ -4,6 +4,9 @@
 #' @param source_df The snp_data generated dataframe
 #' @keywords path list haplogroup classification
 #' @export
+#' @examples
+#' snp_df <- generate_snp_data(mapfile,pedfile)
+#' classifications <- getClassifications(snp_df)
 
 getClassifications <- function(source_df) {
   full_paths <- by(source_df,1:nrow(source_df),getPathList,simplify=FALSE)

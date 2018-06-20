@@ -5,6 +5,9 @@
 #' @param node The node in question
 #' @keywords snp node df path valid
 #' @export
+#' @examples
+#' #internal function, not meant to be called externally
+#' df_row_meets_criteria_for_node_path <- validPath(df_row,test_node)
 
 validPath <- function(df,node) {
   if (class(node) != "node" || class(df) != "data.frame") {

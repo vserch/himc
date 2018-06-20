@@ -4,6 +4,9 @@
 #' @param string The path in question
 #' @keywords path list haplogroup classification
 #' @export
+#' @examples
+#' #internal function, not meant to be called externally
+#' group <- getGroupFromPath(path_string_including_group)
 
 getGroupFromPath <- function(string) {
   splitstring <- strsplit(string,"->")[[1]]

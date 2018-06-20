@@ -1,7 +1,7 @@
 Package: HiMC
-Version: 0.1.1.4
+Version: 0.1.1.5
 Title: High-Throughput Mitochondrial Haplogroup Classification
-Authors@R: c(person("Eric", "Farber-Eger", email = "eric.h.farber-eger@vanderbilt.edu", role = c("aut", "cre")),
+Authors@R: c(person("Eric", "Farber-Eger", email = "eric.h.farber-eger@vumc.org", role = c("aut", "cre")),
              person("Dana", "Crawford", email = "dana.crawford@case.edu", role = c("aut")),
              person("Nicholas R.", "Wheeler", email = "nrw16@case.edu", role = c("aut"), comment = c(ORCID = "0000-0003-2248-8919")),
              person("Sandra", "Smieszek", email = "sps92@case.edu", role = c("aut")))

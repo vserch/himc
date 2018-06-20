@@ -6,6 +6,9 @@
 #' @param path Current path checked
 #' @keywords node path
 #' @export
+#' @examples
+#' #internal function, not meant to be called externally
+#' full_path_list <- getAllPaths(snp_data_frame,test_node,current_path)
 
 getAllPaths <- function(df,node,path) {
   if (class(node) != "node" || class(df) != "data.frame") {

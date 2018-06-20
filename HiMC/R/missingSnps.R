@@ -5,6 +5,9 @@
 #' @param node The node in question
 #' @keywords snp node df missing
 #' @export
+#' @examples
+#' #internal function, not meant to be called externally
+#' is_dataframe_row_missing_snps_from_node <- missingSnps(df_row,test_node)
 
 missingSnps <- function(df,node) {
   if (class(node) != "node" || class(df) != "data.frame") {
