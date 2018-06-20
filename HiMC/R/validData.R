@@ -7,7 +7,7 @@
 #' @export
 #' @examples
 #' #internal function, not meant to be called externally
-#' df_row_meets_criteria_for_node_requirements <- validData(df_row,node)
+#' df_row_meets_criteria_for_node_requirements <- validData(data.frame(),HiMC::root)
 
 validData <- function(df,node) {
   if (class(node) != "node" || class(df) != "data.frame") {

@@ -6,7 +6,7 @@
 #' @export
 #' @examples
 #' #internal function, not meant to be called externally
-#' group <- getGroupFromPath(path_string_including_group)
+#' group <- getGroupFromPath("A -> B -> C")
 
 getGroupFromPath <- function(string) {
   splitstring <- strsplit(string,"->")[[1]]

@@ -6,7 +6,7 @@
 #' @export
 #' @examples
 #' #internal function, not meant to be called externally
-#' node_tail_length = numChildren(node)
+#' node_tail_length = numChildren(HiMC::root)
 
 numChildren <- function(node_object) {
   if (class(node_object) != "node") {

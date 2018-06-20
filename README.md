@@ -5,7 +5,7 @@ The Hi-MC package provides high-level mitochondrial haplogroups given standard P
 ```R
 install.packages("devtools")
 library("devtools")
-install_github("vserch/himc")
+install_github("vserch/himc/himc")
 library("HiMC")
 ```
 Hi-MC also relies on the **stringr** package.

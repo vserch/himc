@@ -6,7 +6,7 @@
 #' @export
 #' @examples
 #' #internal function, not meant to be called externally
-#' paths <- getPathList(intermediate_dataframe_row)
+#' paths <- getPathList(data.frame())
 
 getPathList <- function(df) {
   ugly_paths <- getAllPaths(df,root,"")

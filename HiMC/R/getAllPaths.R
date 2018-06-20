@@ -8,7 +8,10 @@
 #' @export
 #' @examples
 #' #internal function, not meant to be called externally
-#' full_path_list <- getAllPaths(snp_data_frame,test_node,current_path)
+#' mapfile <- system.file("extdata","HapMap_Mito_Seq_QC_2.map",package="HiMC")
+#' pedfile <- system.file("extdata","HapMap_Mito_Seq_QC_2.ped",package="HiMC")
+#' snpfile <- generate_snp_data(mapfile,pedfile)
+#' full_path_list <- getAllPaths(snpfile,HiMC::root,"")
 
 getAllPaths <- function(df,node,path) {
   if (class(node) != "node" || class(df) != "data.frame") {

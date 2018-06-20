@@ -7,7 +7,7 @@
 #' @export
 #' @examples
 #' #internal function, not meant to be called externally
-#' is_dataframe_row_missing_snps_from_node <- missingSnps(df_row,test_node)
+#' is_dataframe_row_missing_snps_from_node <- missingSnps(data.frame(),HiMC::root)
 
 missingSnps <- function(df,node) {
   if (class(node) != "node" || class(df) != "data.frame") {
