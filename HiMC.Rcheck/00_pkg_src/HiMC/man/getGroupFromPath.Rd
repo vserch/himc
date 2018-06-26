@@ -12,6 +12,10 @@ getGroupFromPath(string)
 \description{
 Takes in a list of paths and returns the final classification of that path
 }
+\examples{
+#internal function, not meant to be called externally
+group <- getGroupFromPath("A -> B -> C")
+}
 \keyword{classification}
 \keyword{haplogroup}
 \keyword{list}

@@ -13,6 +13,19 @@ vignette: >
 ### Description
 
 The **Hi-MC** package provides high-level mitochondrial haplogroups given standard PLINK *.map* and *.ped* files.
+A reduced phylotree is used as a classification tree to determine samples' haplogroup assignment.
+
+The following is an algorithm description from a recent publication[1] featuring use of the code in this package:
+
+"Phylotree, a comprehensive phylogenetic tree of human mtDNA variation displaying relationships between mitochondrial haplogroups[2], was used as a reference to create a reduced tree of 46 common haplogroups[3]. This reduced classification tree was converted into a node-based tree structure. Each haplogroup node has a list of associated SNPs, a parent node, and zero or more child nodes. The SNPs associated with a node define which SNP genotypes a subject must possess to belong to the corresponding haplogroup. Classification into a haplogroup also requires a subject to recursively meet the definition for the parent haplogroup. Haplogroups that require the reversion to the ancestral genotype (e.g., 10398A-10398G) are accommodated by adding a second hierarchy of required SNP genotypes.
+
+The algorithm determines the appropriate haplogroup in a two-step process. In the first step, the algorithm passes mitochondrial SNP genotype data for each subject into the root node of the tree. The algorithm checks the list of SNP genotypes against those required by the root node. If the genotypes meet the criteria for the parent node, this haplogroup is added to an accumulator. The algorithm then passes the list of SNP genotypes to each of the child nodes connected to that parent node until the tree is exhausted. Next, the algorithm ranks the list of haplogroups in the accumulator according to their distance from the root node. Any haplogroup with a path length less than that of the haplogroup with the longest path length is dropped. The remaining haplogroups, along with their path from the root node to the end node, are returned as a result."[1]
+
+[1] Sandra Smieszek, Sabrina L. Mitchell, Eric H. Farber-Eger, Olivia J. Veatch, Nicholas R. Wheeler, Robert J. Goodloe, Quinn S. Wells, Deborah G. Murdock, Dana C. Crawford (2018) Hi-MC: a novel method for high-throughput mitochondrial haplogroup classification. PeerJ 6:e5149 https://doi.org/10.7717/peerj.5149
+
+[2] Van Oven M, Kayser M. 2009. Updated comprehensive phylogenetic tree of global human mitochondrial DNA variation. Human Mutation 30(2):E386-E394
+
+[3] Mitchell SL, Goodloe R, Brown-Gentry K, Pendergrass SA, Murdock DG, Crawford DC. 2014b. Characterization of mitochondrial haplogroups in a large population-based sample from the United States. Human Genetics 133(7):861-868
 
 The R code in this package was graciously written and provided by Eric Farber-Eger, although all package correspondence should be directed to Dana Crawford (<dana.crawford@case.edu>).
 

@@ -4,6 +4,9 @@
 #' @param df The FASTMAP dataframe row
 #' @keywords prettify path list
 #' @export
+#' @examples
+#' #internal function, not meant to be called externally
+#' paths <- getPathList(data.frame())
 
 getPathList <- function(df) {
   ugly_paths <- getAllPaths(df,root,"")

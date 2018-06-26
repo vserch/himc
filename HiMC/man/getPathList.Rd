@@ -12,6 +12,10 @@ getPathList(df)
 \description{
 Takes in a nested list of paths in dataframe format and returns a top-level path assignment
 }
+\examples{
+#internal function, not meant to be called externally
+paths <- getPathList(data.frame())
+}
 \keyword{list}
 \keyword{path}
 \keyword{prettify}

@@ -4,6 +4,9 @@
 #' @param plist A nested list of prettified paths
 #' @keywords path list
 #' @export
+#' @examples
+#' #internal function, not meant to be called externally
+#' filtered_paths <- getFinalPathList(c("A -> B","A -> B -> C"))
 
 getFinalPathList <- function(plist) {
   to_counts <- sapply(plist,function(x){str_count(x," -> ")})

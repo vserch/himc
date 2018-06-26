@@ -12,6 +12,10 @@ numChildren(node_object)
 \description{
 Internal function. Takes in a node object and returns the total number of that node's children
 }
+\examples{
+#internal function, not meant to be called externally
+node_tail_length = numChildren(HiMC::root)
+}
 \keyword{children}
 \keyword{node}
 \keyword{snp}

@@ -6,6 +6,12 @@
 #' @param path Current path checked
 #' @keywords node path
 #' @export
+#' @examples
+#' #internal function, not meant to be called externally
+#' mapfile <- system.file("extdata","HapMap_Mito_Seq_QC_2.map",package="HiMC")
+#' pedfile <- system.file("extdata","HapMap_Mito_Seq_QC_2.ped",package="HiMC")
+#' snpfile <- generate_snp_data(mapfile,pedfile)
+#' full_path_list <- getAllPaths(snpfile,HiMC::root,"")
 
 getAllPaths <- function(df,node,path) {
   if (class(node) != "node" || class(df) != "data.frame") {

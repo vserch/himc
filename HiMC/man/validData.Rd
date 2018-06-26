@@ -14,6 +14,10 @@ validData(df, node)
 \description{
 Internal function. Takes in a dataframe and a node and returns true if the dataframe row has the required SNPs for the node
 }
+\examples{
+#internal function, not meant to be called externally
+df_row_meets_criteria_for_node_requirements <- validData(data.frame(),HiMC::root)
+}
 \keyword{data}
 \keyword{df}
 \keyword{node}

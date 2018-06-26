@@ -1,11 +1,11 @@
 Package: HiMC
-Version: 0.1.1.4
+Version: 0.1.1.5
 Title: High-Throughput Mitochondrial Haplogroup Classification
-Authors@R: c(person("Eric", "Farber-Eger", email = "eric.h.farber-eger@vanderbilt.edu", role = c("aut", "cre")),
+Authors@R: c(person("Eric", "Farber-Eger", email = "eric.h.farber-eger@vumc.org", role = c("aut", "cre")),
              person("Dana", "Crawford", email = "dana.crawford@case.edu", role = c("aut")),
              person("Nicholas R.", "Wheeler", email = "nrw16@case.edu", role = c("aut"), comment = c(ORCID = "0000-0003-2248-8919")),
              person("Sandra", "Smieszek", email = "sps92@case.edu", role = c("aut")))
-Description: Assign high-level mitochondrial haplogroups given SNP information from standard PLINK *.map* and *.ped* files.
+Description: Assign high-level mitochondrial haplogroups given SNP information from standard PLINK *.map* and *.ped* files.  A reduced phylotree[1] is used as a classification tree to determine samples' haplogroup assignment.  Please see the included package vignette "Hi-MC: Overview Guide" for a detailed algorithm description and usage examples. [1] Mitchell SL, Goodloe R, Brown-Gentry K, Pendergrass SA, Murdock DG, Crawford DC (2014) <doi:10.1007/s00439-014-1421-9>.
 Depends: R (>= 3.1.2)
 Imports: stringr, methods
 VignetteBuilder: knitr
@@ -14,9 +14,9 @@ License: GPL-3
 LazyData: false
 RoxygenNote: 6.0.1
 NeedsCompilation: no
-Packaged: 2018-05-22 18:55:27 UTC; nrw16
+Packaged: 2018-06-26 18:42:18 UTC; nrw16
 Author: Eric Farber-Eger [aut, cre],
   Dana Crawford [aut],
   Nicholas R. Wheeler [aut] (0000-0003-2248-8919),
   Sandra Smieszek [aut]
-Maintainer: Eric Farber-Eger <eric.h.farber-eger@vanderbilt.edu>
+Maintainer: Eric Farber-Eger <eric.h.farber-eger@vumc.org>

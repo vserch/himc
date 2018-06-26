@@ -16,5 +16,12 @@ getAllPaths(df, node, path)
 \description{
 Internal function. Takes a SNP dataframe, a node, and current path, and returns all available paths.
 }
+\examples{
+#internal function, not meant to be called externally
+mapfile <- system.file("extdata","HapMap_Mito_Seq_QC_2.map",package="HiMC")
+pedfile <- system.file("extdata","HapMap_Mito_Seq_QC_2.ped",package="HiMC")
+snpfile <- generate_snp_data(mapfile,pedfile)
+full_path_list <- getAllPaths(snpfile,HiMC::root,"")
+}
 \keyword{node}
 \keyword{path}

@@ -12,5 +12,9 @@ numReqs(node_object)
 \description{
 Internal function. Takes in a node object and returns the number of SNPs that it requires for validation
 }
+\examples{
+#internal function, not meant to be called externally
+number_of_required_snps <- numReqs(HiMC::root)
+}
 \keyword{node}
 \keyword{snp}

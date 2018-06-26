@@ -62,25 +62,42 @@ No file Rd2.aux.
 [Loading MPS to PDF converter (version 2006.09.02).]
 ) (/usr/local/texlive/2017/texmf-dist/tex/latex/hyperref/nameref.sty
 (/usr/local/texlive/2017/texmf-dist/tex/generic/oberdiek/gettitlestring.sty))
+(/usr/local/texlive/2017/texmf-dist/tex/latex/psnfss/ts1ptm.fd)
 (/usr/local/texlive/2017/texmf-dist/tex/latex/psnfss/t1pcr.fd)
 (/usr/local/texlive/2017/texmf-dist/tex/latex/psnfss/t1phv.fd)
-(/usr/local/texlive/2017/texmf-dist/tex/latex/base/utf8.def)
+(/usr/local/texlive/2017/texmf-dist/tex/latex/base/utf8.def) [1{/usr/local/texl
+ive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
 Overfull \hbox (9.78043pt too wide) in paragraph at lines 60--60
  []\T1/pcr/m/n/9 mapfile <- system.file("extdata","HapMap_Mito_Seq_QC_2.map",pa
 ckage="HiMC")[] 
-[1{/usr/local/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+
 Overfull \hbox (9.78043pt too wide) in paragraph at lines 61--61
  []\T1/pcr/m/n/9 pedfile <- system.file("extdata","HapMap_Mito_Seq_QC_2.ped",pa
 ckage="HiMC")[] 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/base/utf8.def)
+Overfull \hbox (9.78043pt too wide) in paragraph at lines 93--93
+ []\T1/pcr/m/n/9 mapfile <- system.file("extdata","HapMap_Mito_Seq_QC_2.map",pa
+ckage="HiMC")[] 
+
+Overfull \hbox (9.78043pt too wide) in paragraph at lines 94--94
+ []\T1/pcr/m/n/9 pedfile <- system.file("extdata","HapMap_Mito_Seq_QC_2.ped",pa
+ckage="HiMC")[] 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/base/utf8.def)
-(/usr/local/texlive/2017/texmf-dist/tex/latex/base/utf8.def)
-(/usr/local/texlive/2017/texmf-dist/tex/latex/base/utf8.def) [2]
+Overfull \hbox (9.78043pt too wide) in paragraph at lines 124--124
+ []\T1/pcr/m/n/9 mapfile <- system.file("extdata","HapMap_Mito_Seq_QC_2.map",pa
+ckage="HiMC")[] 
+[2]
+Overfull \hbox (9.78043pt too wide) in paragraph at lines 125--125
+ []\T1/pcr/m/n/9 pedfile <- system.file("extdata","HapMap_Mito_Seq_QC_2.ped",pa
+ckage="HiMC")[] 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/base/utf8.def)
 (/usr/local/texlive/2017/texmf-dist/tex/latex/base/utf8.def)
 (/usr/local/texlive/2017/texmf-dist/tex/latex/base/utf8.def) [3]
 (/usr/local/texlive/2017/texmf-dist/tex/latex/base/utf8.def)
 (/usr/local/texlive/2017/texmf-dist/tex/latex/base/utf8.def)
+Overfull \hbox (31.3804pt too wide) in paragraph at lines 249--249
+ []\T1/pcr/m/n/9 is_dataframe_row_missing_snps_from_node <- missingSnps(data.fr
+ame(),HiMC::root)[] 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/base/utf8.def) [4]
 (/usr/local/texlive/2017/texmf-dist/tex/latex/base/utf8.def)
 (/usr/local/texlive/2017/texmf-dist/tex/latex/base/utf8.def)
@@ -131,10 +148,15 @@ ckage="HiMC")[]
 (/usr/local/texlive/2017/texmf-dist/tex/latex/base/utf8.def)
 (/usr/local/texlive/2017/texmf-dist/tex/latex/base/utf8.def) [20]
 (/usr/local/texlive/2017/texmf-dist/tex/latex/base/utf8.def)
-(/usr/local/texlive/2017/texmf-dist/tex/latex/base/utf8.def)
 (/usr/local/texlive/2017/texmf-dist/tex/latex/base/utf8.def) [21]
+(/usr/local/texlive/2017/texmf-dist/tex/latex/base/utf8.def)
+(/usr/local/texlive/2017/texmf-dist/tex/latex/base/utf8.def) [22]
+Overfull \hbox (42.18039pt too wide) in paragraph at lines 1201--1201
+ []\T1/pcr/m/n/9 df_row_meets_criteria_for_node_requirements <- validData(data.
+frame(),HiMC::root)[] 
+(/usr/local/texlive/2017/texmf-dist/tex/latex/base/utf8.def)
 No file Rd2.ind.
-[22] (/tmp/Rtmp8suRxP/Rd2pdf28fb177fa9bd/Rd2.aux)
+[23] (/tmp/RtmpzdCVqV/Rd2pdf45e416e87a96/Rd2.aux)
 
 Package rerunfilecheck Warning: File `Rd2.out' has changed.
 (rerunfilecheck)                Rerun to get outlines right
@@ -148,7 +170,7 @@ w/helvetic/uhvr8a.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/urw/times
 /utmb8a.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/urw/times/utmr8a.pf
 b></usr/local/texlive/2017/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/lo
 cal/texlive/2017/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on Rd2.pdf (22 pages, 96667 bytes).
+Output written on Rd2.pdf (23 pages, 101205 bytes).
 Transcript written on Rd2.log.
 This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex)
  restricted \write18 enabled.
@@ -205,18 +227,19 @@ Package hyperref Warning: Option `pagebackref' has already been used,
 (/usr/local/texlive/2017/texmf-dist/tex/latex/base/ts1enc.dfu))
 (/usr/local/texlive/2017/texmf-dist/tex/latex/base/latin1.def))
 Writing index file Rd2.idx
-(/tmp/Rtmp8suRxP/Rd2pdf28fb177fa9bd/Rd2.aux)
+(/tmp/RtmpzdCVqV/Rd2pdf45e416e87a96/Rd2.aux)
 (/usr/local/texlive/2017/texmf-dist/tex/latex/base/ts1cmr.fd)
 (/usr/local/texlive/2017/texmf-dist/tex/latex/psnfss/t1ptm.fd)
 (/usr/local/texlive/2017/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 ) (/usr/local/texlive/2017/texmf-dist/tex/latex/hyperref/nameref.sty
 (/usr/local/texlive/2017/texmf-dist/tex/generic/oberdiek/gettitlestring.sty))
-(/tmp/Rtmp8suRxP/Rd2pdf28fb177fa9bd/Rd2.out)
-(/tmp/Rtmp8suRxP/Rd2pdf28fb177fa9bd/Rd2.out)
+(/tmp/RtmpzdCVqV/Rd2pdf45e416e87a96/Rd2.out)
+(/tmp/RtmpzdCVqV/Rd2pdf45e416e87a96/Rd2.out)
+(/usr/local/texlive/2017/texmf-dist/tex/latex/psnfss/ts1ptm.fd)
 (/usr/local/texlive/2017/texmf-dist/tex/latex/psnfss/t1pcr.fd)
 (/usr/local/texlive/2017/texmf-dist/tex/latex/psnfss/t1phv.fd)
-(/tmp/Rtmp8suRxP/Rd2pdf28fb177fa9bd/Rd2.toc [1{/usr/local/texlive/2017/texmf-va
+(/tmp/RtmpzdCVqV/Rd2pdf45e416e87a96/Rd2.toc [1{/usr/local/texlive/2017/texmf-va
 r/fonts/map/pdftex/updmap/pdftex.map}])
 (/usr/local/texlive/2017/texmf-dist/tex/latex/base/utf8.def) [2]
 Overfull \hbox (9.78043pt too wide) in paragraph at lines 60--60
@@ -227,13 +250,29 @@ Overfull \hbox (9.78043pt too wide) in paragraph at lines 61--61
  []\T1/pcr/m/n/9 pedfile <- system.file("extdata","HapMap_Mito_Seq_QC_2.ped",pa
 ckage="HiMC")[] 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/base/utf8.def)
+Overfull \hbox (9.78043pt too wide) in paragraph at lines 93--93
+ []\T1/pcr/m/n/9 mapfile <- system.file("extdata","HapMap_Mito_Seq_QC_2.map",pa
+ckage="HiMC")[] 
+
+Overfull \hbox (9.78043pt too wide) in paragraph at lines 94--94
+ []\T1/pcr/m/n/9 pedfile <- system.file("extdata","HapMap_Mito_Seq_QC_2.ped",pa
+ckage="HiMC")[] 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/base/utf8.def) [3]
-(/usr/local/texlive/2017/texmf-dist/tex/latex/base/utf8.def)
+Overfull \hbox (9.78043pt too wide) in paragraph at lines 124--124
+ []\T1/pcr/m/n/9 mapfile <- system.file("extdata","HapMap_Mito_Seq_QC_2.map",pa
+ckage="HiMC")[] 
+
+Overfull \hbox (9.78043pt too wide) in paragraph at lines 125--125
+ []\T1/pcr/m/n/9 pedfile <- system.file("extdata","HapMap_Mito_Seq_QC_2.ped",pa
+ckage="HiMC")[] 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/base/utf8.def)
 (/usr/local/texlive/2017/texmf-dist/tex/latex/base/utf8.def) [4]
 (/usr/local/texlive/2017/texmf-dist/tex/latex/base/utf8.def)
 (/usr/local/texlive/2017/texmf-dist/tex/latex/base/utf8.def)
 (/usr/local/texlive/2017/texmf-dist/tex/latex/base/utf8.def) [5]
+Overfull \hbox (31.3804pt too wide) in paragraph at lines 249--249
+ []\T1/pcr/m/n/9 is_dataframe_row_missing_snps_from_node <- missingSnps(data.fr
+ame(),HiMC::root)[] 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/base/utf8.def)
 (/usr/local/texlive/2017/texmf-dist/tex/latex/base/utf8.def)
 (/usr/local/texlive/2017/texmf-dist/tex/latex/base/utf8.def) [6]
@@ -283,12 +322,16 @@ ckage="HiMC")[]
 (/usr/local/texlive/2017/texmf-dist/tex/latex/base/utf8.def)
 (/usr/local/texlive/2017/texmf-dist/tex/latex/base/utf8.def) [21]
 (/usr/local/texlive/2017/texmf-dist/tex/latex/base/utf8.def)
-(/usr/local/texlive/2017/texmf-dist/tex/latex/base/utf8.def)
 (/usr/local/texlive/2017/texmf-dist/tex/latex/base/utf8.def) [22]
 (/usr/local/texlive/2017/texmf-dist/tex/latex/base/utf8.def)
 (/usr/local/texlive/2017/texmf-dist/tex/latex/base/utf8.def)
+(/usr/local/texlive/2017/texmf-dist/tex/latex/base/utf8.def) [23]
+Overfull \hbox (42.18039pt too wide) in paragraph at lines 1201--1201
+ []\T1/pcr/m/n/9 df_row_meets_criteria_for_node_requirements <- validData(data.
+frame(),HiMC::root)[] 
+(/usr/local/texlive/2017/texmf-dist/tex/latex/base/utf8.def)
 No file Rd2.ind.
-[23] (/tmp/Rtmp8suRxP/Rd2pdf28fb177fa9bd/Rd2.aux) )
+[24] (/tmp/RtmpzdCVqV/Rd2pdf45e416e87a96/Rd2.aux) )
 (see the transcript file for additional information){/usr/local/texlive/2017/te
 xmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/2017/texmf-dist/fonts/
 type1/urw/courier/ucrr8a.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/ur
@@ -296,7 +339,7 @@ w/helvetic/uhvr8a.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/urw/times
 /utmb8a.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/urw/times/utmr8a.pf
 b></usr/local/texlive/2017/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/lo
 cal/texlive/2017/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on Rd2.pdf (23 pages, 102957 bytes).
+Output written on Rd2.pdf (24 pages, 106017 bytes).
 Transcript written on Rd2.log.
 This is makeindex, version 2.15 [TeX Live 2017] (kpathsea + Thai support).
 Scanning input file Rd2.idx....done (151 entries accepted, 0 rejected).
@@ -359,18 +402,19 @@ Package hyperref Warning: Option `pagebackref' has already been used,
 (/usr/local/texlive/2017/texmf-dist/tex/latex/base/ts1enc.dfu))
 (/usr/local/texlive/2017/texmf-dist/tex/latex/base/latin1.def))
 Writing index file Rd2.idx
-(/tmp/Rtmp8suRxP/Rd2pdf28fb177fa9bd/Rd2.aux)
+(/tmp/RtmpzdCVqV/Rd2pdf45e416e87a96/Rd2.aux)
 (/usr/local/texlive/2017/texmf-dist/tex/latex/base/ts1cmr.fd)
 (/usr/local/texlive/2017/texmf-dist/tex/latex/psnfss/t1ptm.fd)
 (/usr/local/texlive/2017/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 ) (/usr/local/texlive/2017/texmf-dist/tex/latex/hyperref/nameref.sty
 (/usr/local/texlive/2017/texmf-dist/tex/generic/oberdiek/gettitlestring.sty))
-(/tmp/Rtmp8suRxP/Rd2pdf28fb177fa9bd/Rd2.out)
-(/tmp/Rtmp8suRxP/Rd2pdf28fb177fa9bd/Rd2.out)
+(/tmp/RtmpzdCVqV/Rd2pdf45e416e87a96/Rd2.out)
+(/tmp/RtmpzdCVqV/Rd2pdf45e416e87a96/Rd2.out)
+(/usr/local/texlive/2017/texmf-dist/tex/latex/psnfss/ts1ptm.fd)
 (/usr/local/texlive/2017/texmf-dist/tex/latex/psnfss/t1pcr.fd)
 (/usr/local/texlive/2017/texmf-dist/tex/latex/psnfss/t1phv.fd)
-(/tmp/Rtmp8suRxP/Rd2pdf28fb177fa9bd/Rd2.toc [1{/usr/local/texlive/2017/texmf-va
+(/tmp/RtmpzdCVqV/Rd2pdf45e416e87a96/Rd2.toc [1{/usr/local/texlive/2017/texmf-va
 r/fonts/map/pdftex/updmap/pdftex.map}])
 (/usr/local/texlive/2017/texmf-dist/tex/latex/base/utf8.def) [2]
 Overfull \hbox (9.78043pt too wide) in paragraph at lines 60--60
@@ -381,13 +425,29 @@ Overfull \hbox (9.78043pt too wide) in paragraph at lines 61--61
  []\T1/pcr/m/n/9 pedfile <- system.file("extdata","HapMap_Mito_Seq_QC_2.ped",pa
 ckage="HiMC")[] 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/base/utf8.def)
+Overfull \hbox (9.78043pt too wide) in paragraph at lines 93--93
+ []\T1/pcr/m/n/9 mapfile <- system.file("extdata","HapMap_Mito_Seq_QC_2.map",pa
+ckage="HiMC")[] 
+
+Overfull \hbox (9.78043pt too wide) in paragraph at lines 94--94
+ []\T1/pcr/m/n/9 pedfile <- system.file("extdata","HapMap_Mito_Seq_QC_2.ped",pa
+ckage="HiMC")[] 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/base/utf8.def) [3]
-(/usr/local/texlive/2017/texmf-dist/tex/latex/base/utf8.def)
+Overfull \hbox (9.78043pt too wide) in paragraph at lines 124--124
+ []\T1/pcr/m/n/9 mapfile <- system.file("extdata","HapMap_Mito_Seq_QC_2.map",pa
+ckage="HiMC")[] 
+
+Overfull \hbox (9.78043pt too wide) in paragraph at lines 125--125
+ []\T1/pcr/m/n/9 pedfile <- system.file("extdata","HapMap_Mito_Seq_QC_2.ped",pa
+ckage="HiMC")[] 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/base/utf8.def)
 (/usr/local/texlive/2017/texmf-dist/tex/latex/base/utf8.def) [4]
 (/usr/local/texlive/2017/texmf-dist/tex/latex/base/utf8.def)
 (/usr/local/texlive/2017/texmf-dist/tex/latex/base/utf8.def)
 (/usr/local/texlive/2017/texmf-dist/tex/latex/base/utf8.def) [5]
+Overfull \hbox (31.3804pt too wide) in paragraph at lines 249--249
+ []\T1/pcr/m/n/9 is_dataframe_row_missing_snps_from_node <- missingSnps(data.fr
+ame(),HiMC::root)[] 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/base/utf8.def)
 (/usr/local/texlive/2017/texmf-dist/tex/latex/base/utf8.def)
 (/usr/local/texlive/2017/texmf-dist/tex/latex/base/utf8.def) [6]
@@ -437,12 +497,16 @@ ckage="HiMC")[]
 (/usr/local/texlive/2017/texmf-dist/tex/latex/base/utf8.def)
 (/usr/local/texlive/2017/texmf-dist/tex/latex/base/utf8.def) [21]
 (/usr/local/texlive/2017/texmf-dist/tex/latex/base/utf8.def)
-(/usr/local/texlive/2017/texmf-dist/tex/latex/base/utf8.def)
 (/usr/local/texlive/2017/texmf-dist/tex/latex/base/utf8.def) [22]
 (/usr/local/texlive/2017/texmf-dist/tex/latex/base/utf8.def)
 (/usr/local/texlive/2017/texmf-dist/tex/latex/base/utf8.def)
-(/tmp/Rtmp8suRxP/Rd2pdf28fb177fa9bd/Rd2.ind [23] [24] [25])
-(/tmp/Rtmp8suRxP/Rd2pdf28fb177fa9bd/Rd2.aux)
+(/usr/local/texlive/2017/texmf-dist/tex/latex/base/utf8.def) [23]
+Overfull \hbox (42.18039pt too wide) in paragraph at lines 1201--1201
+ []\T1/pcr/m/n/9 df_row_meets_criteria_for_node_requirements <- validData(data.
+frame(),HiMC::root)[] 
+(/usr/local/texlive/2017/texmf-dist/tex/latex/base/utf8.def)
+(/tmp/RtmpzdCVqV/Rd2pdf45e416e87a96/Rd2.ind [24] [25] [26])
+(/tmp/RtmpzdCVqV/Rd2pdf45e416e87a96/Rd2.aux)
 
 Package rerunfilecheck Warning: File `Rd2.out' has changed.
 (rerunfilecheck)                Rerun to get outlines right
@@ -458,7 +522,7 @@ ic/uhvr8a.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/urw/times/utmb8a.
 pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/
 local/texlive/2017/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texl
 ive/2017/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on Rd2.pdf (25 pages, 125726 bytes).
+Output written on Rd2.pdf (26 pages, 128912 bytes).
 Transcript written on Rd2.log.
 This is makeindex, version 2.15 [TeX Live 2017] (kpathsea + Thai support).
 Scanning input file Rd2.idx....done (151 entries accepted, 0 rejected).
@@ -521,18 +585,19 @@ Package hyperref Warning: Option `pagebackref' has already been used,
 (/usr/local/texlive/2017/texmf-dist/tex/latex/base/ts1enc.dfu))
 (/usr/local/texlive/2017/texmf-dist/tex/latex/base/latin1.def))
 Writing index file Rd2.idx
-(/tmp/Rtmp8suRxP/Rd2pdf28fb177fa9bd/Rd2.aux)
+(/tmp/RtmpzdCVqV/Rd2pdf45e416e87a96/Rd2.aux)
 (/usr/local/texlive/2017/texmf-dist/tex/latex/base/ts1cmr.fd)
 (/usr/local/texlive/2017/texmf-dist/tex/latex/psnfss/t1ptm.fd)
 (/usr/local/texlive/2017/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 ) (/usr/local/texlive/2017/texmf-dist/tex/latex/hyperref/nameref.sty
 (/usr/local/texlive/2017/texmf-dist/tex/generic/oberdiek/gettitlestring.sty))
-(/tmp/Rtmp8suRxP/Rd2pdf28fb177fa9bd/Rd2.out)
-(/tmp/Rtmp8suRxP/Rd2pdf28fb177fa9bd/Rd2.out)
+(/tmp/RtmpzdCVqV/Rd2pdf45e416e87a96/Rd2.out)
+(/tmp/RtmpzdCVqV/Rd2pdf45e416e87a96/Rd2.out)
+(/usr/local/texlive/2017/texmf-dist/tex/latex/psnfss/ts1ptm.fd)
 (/usr/local/texlive/2017/texmf-dist/tex/latex/psnfss/t1pcr.fd)
 (/usr/local/texlive/2017/texmf-dist/tex/latex/psnfss/t1phv.fd)
-(/tmp/Rtmp8suRxP/Rd2pdf28fb177fa9bd/Rd2.toc [1{/usr/local/texlive/2017/texmf-va
+(/tmp/RtmpzdCVqV/Rd2pdf45e416e87a96/Rd2.toc [1{/usr/local/texlive/2017/texmf-va
 r/fonts/map/pdftex/updmap/pdftex.map}])
 (/usr/local/texlive/2017/texmf-dist/tex/latex/base/utf8.def) [2]
 Overfull \hbox (9.78043pt too wide) in paragraph at lines 60--60
@@ -543,13 +608,29 @@ Overfull \hbox (9.78043pt too wide) in paragraph at lines 61--61
  []\T1/pcr/m/n/9 pedfile <- system.file("extdata","HapMap_Mito_Seq_QC_2.ped",pa
 ckage="HiMC")[] 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/base/utf8.def)
+Overfull \hbox (9.78043pt too wide) in paragraph at lines 93--93
+ []\T1/pcr/m/n/9 mapfile <- system.file("extdata","HapMap_Mito_Seq_QC_2.map",pa
+ckage="HiMC")[] 
+
+Overfull \hbox (9.78043pt too wide) in paragraph at lines 94--94
+ []\T1/pcr/m/n/9 pedfile <- system.file("extdata","HapMap_Mito_Seq_QC_2.ped",pa
+ckage="HiMC")[] 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/base/utf8.def) [3]
-(/usr/local/texlive/2017/texmf-dist/tex/latex/base/utf8.def)
+Overfull \hbox (9.78043pt too wide) in paragraph at lines 124--124
+ []\T1/pcr/m/n/9 mapfile <- system.file("extdata","HapMap_Mito_Seq_QC_2.map",pa
+ckage="HiMC")[] 
+
+Overfull \hbox (9.78043pt too wide) in paragraph at lines 125--125
+ []\T1/pcr/m/n/9 pedfile <- system.file("extdata","HapMap_Mito_Seq_QC_2.ped",pa
+ckage="HiMC")[] 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/base/utf8.def)
 (/usr/local/texlive/2017/texmf-dist/tex/latex/base/utf8.def) [4]
 (/usr/local/texlive/2017/texmf-dist/tex/latex/base/utf8.def)
 (/usr/local/texlive/2017/texmf-dist/tex/latex/base/utf8.def)
 (/usr/local/texlive/2017/texmf-dist/tex/latex/base/utf8.def) [5]
+Overfull \hbox (31.3804pt too wide) in paragraph at lines 249--249
+ []\T1/pcr/m/n/9 is_dataframe_row_missing_snps_from_node <- missingSnps(data.fr
+ame(),HiMC::root)[] 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/base/utf8.def)
 (/usr/local/texlive/2017/texmf-dist/tex/latex/base/utf8.def)
 (/usr/local/texlive/2017/texmf-dist/tex/latex/base/utf8.def) [6]
@@ -599,12 +680,16 @@ ckage="HiMC")[]
 (/usr/local/texlive/2017/texmf-dist/tex/latex/base/utf8.def)
 (/usr/local/texlive/2017/texmf-dist/tex/latex/base/utf8.def) [21]
 (/usr/local/texlive/2017/texmf-dist/tex/latex/base/utf8.def)
-(/usr/local/texlive/2017/texmf-dist/tex/latex/base/utf8.def)
 (/usr/local/texlive/2017/texmf-dist/tex/latex/base/utf8.def) [22]
 (/usr/local/texlive/2017/texmf-dist/tex/latex/base/utf8.def)
 (/usr/local/texlive/2017/texmf-dist/tex/latex/base/utf8.def)
-(/tmp/Rtmp8suRxP/Rd2pdf28fb177fa9bd/Rd2.ind [23] [24] [25])
-(/tmp/Rtmp8suRxP/Rd2pdf28fb177fa9bd/Rd2.aux) )
+(/usr/local/texlive/2017/texmf-dist/tex/latex/base/utf8.def) [23]
+Overfull \hbox (42.18039pt too wide) in paragraph at lines 1201--1201
+ []\T1/pcr/m/n/9 df_row_meets_criteria_for_node_requirements <- validData(data.
+frame(),HiMC::root)[] 
+(/usr/local/texlive/2017/texmf-dist/tex/latex/base/utf8.def)
+(/tmp/RtmpzdCVqV/Rd2pdf45e416e87a96/Rd2.ind [24] [25] [26])
+(/tmp/RtmpzdCVqV/Rd2pdf45e416e87a96/Rd2.aux) )
 (see the transcript file for additional information){/usr/local/texlive/2017/te
 xmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/2017/texmf-dist/fonts/
 type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2017/texmf-dist/fonts/t
@@ -614,8 +699,8 @@ ic/uhvr8a.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/urw/times/utmb8a.
 pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/
 local/texlive/2017/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texl
 ive/2017/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on Rd2.pdf (25 pages, 126301 bytes).
+Output written on Rd2.pdf (26 pages, 129219 bytes).
 Transcript written on Rd2.log.
 Saving output to ‘HiMC-manual.pdf’ ...
 Done
-You may want to clean up by 'rm -rf /tmp/Rtmp8suRxP/Rd2pdf28fb177fa9bd'
+You may want to clean up by 'rm -rf /tmp/RtmpzdCVqV/Rd2pdf45e416e87a96'

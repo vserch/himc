@@ -4,6 +4,11 @@
 #' @param source_df The snp_data generated dataframe
 #' @keywords path list haplogroup classification
 #' @export
+#' @examples
+#' mapfile <- system.file("extdata","HapMap_Mito_Seq_QC_2.map",package="HiMC")
+#' pedfile <- system.file("extdata","HapMap_Mito_Seq_QC_2.ped",package="HiMC")
+#' snpfile <- generate_snp_data(mapfile,pedfile)
+#' classifications <- getClassifications(snpfile)
 
 getClassifications <- function(source_df) {
   full_paths <- by(source_df,1:nrow(source_df),getPathList,simplify=FALSE)

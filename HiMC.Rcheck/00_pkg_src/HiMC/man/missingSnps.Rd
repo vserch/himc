@@ -14,6 +14,10 @@ missingSnps(df, node)
 \description{
 Internal function. Takes in a dataframe and a node and returns true if the dataframe row is missing any SNPs for the node in question
 }
+\examples{
+#internal function, not meant to be called externally
+is_dataframe_row_missing_snps_from_node <- missingSnps(data.frame(),HiMC::root)
+}
 \keyword{df}
 \keyword{missing}
 \keyword{node}

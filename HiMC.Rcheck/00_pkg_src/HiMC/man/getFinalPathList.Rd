@@ -12,5 +12,9 @@ getFinalPathList(plist)
 \description{
 Takes in a nested list of prettified paths and returns those of the greatest length
 }
+\examples{
+#internal function, not meant to be called externally
+filtered_paths <- getFinalPathList(c("A -> B","A -> B -> C"))
+}
 \keyword{list}
 \keyword{path}

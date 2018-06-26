@@ -5,7 +5,7 @@ Authors@R: c(person("Eric", "Farber-Eger", email = "eric.h.farber-eger@vumc.org"
              person("Dana", "Crawford", email = "dana.crawford@case.edu", role = c("aut")),
              person("Nicholas R.", "Wheeler", email = "nrw16@case.edu", role = c("aut"), comment = c(ORCID = "0000-0003-2248-8919")),
              person("Sandra", "Smieszek", email = "sps92@case.edu", role = c("aut")))
-Description: Assign high-level mitochondrial haplogroups given SNP information from standard PLINK *.map* and *.ped* files.
+Description: Assign high-level mitochondrial haplogroups given SNP information from standard PLINK *.map* and *.ped* files.  A reduced phylotree[1] is used as a classification tree to determine samples' haplogroup assignment.  Please see the included package vignette "Hi-MC: Overview Guide" for a detailed algorithm description and usage examples. [1] Mitchell SL, Goodloe R, Brown-Gentry K, Pendergrass SA, Murdock DG, Crawford DC (2014) <doi:10.1007/s00439-014-1421-9>.
 Depends: R (>= 3.1.2)
 Imports: stringr, methods
 VignetteBuilder: knitr

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.9.21)  22 MAY 2018 14:57
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.9.21)  26 JUN 2018 14:43
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -702,7 +702,7 @@ File: latin1.def 2015/03/17 v1.2c Input encoding file
 
 
 Writing index file Rd2.idx
-(/tmp/Rtmp8suRxP/Rd2pdf28fb177fa9bd/Rd2.aux)
+(/tmp/RtmpzdCVqV/Rd2pdf45e416e87a96/Rd2.aux)
 \openout1 = `Rd2.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 8.
@@ -759,8 +759,8 @@ LaTeX Info: Redefining \ref on input line 8.
 LaTeX Info: Redefining \pageref on input line 8.
 LaTeX Info: Redefining \nameref on input line 8.
 
-(/tmp/Rtmp8suRxP/Rd2pdf28fb177fa9bd/Rd2.out)
-(/tmp/Rtmp8suRxP/Rd2pdf28fb177fa9bd/Rd2.out)
+(/tmp/RtmpzdCVqV/Rd2pdf45e416e87a96/Rd2.out)
+(/tmp/RtmpzdCVqV/Rd2pdf45e416e87a96/Rd2.out)
 \@outlinefile=\write4
 \openout4 = `Rd2.out'.
 
@@ -770,6 +770,11 @@ LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <10> not available
 (Font)              Font shape `T1/ptm/b/n' tried instead on input line 11.
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <20.74> not available
 (Font)              Font shape `T1/ptm/b/n' tried instead on input line 11.
+LaTeX Font Info:    Try loading font information for TS1+ptm on input line 18.
+
+(/usr/local/texlive/2017/texmf-dist/tex/latex/psnfss/ts1ptm.fd
+File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
+)
 LaTeX Font Info:    Try loading font information for T1+pcr on input line 31.
 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/psnfss/t1pcr.fd
@@ -782,7 +787,7 @@ LaTeX Font Info:    Try loading font information for T1+phv on input line 33.
 (/usr/local/texlive/2017/texmf-dist/tex/latex/psnfss/t1phv.fd
 File: t1phv.fd 2001/06/04 scalable font definitions for T1/phv.
 )
-(/tmp/Rtmp8suRxP/Rd2pdf28fb177fa9bd/Rd2.toc
+(/tmp/RtmpzdCVqV/Rd2pdf45e416e87a96/Rd2.toc
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <7> on input line 1.
 LaTeX Font Info:    External font `cmex10' loaded for size
@@ -812,12 +817,31 @@ ckage="HiMC")[]
 (/usr/local/texlive/2017/texmf-dist/tex/latex/base/utf8.def
 File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
 )
+Overfull \hbox (9.78043pt too wide) in paragraph at lines 93--93
+ []\T1/pcr/m/n/9 mapfile <- system.file("extdata","HapMap_Mito_Seq_QC_2.map",pa
+ckage="HiMC")[] 
+ []
+
+
+Overfull \hbox (9.78043pt too wide) in paragraph at lines 94--94
+ []\T1/pcr/m/n/9 pedfile <- system.file("extdata","HapMap_Mito_Seq_QC_2.ped",pa
+ckage="HiMC")[] 
+ []
+
 (/usr/local/texlive/2017/texmf-dist/tex/latex/base/utf8.def
 File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
 ) [3]
-(/usr/local/texlive/2017/texmf-dist/tex/latex/base/utf8.def
-File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
-)
+Overfull \hbox (9.78043pt too wide) in paragraph at lines 124--124
+ []\T1/pcr/m/n/9 mapfile <- system.file("extdata","HapMap_Mito_Seq_QC_2.map",pa
+ckage="HiMC")[] 
+ []
+
+
+Overfull \hbox (9.78043pt too wide) in paragraph at lines 125--125
+ []\T1/pcr/m/n/9 pedfile <- system.file("extdata","HapMap_Mito_Seq_QC_2.ped",pa
+ckage="HiMC")[] 
+ []
+
 (/usr/local/texlive/2017/texmf-dist/tex/latex/base/utf8.def
 File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
 )
@@ -833,6 +857,11 @@ File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
 (/usr/local/texlive/2017/texmf-dist/tex/latex/base/utf8.def
 File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
 ) [5]
+Overfull \hbox (31.3804pt too wide) in paragraph at lines 249--249
+ []\T1/pcr/m/n/9 is_dataframe_row_missing_snps_from_node <- missingSnps(data.fr
+ame(),HiMC::root)[] 
+ []
+
 (/usr/local/texlive/2017/texmf-dist/tex/latex/base/utf8.def
 File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
 )
@@ -982,9 +1011,6 @@ File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
 )
 (/usr/local/texlive/2017/texmf-dist/tex/latex/base/utf8.def
 File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
-)
-(/usr/local/texlive/2017/texmf-dist/tex/latex/base/utf8.def
-File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
 ) [22]
 (/usr/local/texlive/2017/texmf-dist/tex/latex/base/utf8.def
 File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
@@ -992,34 +1018,45 @@ File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
 (/usr/local/texlive/2017/texmf-dist/tex/latex/base/utf8.def
 File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
 )
-(/tmp/Rtmp8suRxP/Rd2pdf28fb177fa9bd/Rd2.ind [23]
+(/usr/local/texlive/2017/texmf-dist/tex/latex/base/utf8.def
+File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
+) [23]
+Overfull \hbox (42.18039pt too wide) in paragraph at lines 1201--1201
+ []\T1/pcr/m/n/9 df_row_meets_criteria_for_node_requirements <- validData(data.
+frame(),HiMC::root)[] 
+ []
+
+(/usr/local/texlive/2017/texmf-dist/tex/latex/base/utf8.def
+File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
+)
+(/tmp/RtmpzdCVqV/Rd2pdf45e416e87a96/Rd2.ind [24]
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <12> not available
 (Font)              Font shape `T1/ptm/b/n' tried instead on input line 3.
- [24
+ [25
 
 ]
 LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <10> not available
 (Font)              Font shape `T1/pcr/m/sl' tried instead on input line 117.
- [25])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1155.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1155.
+ [26])
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1237.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1237.
 
-(/tmp/Rtmp8suRxP/Rd2pdf28fb177fa9bd/Rd2.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1155.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1155.
+(/tmp/RtmpzdCVqV/Rd2pdf45e416e87a96/Rd2.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1237.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1237.
 
 Package rerunfilecheck Info: File `Rd2.out' has not changed.
 (rerunfilecheck)             Checksum: DA5F7CFF288ACE988D37C5B05DF99363;3531.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1155.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1237.
  ) 
 Here is how much of TeX's memory you used:
- 6822 strings out of 492990
- 102276 string characters out of 6132621
+ 6858 strings out of 492990
+ 102784 string characters out of 6132621
  173003 words of memory out of 5000000
- 9828 multiletter control sequences out of 15000+600000
- 44945 words of font info for 55 fonts, out of 8000000 for 9000
+ 9848 multiletter control sequences out of 15000+600000
+ 45259 words of font info for 56 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 37i,6n,27p,189b,558s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 37i,6n,27p,580b,592s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
 exlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/te
 xlive/2017/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/local/texlive/20
@@ -1029,10 +1066,10 @@ fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2017/texmf-dist/fonts/type
 1/urw/times/utmr8a.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/urw/time
 s/utmr8a.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/urw/times/utmri8a.
 pfb>
-Output written on Rd2.pdf (25 pages, 126301 bytes).
+Output written on Rd2.pdf (26 pages, 129219 bytes).
 PDF statistics:
- 941 PDF objects out of 1000 (max. 8388607)
- 897 compressed objects within 9 object streams
- 339 named destinations out of 1000 (max. 500000)
+ 959 PDF objects out of 1000 (max. 8388607)
+ 913 compressed objects within 10 object streams
+ 351 named destinations out of 1000 (max. 500000)
  505 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -4,9 +4,9 @@
 * using session charset: UTF-8
 * using option ‘--as-cran’
 * checking for file ‘HiMC/DESCRIPTION’ ... OK
-* this is package ‘HiMC’ version ‘0.1.1.4’
+* this is package ‘HiMC’ version ‘0.1.1.5’
 * checking CRAN incoming feasibility ... NOTE
-Maintainer: ‘Eric Farber-Eger <eric.h.farber-eger@vanderbilt.edu>’
+Maintainer: ‘Eric Farber-Eger <eric.h.farber-eger@vumc.org>’
 
 New submission
 * checking package namespace information ... OK

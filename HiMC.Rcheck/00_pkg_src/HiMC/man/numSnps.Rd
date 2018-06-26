@@ -12,5 +12,9 @@ numSnps(node_object)
 \description{
 Internal function. Takes in a node object and returns the number of SNPs that belong to it
 }
+\examples{
+#internal function, not meant to be called externally
+amount_of_snps_in_node <- numSnps(HiMC::root)
+}
 \keyword{node}
 \keyword{snp}

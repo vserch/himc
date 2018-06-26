@@ -14,6 +14,10 @@ validPath(df, node)
 \description{
 Internal function. Takes in a dataframe and a node and returns true if the dataframe row represents a valid path for the node
 }
+\examples{
+#internal function, not meant to be called externally
+df_row_meets_criteria_for_node_path <- validPath(data.frame(),HiMC::root)
+}
 \keyword{df}
 \keyword{node}
 \keyword{path}
